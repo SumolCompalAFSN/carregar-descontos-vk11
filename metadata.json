@@ -1,0 +1,6 @@
+{
+  "name": "Gestor de Descontos SAP VK11",
+  "description": "Aplicação Excel-like para preenchimento rápido de descontos e exportação para carregamento manual no SAP via VK11.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
