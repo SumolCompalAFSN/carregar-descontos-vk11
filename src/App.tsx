@@ -1650,8 +1650,8 @@ export default function App() {
                     {/^\d{7}$/.test(targetCode) ? (
                       <span className="text-emerald-700 flex items-center space-x-1 font-semibold">
                         <UserCheck className="w-3.5 h-3.5" />
-                        <span>Nome (Lookup): <strong>{
-                          mockClients.find(c => c.code === targetCode && c.type === target)?.name || 'Cliente Livre na Carteira'
+                        <span>Código Pagador: <strong>{
+                          mockClients.find(c => c.code === targetCode && c.type === target)?.name || 'Código corretamente introduzido'
                         }</strong></span>
                       </span>
                     ) : (
