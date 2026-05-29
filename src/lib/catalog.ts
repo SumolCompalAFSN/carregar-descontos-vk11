@@ -64,18 +64,3 @@ export async function loadCatalogMaterials(): Promise<MaterialRow[]> {
   }
   return res.json();
 }
-
-export function getUniqueH4(combos: ComboRow[]) {
-  const map = new Map<string, string>();
-
-  for (const row of combos) {
-    if (!map.has(row.H4_code)) {
-      map.set(row.H4_code, row.H4_label);
-    }
-  }
-
-  return Array.from(map.entries()).map(([H4_code, H4_label]) => ({
-    H4_code,
-    H4_label,
-  }));
-}
