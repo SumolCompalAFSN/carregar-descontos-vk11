@@ -1,0 +1,92 @@
+{
+  "catalog_version": "2026.05.29.1437",
+  "updated_at": "2026-05-29T14:37:34+00:00",
+  "source_file": "Codigos-Base.xlsx",
+  "sheets": {
+    "combos": "MarSubMarEmbCap(4)(5)(6)(7)",
+    "materials": "Materiais"
+  },
+  "counts": {
+    "combos": 148,
+    "materials": 950,
+    "distinct_h4": 18
+  },
+  "checksums": {
+    "catalog_combos_sha256": "f7f0c52efc23840a483986ebce4470bbb65b67fc21d6578d8e30c2cebc9712b8",
+    "catalog_materials_sha256": "fd3bb285d3d45fbc0d1624c4779a68d194432d2ca66f65ad34c20b5f2348e643"
+  },
+  "distinct_h4": [
+    {
+      "H4_code": "10",
+      "H4_label": "Compal"
+    },
+    {
+      "H4_code": "11",
+      "H4_label": "Compal Essencial"
+    },
+    {
+      "H4_code": "13",
+      "H4_label": "7up"
+    },
+    {
+      "H4_code": "14",
+      "H4_label": "Pepsi"
+    },
+    {
+      "H4_code": "15",
+      "H4_label": "Guaraná Antárctica"
+    },
+    {
+      "H4_code": "16",
+      "H4_label": "Gatorade"
+    },
+    {
+      "H4_code": "18",
+      "H4_label": "Gud"
+    },
+    {
+      "H4_code": "21",
+      "H4_label": "Tagus"
+    },
+    {
+      "H4_code": "23",
+      "H4_label": "Serra da Estrela"
+    },
+    {
+      "H4_code": "24",
+      "H4_label": "B!"
+    },
+    {
+      "H4_code": "25",
+      "H4_label": "Um Bongo"
+    },
+    {
+      "H4_code": "26",
+      "H4_label": "Sumol"
+    },
+    {
+      "H4_code": "27",
+      "H4_label": "Frize"
+    },
+    {
+      "H4_code": "38",
+      "H4_label": "Sureo"
+    },
+    {
+      "H4_code": "40",
+      "H4_label": "Damm"
+    },
+    {
+      "H4_code": "56",
+      "H4_label": "Lipton Ice Tea"
+    },
+    {
+      "H4_code": "57",
+      "H4_label": "CO2"
+    },
+    {
+      "H4_code": "89",
+      "H4_label": "Coral Sidra"
+    }
+  ]
+}
