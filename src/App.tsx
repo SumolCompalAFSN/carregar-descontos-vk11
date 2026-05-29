@@ -19,18 +19,21 @@ import {
   CheckSquare,
   Square
 } from 'lucide-react';
-import { 
-  mockCatalog, 
-  mockClients, 
-  Client, 
+import {
+  mockClients,
   CatalogItem,
   getUniqueH4,
   getUniqueH4_H6,
   getUniqueH4_H5,
   getUniqueH4_H6_H7,
   getUniqueH4_H5_H6_H7,
-  activeCatalogMetadata
 } from './data';
+
+import {
+  loadCatalogMetadata,
+  loadCatalogCombos,
+  loadCatalogMaterials,
+} from './lib/catalog';
 
 // Definition of discount record structure
 interface DiscountRecord {
@@ -69,7 +72,7 @@ export default function App() {
   const [catalogLoadError, setCatalogLoadError] = useState<string | null>(null);
 
   // Admin route checking and protection
-  const isAdminRoute = window.location.pathname === '/admin';
+  const isAdminRoute = false;
   const [adminPassword, setAdminPassword] = useState<string>(() => {
     return sessionStorage.getItem('sap_admin_password') || '';
   });
@@ -83,85 +86,88 @@ export default function App() {
   const [tempSource, setTempSource] = useState<string>('');
   const [customVersion, setCustomVersion] = useState<string>('');
 
-  // Initial load from Central Published Catalog with localStorage cache sync
+ // Initial load from published static catalog JSON (GitHub Pages model)
   React.useEffect(() => {
     async function loadCatalog() {
       setIsFetchingCatalog(true);
       setCatalogLoadError(null);
-      
+
       try {
-        // 1. Fetch metadata first to prove central catalog existence (Source of Truth)
-        const metaRes = await fetch('/api/catalog/metadata');
-        if (metaRes.status === 404) {
-          // No catalog has been published on the server database: we MUST block use for seller!
-          setCatalogLoadError("Catálogo não publicado – contactar administrador.");
-          setIsFetchingCatalog(false);
-          return;
-        }
+        // 1) Metadata first
+        const metadata = await loadCatalogMetadata();
 
-        if (!metaRes.ok) {
-          throw new Error(`Erro status ${metaRes.status}`);
-        }
-
-        const metadata = await metaRes.json();
-        
-        // 2. See if our local client-side cache matches this published version to avoid massive fetches
         const cachedVersion = localStorage.getItem('sap_vk11_version');
         const cachedUpdatedAt = localStorage.getItem('sap_vk11_updated_at');
         const cachedCatalog = localStorage.getItem('sap_vk11_catalog');
         const cachedMaterials = localStorage.getItem('sap_vk11_materials');
 
-        let parsedVersion = cachedVersion ? JSON.parse(cachedVersion) : null;
-        let parsedUpdatedAt = cachedUpdatedAt ? JSON.parse(cachedUpdatedAt) : null;
+        const parsedVersion = cachedVersion ? JSON.parse(cachedVersion) : null;
+        const parsedUpdatedAt = cachedUpdatedAt ? JSON.parse(cachedUpdatedAt) : null;
 
         if (
-          parsedVersion === metadata.version && 
-          parsedUpdatedAt === metadata.updatedAt && 
-          cachedCatalog && 
+          parsedVersion === metadata.catalog_version &&
+          parsedUpdatedAt === metadata.updated_at &&
+          cachedCatalog &&
           cachedMaterials
         ) {
-          console.log("Loading matching catalog and materials from client local cache...");
+          // Cache still valid
           setActiveCatalog(JSON.parse(cachedCatalog));
           setActiveMaterials(JSON.parse(cachedMaterials));
-          setCatalogVersion(metadata.version);
-          setCatalogUpdatedAt(metadata.updatedAt);
-          setCatalogSource(metadata.source);
+          setCatalogVersion(metadata.catalog_version);
+          setCatalogUpdatedAt(metadata.updated_at);
+          setCatalogSource(metadata.source_file);
           setIsFetchingCatalog(false);
           return;
         }
 
-        // 3. Fallback or out-of-date: Fetch complete datasets from remote central publisher
-        console.log("Cache outdated or missing! Fetching catalogs from remote central source...");
-        const [combosRes, materialsRes] = await Promise.all([
-          fetch('/api/catalog/combos'),
-          fetch('/api/catalog/materials')
+        // 2) Load fresh static JSON
+        const [combosRaw, materialsRaw] = await Promise.all([
+          loadCatalogCombos(),
+          loadCatalogMaterials(),
         ]);
 
-        if (!combosRes.ok || !materialsRes.ok) {
-          throw new Error("Falha ao descarregar as tabelas do catálogo do servidor central.");
-        }
+        // 3) Convert combo JSON -> CatalogItem[]
+        const combosData: CatalogItem[] = combosRaw.map((row, index) => ({
+          id: `${row.H4_code}|${row.H5_code}|${row.H6_code}|${row.H7_code}|${index}`,
+          name: [row.H4_label, row.H5_label, row.H6_label, row.H7_label].filter(Boolean).join(' | '),
+          brandCode: row.H4_code,
+          brandLabel: row.H4_label,
+          subBrandCode: row.H5_code,
+          subBrandLabel: row.H5_label,
+          packTypeCode: row.H6_code,
+          packTypeLabel: row.H6_label,
+          capacityCode: row.H7_code,
+          capacityLabel: row.H7_label,
+          priceUnit: 'UN',
+        }));
 
-        const combosData = await combosRes.json();
-        const materialsData = await materialsRes.json();
+        // 4) Convert materials JSON -> current UI shape
+        const materialsData = materialsRaw.map((row) => ({
+          id: row.material_code,
+          name: row.material_label,
+          brandCode: '',
+          subBrandCode: '',
+          packTypeCode: '',
+          capacityCode: '',
+        }));
 
-        // Commit state
+        // 5) Commit into state
         setActiveCatalog(combosData);
         setActiveMaterials(materialsData);
-        setCatalogVersion(metadata.version);
-        setCatalogUpdatedAt(metadata.updatedAt);
-        setCatalogSource(metadata.source);
+        setCatalogVersion(metadata.catalog_version);
+        setCatalogUpdatedAt(metadata.updated_at);
+        setCatalogSource(metadata.source_file);
 
-        // Update local client-side cache
+        // 6) Cache locally for faster reload
         localStorage.setItem('sap_vk11_catalog', JSON.stringify(combosData));
         localStorage.setItem('sap_vk11_materials', JSON.stringify(materialsData));
-        localStorage.setItem('sap_vk11_version', JSON.stringify(metadata.version));
-        localStorage.setItem('sap_vk11_updated_at', JSON.stringify(metadata.updatedAt));
-        localStorage.setItem('sap_vk11_source', JSON.stringify(metadata.source));
-
+        localStorage.setItem('sap_vk11_version', JSON.stringify(metadata.catalog_version));
+        localStorage.setItem('sap_vk11_updated_at', JSON.stringify(metadata.updated_at));
+        localStorage.setItem('sap_vk11_source', JSON.stringify(metadata.source_file));
       } catch (err: any) {
-        console.error("Erro ao carregar catálogo central:", err);
-        
-        // Try fallback to cache only if we have a connection error but cache exists
+        console.error('Erro ao carregar catálogo estático:', err);
+
+        // fallback to cache only
         const cachedCatalog = localStorage.getItem('sap_vk11_catalog');
         const cachedMaterials = localStorage.getItem('sap_vk11_materials');
         const cachedVersion = localStorage.getItem('sap_vk11_version');
@@ -169,17 +175,16 @@ export default function App() {
         const cachedSource = localStorage.getItem('sap_vk11_source');
 
         if (cachedCatalog && cachedMaterials && cachedVersion) {
-          console.log("Servidor central offline - Carregando cache local disponível offline...");
           setActiveCatalog(JSON.parse(cachedCatalog));
           setActiveMaterials(JSON.parse(cachedMaterials));
           setCatalogVersion(JSON.parse(cachedVersion));
           if (cachedUpdatedAt) setCatalogUpdatedAt(JSON.parse(cachedUpdatedAt));
           if (cachedSource) setCatalogSource(JSON.parse(cachedSource));
-          
-          setToastMessage("Aviso: Carregado catálogo local em cache (servidor central offline).");
+
+          setToastMessage('Aviso: catálogo carregado a partir da cache local.');
           setTimeout(() => setToastMessage(null), 5000);
         } else {
-          setCatalogLoadError("Sem ligação ao servidor central de catálogos e sem cache local disponível. Contactar administrador.");
+          setCatalogLoadError('Catálogo central não encontrado. Verifique se os ficheiros JSON existem em public/catalog/.');
         }
       } finally {
         setIsFetchingCatalog(false);
@@ -1209,15 +1214,12 @@ export default function App() {
             <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 block">Sseller Notice</span>
             <span className="text-[11px] text-slate-600 block">Por favor, contacte a Equipa Comercial Admin para efetuar o primeiro upload lido a partir do ficheiro SAP oficial.</span>
           </div>
-          <div className="pt-3">
-            <a 
-              href="/admin" 
-              className="inline-flex w-full items-center justify-center space-x-2 px-4 py-2.5 bg-slate-900 hover:bg-slate-850 text-white rounded-lg text-xs font-bold transition shadow-sm"
-            >
-              <Lock className="w-3.5 h-3.5 text-sky-400" />
-              <span>Aceder ao Painel Administrativo →</span>
-            </a>
-          </div>
+         <div className="pt-3">
+  <div className="inline-flex w-full items-center justify-center space-x-2 px-4 py-2.5 bg-slate-100 text-slate-600 rounded-lg text-xs font-bold border border-slate-200">
+    <Lock className="w-3.5 h-3.5 text-slate-400" />
+    <span>Catálogo central não publicado</span>
+  </div>
+</div>
         </div>
       </div>
     );
@@ -1447,7 +1449,9 @@ export default function App() {
               </div>
               <div className="bg-slate-900 p-4 rounded-xl border border-slate-850">
                 <span className="text-[10px] uppercase tracking-wider font-extrabold text-slate-500 block">Origem do Arquivo Lido</span>
-                <span className="text-xs font-bold text-slate-400 truncate mt-2 block">{catalogSource === 'mockCatalog' ? 'Estrutura Inicial Estática' : (catalogSource || "Nenhum arquivo ativo")}</span>
+                <span className="text-xs font-bold text-slate-400 truncate mt-2 block">
+  {catalogSource || 'Nenhum catálogo publicado'}
+</span>
               </div>
             </div>
           </div>
@@ -1479,7 +1483,7 @@ export default function App() {
           <span className="text-slate-700">|</span>
           <span className="flex items-center space-x-1">
             <Database className="w-3.5 h-3.5 text-slate-500" />
-            <span>Origem: <strong>{catalogSource === 'mockCatalog' ? 'Estrutura Inicial Estática' : catalogSource}</strong></span>
+            <span>Origem: <strong>{catalogSource || 'Catálogo Central Publicado'}</strong></span>
           </span>
         </div>
         <div className="flex items-center space-x-4">
