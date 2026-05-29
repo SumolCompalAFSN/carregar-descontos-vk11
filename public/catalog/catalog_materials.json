@@ -1,0 +1,3802 @@
+[
+  {
+    "material_code": "100003",
+    "material_label": "Sumol Laranja Bib 3L (18L) Nv"
+  },
+  {
+    "material_code": "100005",
+    "material_label": "Sumol Ana Bib 5L (30L)"
+  },
+  {
+    "material_code": "100006",
+    "material_label": "Sumol Lar Tanqueta 18L"
+  },
+  {
+    "material_code": "100016",
+    "material_label": "Sumol Ananas 12 CAN 0,33L Sleek FCA"
+  },
+  {
+    "material_code": "100017",
+    "material_label": "Sumol Ananas 24 CAN 0,33L Sleek FCA"
+  },
+  {
+    "material_code": "100020",
+    "material_label": "Sumol Orange 12 CAN 0,33L Sleek FCA"
+  },
+  {
+    "material_code": "100021",
+    "material_label": "Sumol Lar 28 LT 0,33 Sleek"
+  },
+  {
+    "material_code": "100022",
+    "material_label": "Sumol Lar 4x6 LT 0.33L Sleek MI2"
+  },
+  {
+    "material_code": "100024",
+    "material_label": "Sumol Ana 28 LT 0,33 Sleek"
+  },
+  {
+    "material_code": "100025",
+    "material_label": "Sumol Ana 4x6 LT 0,33L Sleek MI2"
+  },
+  {
+    "material_code": "100026",
+    "material_label": "Sumol Ana 24 LT 0,33L"
+  },
+  {
+    "material_code": "100027",
+    "material_label": "Sumol Ana 4x6 LT 0,33L"
+  },
+  {
+    "material_code": "100028",
+    "material_label": "Sumol Ana 4X6 LT 0,33L CAN"
+  },
+  {
+    "material_code": "100029",
+    "material_label": "Sumol Ana 4x6 LT 0,33L EUA"
+  },
+  {
+    "material_code": "100030",
+    "material_label": "Sumol Lar 24 LT 0,33L"
+  },
+  {
+    "material_code": "100031",
+    "material_label": "Sumol Lar 4x6 LT 0,33L"
+  },
+  {
+    "material_code": "100032",
+    "material_label": "Sumol Lar 4x6 LT 0,33L CAN"
+  },
+  {
+    "material_code": "100033",
+    "material_label": "Sumol Lar 4x6 LT 0,33L EUA"
+  },
+  {
+    "material_code": "100035",
+    "material_label": "Sumol Mar 4x6 LT 0,33L Sleek"
+  },
+  {
+    "material_code": "100036",
+    "material_label": "Sumol Mar 4X6 LT 0,33L CAN"
+  },
+  {
+    "material_code": "100037",
+    "material_label": "Sumol Mar 4X6 LT 0,33L EUA"
+  },
+  {
+    "material_code": "100038",
+    "material_label": "Sumol Mango 12 CAN 0,33L Sleek FCA"
+  },
+  {
+    "material_code": "100041",
+    "material_label": "Sumol Mango 4x6 CAN 0,33L Sleek FCA"
+  },
+  {
+    "material_code": "100042",
+    "material_label": "Sumol Ana 28 LT 0,33 Sleek Nv"
+  },
+  {
+    "material_code": "100043",
+    "material_label": "Sumol Lar 28 LT 0,33 Sleek Nv"
+  },
+  {
+    "material_code": "100044",
+    "material_label": "Sumol Mar 4x6 LT 0,33L Sleek Nv"
+  },
+  {
+    "material_code": "100045",
+    "material_label": "Sumol Ana 24 LT 0,33L Nv"
+  },
+  {
+    "material_code": "100046",
+    "material_label": "Sumol Ana 4x6 LT 0,33L (L6P5) Nv"
+  },
+  {
+    "material_code": "100047",
+    "material_label": "Sumol Lar 24 LT 0,33L Nv"
+  },
+  {
+    "material_code": "100048",
+    "material_label": "Sumol Lar 4x6 LT 0,33L (L6P5) Nv"
+  },
+  {
+    "material_code": "100049",
+    "material_label": "Sumol Fruit Pass 12CAN0,33 Sleek FCA"
+  },
+  {
+    "material_code": "100054",
+    "material_label": "Sumol Lar 6 GR 0,5L PET"
+  },
+  {
+    "material_code": "100055",
+    "material_label": "Sumol Ana 6 GR 0,5L PET"
+  },
+  {
+    "material_code": "100056",
+    "material_label": "Sumol Ana 6 GR 0,5L PET Nv"
+  },
+  {
+    "material_code": "100057",
+    "material_label": "Sumol Lar 6 GR 0,5L PET Nv"
+  },
+  {
+    "material_code": "100058",
+    "material_label": "Sumol Zero Lar 6 1L PET"
+  },
+  {
+    "material_code": "100059",
+    "material_label": "Sumol Lar 6 GR 1L PET"
+  },
+  {
+    "material_code": "100060",
+    "material_label": "Sumol Ana 6 GR 1L PET"
+  },
+  {
+    "material_code": "100061",
+    "material_label": "Sumol Zero Ana 6 GR 1L PET"
+  },
+  {
+    "material_code": "100063",
+    "material_label": "Sumol Ana 6 GR 1L PET Nv"
+  },
+  {
+    "material_code": "100064",
+    "material_label": "Sumol Lar 6 GR 1L PET Nv"
+  },
+  {
+    "material_code": "100065",
+    "material_label": "Sumol Zero Ana 6 GR 1L PET Nv"
+  },
+  {
+    "material_code": "100066",
+    "material_label": "Sumol Zero Lar 6 GR 1L PET Nv"
+  },
+  {
+    "material_code": "100067",
+    "material_label": "Sumol Lar 105 + Ana 84 GR 1L PET MPA"
+  },
+  {
+    "material_code": "100071",
+    "material_label": "Sumol Zero Laranja 6 GR 1,5L PET"
+  },
+  {
+    "material_code": "100075",
+    "material_label": "Sumol Lar 6 GR 1,5L PET"
+  },
+  {
+    "material_code": "100076",
+    "material_label": "Sumol Lar 6 GR 1,5L PET CAN"
+  },
+  {
+    "material_code": "100077",
+    "material_label": "Sumol Lar 6 GR 1,5L PET EUA"
+  },
+  {
+    "material_code": "100078",
+    "material_label": "Sumol Lar 6 GR 1,5L PET MI"
+  },
+  {
+    "material_code": "100080",
+    "material_label": "Sumol Ana 6 GR 1,5L PET"
+  },
+  {
+    "material_code": "100081",
+    "material_label": "Sumol Ana 6 GR 1,5L PET CAN"
+  },
+  {
+    "material_code": "100082",
+    "material_label": "Sumol Ana 6 GR 1,5L PET EUA"
+  },
+  {
+    "material_code": "100083",
+    "material_label": "Sumol Ana 6 GR 1,5L PET MI"
+  },
+  {
+    "material_code": "100084",
+    "material_label": "Sumol Ananás 144 GR 1,5L PET MPA"
+  },
+  {
+    "material_code": "100086",
+    "material_label": "Sumol Lar 144 GR 1,5L PET MPA"
+  },
+  {
+    "material_code": "100088",
+    "material_label": "Sumol c/ Lar d Algarve 6 GR 1,5L PET"
+  },
+  {
+    "material_code": "100089",
+    "material_label": "Sumol Mar 6 GR 1,5L PET"
+  },
+  {
+    "material_code": "100090",
+    "material_label": "Sumol Mar 6 GR 1,5L PET CAN"
+  },
+  {
+    "material_code": "100091",
+    "material_label": "Sumol Mar 6 GR 1,5L PET EUA"
+  },
+  {
+    "material_code": "100093",
+    "material_label": "Sumol Zero Ananás 6 GR 1,5L PET"
+  },
+  {
+    "material_code": "100094",
+    "material_label": "Sumol Mango 6 GR 1,5L PET MI"
+  },
+  {
+    "material_code": "100095",
+    "material_label": "Sumol Ana 6 GR 1,5L PET Nv"
+  },
+  {
+    "material_code": "100096",
+    "material_label": "Sumol Ananás 144 GR 1,5L PET MPA Nv"
+  },
+  {
+    "material_code": "100097",
+    "material_label": "Sumol Lar 144 GR 1,5L PET MPA Nv"
+  },
+  {
+    "material_code": "100098",
+    "material_label": "Sumol Lar 6 GR 1,5L PET Nv"
+  },
+  {
+    "material_code": "100099",
+    "material_label": "Sumol Mar 6 GR 1,5L PET Nv"
+  },
+  {
+    "material_code": "100100",
+    "material_label": "Sumol Zero Ananás 6 GR 1,5L PET Nv"
+  },
+  {
+    "material_code": "100101",
+    "material_label": "Sumol Zero Laranja 6 GR 1,5L PET Nv"
+  },
+  {
+    "material_code": "100102",
+    "material_label": "Sumol c/ Lar d Algarve 6 GR 1,5L PET Nv"
+  },
+  {
+    "material_code": "100105",
+    "material_label": "Sumol Lar 72x2 GR 1,75L PET MPA"
+  },
+  {
+    "material_code": "100107",
+    "material_label": "Sumol Ana 72x2 GR 1,75L PET MPA"
+  },
+  {
+    "material_code": "100108",
+    "material_label": "Sumol Ana 72x2GR 1,75LPET MPA(1L GRÁTIS)"
+  },
+  {
+    "material_code": "100109",
+    "material_label": "Sumol Lar 72x2GR 1,75LPET MPA(1L GRÁTIS)"
+  },
+  {
+    "material_code": "100110",
+    "material_label": "Sumol Ana 24 GR 0,30L VTP"
+  },
+  {
+    "material_code": "100111",
+    "material_label": "Sumol Lar 24 GR 0,30L VTP"
+  },
+  {
+    "material_code": "100115",
+    "material_label": "Sumol Ana 24 GR 0,30L VTR"
+  },
+  {
+    "material_code": "100116",
+    "material_label": "Sumol Lar 24 GR 0,30L VTR"
+  },
+  {
+    "material_code": "100118",
+    "material_label": "Sumol Maracujá 24 GR 0,30L VTR"
+  },
+  {
+    "material_code": "110002",
+    "material_label": "7UP Zero Bib 5L (30L) - Encore"
+  },
+  {
+    "material_code": "110003",
+    "material_label": "7UP Zero Tanqueta 18L"
+  },
+  {
+    "material_code": "110006",
+    "material_label": "7UP Reg 24 GR 0,30L VTR"
+  },
+  {
+    "material_code": "110009",
+    "material_label": "7UP Zero Pink 28 LT 0,33L Sleek"
+  },
+  {
+    "material_code": "110010",
+    "material_label": "7UP Zero 4x6 LT 0,33L Sleek"
+  },
+  {
+    "material_code": "110014",
+    "material_label": "7UP Reg 4x6 LT 0,33L"
+  },
+  {
+    "material_code": "110015",
+    "material_label": "7UP Reg 24 LT 0,33L"
+  },
+  {
+    "material_code": "110016",
+    "material_label": "7UP Reg 28 LT 0,33L Sleek"
+  },
+  {
+    "material_code": "110017",
+    "material_label": "7UP Reg 28 LT 0,33L Sleek Nv"
+  },
+  {
+    "material_code": "110018",
+    "material_label": "7UP Zero 4x6 LT 0,33L Sleek Nv"
+  },
+  {
+    "material_code": "110019",
+    "material_label": "7UP Zero Pink 28 LT 0,33L Sleek Nv"
+  },
+  {
+    "material_code": "110020",
+    "material_label": "7UP Reg 24 LT 0,33L Nv"
+  },
+  {
+    "material_code": "110021",
+    "material_label": "7UP Reg 4x6 LT 0,33L Nv"
+  },
+  {
+    "material_code": "110026",
+    "material_label": "7UP Zero 6 GR 0,5L PET"
+  },
+  {
+    "material_code": "110027",
+    "material_label": "7UP Zero 6 GR 0,5L PET Nv"
+  },
+  {
+    "material_code": "110028",
+    "material_label": "7UP Reg 6 GR 1L PET"
+  },
+  {
+    "material_code": "110029",
+    "material_label": "7UP Zero Pink 6 GR 1L PET"
+  },
+  {
+    "material_code": "110030",
+    "material_label": "7UP Zero 6 GR 1L PET"
+  },
+  {
+    "material_code": "110033",
+    "material_label": "7UP Reg 189 GR 1L PET MPA Nv"
+  },
+  {
+    "material_code": "110034",
+    "material_label": "7UP Reg 6 GR 1L PET Nv"
+  },
+  {
+    "material_code": "110035",
+    "material_label": "7UP Zero 6 GR 1L PET Nv"
+  },
+  {
+    "material_code": "110036",
+    "material_label": "7UP Zero Pink 6 GR 1L PET Nv"
+  },
+  {
+    "material_code": "110040",
+    "material_label": "7UP Zero 6 GR 1,5L PET"
+  },
+  {
+    "material_code": "110041",
+    "material_label": "7UP Reg 6 GR 1,5L PET"
+  },
+  {
+    "material_code": "110042",
+    "material_label": "7UP Zero 4 GR 1,5L PET PackPoupança"
+  },
+  {
+    "material_code": "110043",
+    "material_label": "7UP Zero 36x4 GR 1,5L PET MPA - Pro"
+  },
+  {
+    "material_code": "110044",
+    "material_label": "7UP Reg 6 GR 1,5L PET Nv"
+  },
+  {
+    "material_code": "110045",
+    "material_label": "7UP Zero 4 GR 1,5L PET (L4P3) Nv"
+  },
+  {
+    "material_code": "110046",
+    "material_label": "7UP Zero 6 GR 1,5L PET Nv"
+  },
+  {
+    "material_code": "110047",
+    "material_label": "7UP Zero 36x4 GR 1,5L PET MPA (L4P3) Nv"
+  },
+  {
+    "material_code": "110048",
+    "material_label": "7UP Zero 144 GR 1,75L PET MPA"
+  },
+  {
+    "material_code": "110049",
+    "material_label": "7UP Zero 6 GR 1,75L PET"
+  },
+  {
+    "material_code": "110050",
+    "material_label": "7UP Reg 6 GR 1,75L PET"
+  },
+  {
+    "material_code": "110051",
+    "material_label": "7UP Reg 72x2 GR 1,75L PET MPA"
+  },
+  {
+    "material_code": "110052",
+    "material_label": "7UP Reg 144 GR 1,75L PET MPA"
+  },
+  {
+    "material_code": "110053",
+    "material_label": "7UP Reg 144 GR 1,75L PET MPA Nv"
+  },
+  {
+    "material_code": "110054",
+    "material_label": "7UP Reg 6 GR 1,75L PET Nv"
+  },
+  {
+    "material_code": "110055",
+    "material_label": "7UP Reg 72x2 GR 1,75L PET MPA(1L GRÁTIS)"
+  },
+  {
+    "material_code": "110056",
+    "material_label": "7UP Zero 144 GR 1,75L PET MPA Nv"
+  },
+  {
+    "material_code": "110057",
+    "material_label": "7UP Zero 6 GR 1,75L PET Nv"
+  },
+  {
+    "material_code": "114003",
+    "material_label": "Pepsi Reg BIB 10L (60L)"
+  },
+  {
+    "material_code": "114006",
+    "material_label": "Pepsi Reg Bib 20L (120L)"
+  },
+  {
+    "material_code": "114008",
+    "material_label": "Pepsi Zero Bib 5L (30L) - Encore"
+  },
+  {
+    "material_code": "114010",
+    "material_label": "Pepsi Reg Tanqueta 18L"
+  },
+  {
+    "material_code": "114013",
+    "material_label": "Pepsi Zero 4x6 LT 0,33L Sleek"
+  },
+  {
+    "material_code": "114018",
+    "material_label": "Pepsi Zero Lima 4x6 LT 0,33 Sleek"
+  },
+  {
+    "material_code": "114022",
+    "material_label": "Pepsi Reg 28 LT 0,33 Sleek"
+  },
+  {
+    "material_code": "114023",
+    "material_label": "Pepsi Reg 4x6 LT 0,33L"
+  },
+  {
+    "material_code": "114024",
+    "material_label": "Pepsi Reg 28 LT 0,33 Sleek Nv"
+  },
+  {
+    "material_code": "114025",
+    "material_label": "Pepsi Zero 4x6 0,33L Sleek Nv"
+  },
+  {
+    "material_code": "114026",
+    "material_label": "Pepsi Zero Lima 4x6 0,33 Sleek Nv"
+  },
+  {
+    "material_code": "114027",
+    "material_label": "Pepsi Reg 4x6 LT 0,33L Nv"
+  },
+  {
+    "material_code": "114031",
+    "material_label": "Pepsi Zero 6 GR 0,5L PET"
+  },
+  {
+    "material_code": "114032",
+    "material_label": "Pepsi Zero 6 GR 0,5L PET Nv"
+  },
+  {
+    "material_code": "114033",
+    "material_label": "Pepsi Zero 6 GR 1L PET"
+  },
+  {
+    "material_code": "114034",
+    "material_label": "Pepsi Zero Lima 6 GR 1L PET"
+  },
+  {
+    "material_code": "114035",
+    "material_label": "Pepsi Zero Zero Cafeína 6 GR 1L PET"
+  },
+  {
+    "material_code": "114038",
+    "material_label": "Pepsi Reg 6 GR 1L PET"
+  },
+  {
+    "material_code": "114039",
+    "material_label": "Pepsi Reg 6 GR 1L PET Nv"
+  },
+  {
+    "material_code": "114040",
+    "material_label": "Pepsi Zero 6 GR 1L PET Nv"
+  },
+  {
+    "material_code": "114041",
+    "material_label": "Pepsi Zero Lima 6 GR 1L PET Nv"
+  },
+  {
+    "material_code": "114042",
+    "material_label": "Pepsi Zero Zero Cafeína 6 GR 1L PET Nv"
+  },
+  {
+    "material_code": "114044",
+    "material_label": "Pepsi Zero 6 GR 1,5L PET"
+  },
+  {
+    "material_code": "114047",
+    "material_label": "Pepsi Zero 4 GR 1,5L PET (L4P3)"
+  },
+  {
+    "material_code": "114048",
+    "material_label": "Pepsi Zero 36x4 GR 1,5L PETMPA (L4P3)"
+  },
+  {
+    "material_code": "114050",
+    "material_label": "Pepsi Reg 6 GR 1,5L PET"
+  },
+  {
+    "material_code": "114052",
+    "material_label": "Pepsi Reg 6 GR 1,5L PET Nv"
+  },
+  {
+    "material_code": "114053",
+    "material_label": "Pepsi Zero 4 GR 1,5L PET (L4P3) Nv"
+  },
+  {
+    "material_code": "114054",
+    "material_label": "Pepsi Zero 6 GR 1,5L PET Nv"
+  },
+  {
+    "material_code": "114055",
+    "material_label": "Pepsi Zero 36x4 GR 1,5L PETMPA (L4P3) Nv"
+  },
+  {
+    "material_code": "114056",
+    "material_label": "Pepsi Zero 72x2 GR 1,75L PET MPA"
+  },
+  {
+    "material_code": "114057",
+    "material_label": "Pepsi Zero 144 GR 1,75L PET MPA"
+  },
+  {
+    "material_code": "114059",
+    "material_label": "Pepsi Zero 6 GR 1,75L PET"
+  },
+  {
+    "material_code": "114060",
+    "material_label": "Pepsi Reg 6 GR 1,75L PET"
+  },
+  {
+    "material_code": "114061",
+    "material_label": "Pepsi Reg 72x2 GR 1,75L PET MPA"
+  },
+  {
+    "material_code": "114062",
+    "material_label": "Pepsi Reg 144 GR 1,75L PET MPA"
+  },
+  {
+    "material_code": "114063",
+    "material_label": "Pepsi Reg 144 GR 1,75L PET MPA Nv"
+  },
+  {
+    "material_code": "114064",
+    "material_label": "Pepsi Reg 6 GR 1,75L PET Nv"
+  },
+  {
+    "material_code": "114065",
+    "material_label": "Pepsi Reg 72x2 GR 1,75L PET MPA Nv"
+  },
+  {
+    "material_code": "114066",
+    "material_label": "Pepsi Zero 144 GR 1,75L PET MPA Nv"
+  },
+  {
+    "material_code": "114067",
+    "material_label": "Pepsi Zero 6 GR 1,75L PET Nv"
+  },
+  {
+    "material_code": "114068",
+    "material_label": "Pepsi Zero 72x2 GR 1,75L PET MPA(1LGRÁT)"
+  },
+  {
+    "material_code": "114073",
+    "material_label": "Pepsi Zero 24 GR 0,30L VTR"
+  },
+  {
+    "material_code": "114075",
+    "material_label": "Pepsi Reg 24 GR 0,30L VTR"
+  },
+  {
+    "material_code": "118006",
+    "material_label": "Antárctica Guaraná 24 LT 0,33L Nv"
+  },
+  {
+    "material_code": "118007",
+    "material_label": "Antárctica Guaraná 4x6 LT 0,33L Nv"
+  },
+  {
+    "material_code": "118008",
+    "material_label": "Antárctica Guaraná 28 LT 0,33L Sleek Nv"
+  },
+  {
+    "material_code": "118009",
+    "material_label": "Antárctica Guaraná 24 LT 0,33L EUR Nv"
+  },
+  {
+    "material_code": "118011",
+    "material_label": "Antarctica Guaraná Zero 4x6 LT 0,33L"
+  },
+  {
+    "material_code": "118012",
+    "material_label": "Antárctica Guaraná 4x6 LT 0,33L EUR Nv"
+  },
+  {
+    "material_code": "118013",
+    "material_label": "Antárctica Guaraná 24 LT 0,33L DE Nv"
+  },
+  {
+    "material_code": "118014",
+    "material_label": "Antárctica Gua 4x6 CAN0,33 Ned+Austra Nv"
+  },
+  {
+    "material_code": "118015",
+    "material_label": "Antárctica Guaraná Zero 24 LT 0,33L Nv"
+  },
+  {
+    "material_code": "118016",
+    "material_label": "Antárctica Guaraná Zero 24 LT 0,33L"
+  },
+  {
+    "material_code": "118017",
+    "material_label": "Antárctica Guaraná 24 LT 0,33L Nv"
+  },
+  {
+    "material_code": "118018",
+    "material_label": "Antárctica Guaraná 4x6 LT 0,33L Nv"
+  },
+  {
+    "material_code": "118019",
+    "material_label": "Antárctica Guaraná 28 LT 0,33L Sleek Nv"
+  },
+  {
+    "material_code": "118020",
+    "material_label": "Antárctica Guaraná Zero 24 LT 0,33L Nv2"
+  },
+  {
+    "material_code": "118021",
+    "material_label": "Antarctica Guaraná Zero 4x6 LT 0,33L Nv"
+  },
+  {
+    "material_code": "118024",
+    "material_label": "Antárctica Guaraná Zero 6 GR 1L PET"
+  },
+  {
+    "material_code": "118025",
+    "material_label": "Antárctica Guaraná Zero 6 GR 1L PET Nv"
+  },
+  {
+    "material_code": "118028",
+    "material_label": "Antárctica Guaraná 6 GR 1,5L PET"
+  },
+  {
+    "material_code": "118029",
+    "material_label": "Antárctica Guaraná 6 GR 1,5L PET MI"
+  },
+  {
+    "material_code": "118030",
+    "material_label": "Antárctica Guaraná 6 GR 1,5L PET Nv"
+  },
+  {
+    "material_code": "120000",
+    "material_label": "B! Limonada 6 GR 1,5L PET"
+  },
+  {
+    "material_code": "120001",
+    "material_label": "B! Maracujá 6 GR 1,5L PET"
+  },
+  {
+    "material_code": "120002",
+    "material_label": "B! Maçã 6 GR 1,5L PET"
+  },
+  {
+    "material_code": "120003",
+    "material_label": "B! Laranja 6 GR 1,5L PET Nv"
+  },
+  {
+    "material_code": "120004",
+    "material_label": "B! Limonada 6 GR 1,5L PET Nv"
+  },
+  {
+    "material_code": "120005",
+    "material_label": "B! Maçã 6 GR 1,5L PET Nv"
+  },
+  {
+    "material_code": "120006",
+    "material_label": "B! Maracujá 6 GR 1,5L PET Nv"
+  },
+  {
+    "material_code": "120007",
+    "material_label": "B! Laranja 6 GR 1,5L PET"
+  },
+  {
+    "material_code": "120013",
+    "material_label": "B! Manga 12 GR 0,33L VTP Nv"
+  },
+  {
+    "material_code": "120015",
+    "material_label": "B! Limonada 12 GR 0,33L VTP Nv"
+  },
+  {
+    "material_code": "120017",
+    "material_label": "B! Maracujá 12 GR 0,33L VTP Nv"
+  },
+  {
+    "material_code": "120018",
+    "material_label": "B! Maçã 12 GR 0,33L VTP Nv"
+  },
+  {
+    "material_code": "120019",
+    "material_label": "B! Frutos Vermelhos 12 GR 0,33L VTP Nv"
+  },
+  {
+    "material_code": "120020",
+    "material_label": "B! Laranja 12 GR 0,33L VTP Nv"
+  },
+  {
+    "material_code": "122005",
+    "material_label": "Um Bongo 8 Frutos 4x6TET0,20LMAXPACK Nv"
+  },
+  {
+    "material_code": "122006",
+    "material_label": "Um Bongo 8 Frutos 8x3 TET 0,20L CxE"
+  },
+  {
+    "material_code": "122007",
+    "material_label": "Um Bongo 8 Frutos 8x3 TET 0,20L"
+  },
+  {
+    "material_code": "122008",
+    "material_label": "Um Bongo Manga 8x3 TET 0,20L"
+  },
+  {
+    "material_code": "122010",
+    "material_label": "Um Bongo Banana Morango 8x3 TET 0,20L"
+  },
+  {
+    "material_code": "122013",
+    "material_label": "Um Bongo 100% Fruit Mango 8x3 TET 0,20L"
+  },
+  {
+    "material_code": "122014",
+    "material_label": "Um Bongo 100% Fruit 8F 8x3 TET 0,20L"
+  },
+  {
+    "material_code": "122017",
+    "material_label": "Um Bongo 8 Frutos 12 TSA 1L"
+  },
+  {
+    "material_code": "122018",
+    "material_label": "Um Bongo Manga 12 TSA 1L"
+  },
+  {
+    "material_code": "122019",
+    "material_label": "Um Bongo Banana Morango 12 TSA 1L"
+  },
+  {
+    "material_code": "125000",
+    "material_label": "Compal Mango 12 LT 0,33L Sleek AF_AS"
+  },
+  {
+    "material_code": "125001",
+    "material_label": "Compal Orange 12 LT 0,33L Sleek AF_AS"
+  },
+  {
+    "material_code": "125006",
+    "material_label": "Compal Vital Aox Frt Verm 8x3 TET 0,20L"
+  },
+  {
+    "material_code": "125007",
+    "material_label": "Compal Vital Eq Man Lar 8x3 TET 0,20L"
+  },
+  {
+    "material_code": "125009",
+    "material_label": "Compal Clás Néc Ananás 8x3 TET 0,20L Nv"
+  },
+  {
+    "material_code": "125011",
+    "material_label": "Compal Orig Néc Man Magd 8x3TET0,20L"
+  },
+  {
+    "material_code": "125015",
+    "material_label": "Compal 100% Fruta Maça 8x3TET0,2L"
+  },
+  {
+    "material_code": "125016",
+    "material_label": "Compal 100% Fruta Multifrutos 8x3TET0,2L"
+  },
+  {
+    "material_code": "125018",
+    "material_label": "CompalClásNéc Pêss 4x6TET0,20LMAXPACK Nv"
+  },
+  {
+    "material_code": "125021",
+    "material_label": "Compal Clás Néc Alperce 8x3 TET 0,20L NV"
+  },
+  {
+    "material_code": "125022",
+    "material_label": "Compal Clás Néc Maracujá 8x3 TET 0,20L"
+  },
+  {
+    "material_code": "125023",
+    "material_label": "Compal Orig Néc Lar Algar 8x3TET0,20L Nv"
+  },
+  {
+    "material_code": "125024",
+    "material_label": "Compal Clás Néc Pêssego 8x3 TET 0,20L Nv"
+  },
+  {
+    "material_code": "125025",
+    "material_label": "Compal Clás Néc Pêssego8x3TET 0,20LCxEnv"
+  },
+  {
+    "material_code": "125026",
+    "material_label": "Compal Clás Néc Pera Rocha8x3TET0,20L Nv"
+  },
+  {
+    "material_code": "125027",
+    "material_label": "Compal 100% Fruta Laranja FC 8x3TET0,20L"
+  },
+  {
+    "material_code": "125028",
+    "material_label": "Compal Vital Eq Man Lar4x6TET0,20MAXPACK"
+  },
+  {
+    "material_code": "125029",
+    "material_label": "Compal ClásNéc TuttiFrutti 8x3TET0,2L Nv"
+  },
+  {
+    "material_code": "125030",
+    "material_label": "Compal Clás Néc TF 4x6TET0,2L MAXPACK Nv"
+  },
+  {
+    "material_code": "125034",
+    "material_label": "Compal Clás Néc Maracujá 18 TET 0,3L"
+  },
+  {
+    "material_code": "125036",
+    "material_label": "Compal Orig Néc Lar Algarv 18TET0,3L"
+  },
+  {
+    "material_code": "125037",
+    "material_label": "Compal Orig Néc Manga Magd 18 TET 0,3L"
+  },
+  {
+    "material_code": "125038",
+    "material_label": "Compal 100% Fruta Maçã 18 TET 0,3L"
+  },
+  {
+    "material_code": "125039",
+    "material_label": "Compal Vital Aox Frt Verm. 18 TET 0,3L"
+  },
+  {
+    "material_code": "125040",
+    "material_label": "Compal Vital Eq Man/Lar 18 TET 0,3L"
+  },
+  {
+    "material_code": "125042",
+    "material_label": "Compal 100% Fruta Orange 18 TPA 0,3L CM"
+  },
+  {
+    "material_code": "125043",
+    "material_label": "Compal FC Mango 18 TPA 0,3L AF_AS"
+  },
+  {
+    "material_code": "125045",
+    "material_label": "Compal NFC Medit Peach 18 TPA 0,3L AF_AS"
+  },
+  {
+    "material_code": "125046",
+    "material_label": "Compal NFC Rocha Pear 18 TPA 0,3L AF_AS"
+  },
+  {
+    "material_code": "125047",
+    "material_label": "Compal Clás Néc Pêssego 18 TET 0,3L Nv"
+  },
+  {
+    "material_code": "125048",
+    "material_label": "Compal Clás Néc Pera Rocha18 TET 0,3L Nv"
+  },
+  {
+    "material_code": "125049",
+    "material_label": "Compal 100% Fruta Laranja FC 18 TET 0,3L"
+  },
+  {
+    "material_code": "125050",
+    "material_label": "Compal 100% Fruta Apple 18 TPA 0,30L MI"
+  },
+  {
+    "material_code": "125051",
+    "material_label": "Compal Orig Néc Goiaba Brasil 18TET 0,3L"
+  },
+  {
+    "material_code": "125053",
+    "material_label": "Compal Vital Eq Manga Maracujá 18TET0,3L"
+  },
+  {
+    "material_code": "125054",
+    "material_label": "Compal FC Tutti Frutti 18 TET 0,3L CM Nv"
+  },
+  {
+    "material_code": "125055",
+    "material_label": "Compal Clás Néc T. Frutti 18 TET 0,3L Nv"
+  },
+  {
+    "material_code": "125080",
+    "material_label": "Compal Mango pmc 12 TSA 0,5L AF_AS"
+  },
+  {
+    "material_code": "125081",
+    "material_label": "Compal Tropical pmc 12 TSA 0,5L AF_AS"
+  },
+  {
+    "material_code": "125082",
+    "material_label": "Compal di Terra pmc 12 TSA 0,5L AF_AS"
+  },
+  {
+    "material_code": "125083",
+    "material_label": "Compal Mango pmc 12 TSA 0,5L AF_AS Nv"
+  },
+  {
+    "material_code": "125084",
+    "material_label": "Compal Tropical pmc 12 TSA 0,5L AF_AS Nv"
+  },
+  {
+    "material_code": "125085",
+    "material_label": "Compal di Terra pmc 12 TSA 0,5L AF_AS Nv"
+  },
+  {
+    "material_code": "125106",
+    "material_label": "Compal Clás Néc Fr Vermelhos 12 TSA1L Nv"
+  },
+  {
+    "material_code": "125107",
+    "material_label": "Compal Clás Néc Maracujá  12 TSA 1L Nv"
+  },
+  {
+    "material_code": "125108",
+    "material_label": "Compal Clás Néc Ananás 12 TSA 1L Nv"
+  },
+  {
+    "material_code": "125110",
+    "material_label": "Compal Orig Néc Goiaba Brasil 12 TSA 1L"
+  },
+  {
+    "material_code": "125113",
+    "material_label": "Compal Orig Néc Ameixa 12 TSA 1L"
+  },
+  {
+    "material_code": "125115",
+    "material_label": "Compal 100% Fruta Laranja FC 12 TSA 1L"
+  },
+  {
+    "material_code": "125116",
+    "material_label": "Compal 100% Fruta Maça 12 TSA 1L"
+  },
+  {
+    "material_code": "125117",
+    "material_label": "Compal 100% Fruta Multifrutos 12 TSA 1L"
+  },
+  {
+    "material_code": "125122",
+    "material_label": "Compal Vital Aox Frt Vermelhos 12TSA 1L"
+  },
+  {
+    "material_code": "125124",
+    "material_label": "Compal Vital Aox Lar/Cen/Man 12 TSA 1L"
+  },
+  {
+    "material_code": "125125",
+    "material_label": "Compal Vital Eq Man/Lar 12 TSA 1L"
+  },
+  {
+    "material_code": "125130",
+    "material_label": "Compal Orig Néc Man Magd 12 TSA 1L"
+  },
+  {
+    "material_code": "125138",
+    "material_label": "Compal Vital Eq Lar Mar 12 TSA 1L"
+  },
+  {
+    "material_code": "125139",
+    "material_label": "Compal Vital Eq Ananás Coco 12 TSA 1L"
+  },
+  {
+    "material_code": "125140",
+    "material_label": "Compal Vital Eq Manga/Maracujá 12 TSA 1L"
+  },
+  {
+    "material_code": "125141",
+    "material_label": "Compal 100% Fruta Manga 12 TSA 1L"
+  },
+  {
+    "material_code": "125143",
+    "material_label": "Compal NFC Rocha Pear 12 TPA 1L AF_AS"
+  },
+  {
+    "material_code": "125147",
+    "material_label": "Compal Clás Néc Alperce 12 TSA 1L"
+  },
+  {
+    "material_code": "125148",
+    "material_label": "Compal Clás Néc Banana 12 TSA 1L"
+  },
+  {
+    "material_code": "125150",
+    "material_label": "Compal Orig Néc Lar Alg 12TSA1L Nv"
+  },
+  {
+    "material_code": "125152",
+    "material_label": "Compal Clás Néc Maçã 12 TSA 1L NV"
+  },
+  {
+    "material_code": "125153",
+    "material_label": "Compal Família Frutos do Pomar 12 TSA 1L"
+  },
+  {
+    "material_code": "125154",
+    "material_label": "Compal Fam Man/Mar/Lim 12 TSA 1L"
+  },
+  {
+    "material_code": "125156",
+    "material_label": "Compal Clás Néc Pêssego 12 TSA 1L Nv"
+  },
+  {
+    "material_code": "125157",
+    "material_label": "Compal Clás Néc Pera Rocha 12 TSA 1L Nv"
+  },
+  {
+    "material_code": "125159",
+    "material_label": "Compal Clás Néc Manga FC 12 TSA 1L Nv"
+  },
+  {
+    "material_code": "125160",
+    "material_label": "Compal Clás Néc Laranja 12 TSA 1L Nv"
+  },
+  {
+    "material_code": "125162",
+    "material_label": "Compal Família Lar Tangerina 12TSA 1L Nv"
+  },
+  {
+    "material_code": "125167",
+    "material_label": "Compal Origens Peach 12TPA1L EU_AM"
+  },
+  {
+    "material_code": "125172",
+    "material_label": "Compal Vital Aox Tomate 12 TSA 1L"
+  },
+  {
+    "material_code": "125173",
+    "material_label": "Compal 100% Fruta Pêssego 12 TSA 1L"
+  },
+  {
+    "material_code": "125174",
+    "material_label": "Compal Família Frutas Tropicais 12TSA 1L"
+  },
+  {
+    "material_code": "125175",
+    "material_label": "Compal Vital Aox Morango Cereja 12TSA 1L"
+  },
+  {
+    "material_code": "125182",
+    "material_label": "Compal Clás Néc Tutti Frutti 12TSA 1L Nv"
+  },
+  {
+    "material_code": "125183",
+    "material_label": "Compal Mango pmc 12 TSA 1L AF_AS"
+  },
+  {
+    "material_code": "125184",
+    "material_label": "Compal Tropical pmc 12 TSA 1L AF_AS"
+  },
+  {
+    "material_code": "125185",
+    "material_label": "Compal di Terra pmc 12 TSA 1L AF_AS"
+  },
+  {
+    "material_code": "125186",
+    "material_label": "Compal Orig Pear Portugal 12TSA 1L EU_AM"
+  },
+  {
+    "material_code": "125187",
+    "material_label": "Compal Origens Alg Orange 12TSA 1L EU_AM"
+  },
+  {
+    "material_code": "125188",
+    "material_label": "Compal Origens Guava 12 TSA 1L EU_AM"
+  },
+  {
+    "material_code": "125189",
+    "material_label": "Compal Origens Mango 12 TSA 1L EU_AM"
+  },
+  {
+    "material_code": "125190",
+    "material_label": "Compal Orig Multifruits 12 TSA 1L EU_AM"
+  },
+  {
+    "material_code": "125191",
+    "material_label": "Compal Orig PassionFruit 12 TSA 1L EU_AM"
+  },
+  {
+    "material_code": "125192",
+    "material_label": "Compal Origens Peach 12 TSA 1L EU_AM"
+  },
+  {
+    "material_code": "125193",
+    "material_label": "Compal Origens Pineapple 12 TSA 1L EU_AM"
+  },
+  {
+    "material_code": "125194",
+    "material_label": "Compal Origens RedFruits 12 TSA 1L EU_AM"
+  },
+  {
+    "material_code": "125195",
+    "material_label": "Compal Orig Tutti Frutti 12 TSA 1L EU_AM"
+  },
+  {
+    "material_code": "125196",
+    "material_label": "Compal Vital MangoOrange 12 TSA 1L EU_AM"
+  },
+  {
+    "material_code": "125197",
+    "material_label": "Compal Vital Pineap Coco 12 TSA 1L EU_AM"
+  },
+  {
+    "material_code": "125198",
+    "material_label": "Compal FC Mango 12 TSA 1L AF_AS"
+  },
+  {
+    "material_code": "125199",
+    "material_label": "Compal FC Orange 12 TSA 1L AF_AS"
+  },
+  {
+    "material_code": "125200",
+    "material_label": "Compal NFC Medit Peach 12 TSA 1L AF_AS"
+  },
+  {
+    "material_code": "125201",
+    "material_label": "Compal NFC Rocha Pear 12 TSA 1L AF_AS"
+  },
+  {
+    "material_code": "125202",
+    "material_label": "Compal 100% Apple 12 TSA 1L CM"
+  },
+  {
+    "material_code": "125203",
+    "material_label": "Compal 100% Orange 12 TSA 1L CM"
+  },
+  {
+    "material_code": "125204",
+    "material_label": "Compal FC Tutti Frutti 12 TSA 1L CM"
+  },
+  {
+    "material_code": "125216",
+    "material_label": "Compal Clás Néc Ananás 15 GR 0,2L Nv"
+  },
+  {
+    "material_code": "125217",
+    "material_label": "Compal Clás Néc Maracujá 15 GR 0,2L Nv"
+  },
+  {
+    "material_code": "125227",
+    "material_label": "Compal Orig Néc Man Magd 15GR 0,2L Nv"
+  },
+  {
+    "material_code": "125231",
+    "material_label": "Compal 100% Fruta Maçã 15 GR 0,2L Nv"
+  },
+  {
+    "material_code": "125232",
+    "material_label": "Compal 100%Fruta Orange 15 BT200ml CM Nv"
+  },
+  {
+    "material_code": "125250",
+    "material_label": "Compal Vital Aox Fr Vermelhos 15 GR0,20L"
+  },
+  {
+    "material_code": "125251",
+    "material_label": "Compal Vital Aox Lar/Cen/Man 15 GR 0,20L"
+  },
+  {
+    "material_code": "125252",
+    "material_label": "Compal Vital Eq Manga Laranja 15 GR 0,2L"
+  },
+  {
+    "material_code": "125254",
+    "material_label": "Compal Pineapple 15 GR 0,2L MA_ES_Nv"
+  },
+  {
+    "material_code": "125255",
+    "material_label": "Compal NFC MangoColomb 15 GR0,2LMA_ES Nv"
+  },
+  {
+    "material_code": "125258",
+    "material_label": "Compal Orig Néc Lar Algarve 15GR0,2L Nv"
+  },
+  {
+    "material_code": "125259",
+    "material_label": "Compal NFC Alg Orange 15 GR0,2L MA_ES Nv"
+  },
+  {
+    "material_code": "125260",
+    "material_label": "Compal NFC MediterPeach15GR0,2L MA_ES nv"
+  },
+  {
+    "material_code": "125261",
+    "material_label": "Compal Clás Néc Pêssego 15 GR 0,20L Nv"
+  },
+  {
+    "material_code": "125262",
+    "material_label": "Compal Clás Néc Pera Rocha15 GR 0,2L Nv"
+  },
+  {
+    "material_code": "125263",
+    "material_label": "Compal 100% Fruta Laranja FC 15 GR 0,20L"
+  },
+  {
+    "material_code": "125264",
+    "material_label": "Compal NFC Multi Fruits 15BT 0,2L CM Nw"
+  },
+  {
+    "material_code": "125266",
+    "material_label": "Compal Orig Néc Goiaba Brasil 15GR 0,20L"
+  },
+  {
+    "material_code": "125267",
+    "material_label": "Compal Vital Aox Morango Cerej 15GR0,20L"
+  },
+  {
+    "material_code": "125268",
+    "material_label": "Compal Clás Néc Tutti Frutti 15GR0,2L Nv"
+  },
+  {
+    "material_code": "125269",
+    "material_label": "Compal Melocotón 15 GR 0,20L ES"
+  },
+  {
+    "material_code": "125270",
+    "material_label": "Compal Tomate 15 GR 0,20L ES"
+  },
+  {
+    "material_code": "125271",
+    "material_label": "Compal Naranja 15 GR 0,20L ES"
+  },
+  {
+    "material_code": "125272",
+    "material_label": "Compal Piña 15 GR 0,20L ES"
+  },
+  {
+    "material_code": "140000",
+    "material_label": "Compal Cogumelos Cortados 12 LT 290G Nv"
+  },
+  {
+    "material_code": "140001",
+    "material_label": "Compal Feijão Branco 6 LT 410GR"
+  },
+  {
+    "material_code": "140002",
+    "material_label": "Compal Feijão Encarnado 6 LT 410GR"
+  },
+  {
+    "material_code": "140003",
+    "material_label": "Compal Feijão Frade 6 LT 410GR"
+  },
+  {
+    "material_code": "140004",
+    "material_label": "Compal Feijão Manteiga 6 LT 410GR"
+  },
+  {
+    "material_code": "140005",
+    "material_label": "Compal Feijão Preto 6 LT 410GR"
+  },
+  {
+    "material_code": "140006",
+    "material_label": "Compal Grão 6 LT 410GR"
+  },
+  {
+    "material_code": "140008",
+    "material_label": "Compal Ervilhas 6 LT 410GR"
+  },
+  {
+    "material_code": "140009",
+    "material_label": "Compal Ervilha com Cenoura 6 LT 410GR"
+  },
+  {
+    "material_code": "140010",
+    "material_label": "Compal Ervilha com Cenoura 6 LT 410gr Nv"
+  },
+  {
+    "material_code": "140011",
+    "material_label": "Compal Grão do Alqueva 6 LT 410gr Nv"
+  },
+  {
+    "material_code": "140012",
+    "material_label": "Compal Grão 6 LT 410gr Nv"
+  },
+  {
+    "material_code": "140013",
+    "material_label": "Compal Lentilhas 12 LT 410GR"
+  },
+  {
+    "material_code": "140014",
+    "material_label": "Compal Favas 6 LT 410GR"
+  },
+  {
+    "material_code": "140015",
+    "material_label": "Compal Feijão Verde 12 LT 410GR"
+  },
+  {
+    "material_code": "140016",
+    "material_label": "Compal Feijão Branco 6 LT 845GR"
+  },
+  {
+    "material_code": "140017",
+    "material_label": "Compal Feijão Encarnado 6 LT 845GR"
+  },
+  {
+    "material_code": "140018",
+    "material_label": "Compal Feijão Frade 6 LT 845GR"
+  },
+  {
+    "material_code": "140019",
+    "material_label": "Compal Feijão Manteiga 6 LT 845GR"
+  },
+  {
+    "material_code": "140020",
+    "material_label": "Compal Feijão Preto 6 LT 845GR"
+  },
+  {
+    "material_code": "140022",
+    "material_label": "Compal Ervilhas 6 LT 845GR"
+  },
+  {
+    "material_code": "140023",
+    "material_label": "Compal Ervilha com Cenoura 6 LT 845GR"
+  },
+  {
+    "material_code": "140024",
+    "material_label": "Compal Grão 6 LT 845gr Nv"
+  },
+  {
+    "material_code": "140025",
+    "material_label": "Compal Horta Concentrado Tom 18 BIS 140G"
+  },
+  {
+    "material_code": "140026",
+    "material_label": "Compal da Horta Gaspacho 12 TSA 1L Nv"
+  },
+  {
+    "material_code": "140027",
+    "material_label": "Compal Polpa Tomate 9x3 TET 210g Nv"
+  },
+  {
+    "material_code": "140029",
+    "material_label": "Compal Polpa Tomate 6 GR 1000g Nv"
+  },
+  {
+    "material_code": "140030",
+    "material_label": "Compal Bolonhesa Lentilhas 12 FR 360GR"
+  },
+  {
+    "material_code": "140031",
+    "material_label": "Compal Caril de Grão 12 FR 360GR"
+  },
+  {
+    "material_code": "140032",
+    "material_label": "Compal Chili de Feijão 12 FR 360GR"
+  },
+  {
+    "material_code": "140034",
+    "material_label": "Compal Feijoada Cogum Brasil 12 FR 360GR"
+  },
+  {
+    "material_code": "140035",
+    "material_label": "Compal Feijotto de Cogumelos 12 FR 360GR"
+  },
+  {
+    "material_code": "140036",
+    "material_label": "Compal Bolonhesa Lentilhas 12 FR360GR Nv"
+  },
+  {
+    "material_code": "140037",
+    "material_label": "Compal Caril de Grão 12 FR 360GR Nv"
+  },
+  {
+    "material_code": "140038",
+    "material_label": "Compal Chili de Feijão 12 FR 360GR Nv"
+  },
+  {
+    "material_code": "140039",
+    "material_label": "Compal Polpa Tomate 12 GR 500g Nv"
+  },
+  {
+    "material_code": "140040",
+    "material_label": "Compal Polpa Tomate Ceb/Alho 12GR500g Nv"
+  },
+  {
+    "material_code": "140042",
+    "material_label": "Compal Tomate Triturado 12 GR 500g Nv"
+  },
+  {
+    "material_code": "140043",
+    "material_label": "Compal Molho Tomate c Alga Fucus12GR500g"
+  },
+  {
+    "material_code": "144005",
+    "material_label": "Essencial Frt Vermelhos 18 GR 0,11L PET"
+  },
+  {
+    "material_code": "144011",
+    "material_label": "Essencial Maçãs 18 GR 0,11L PET Nv"
+  },
+  {
+    "material_code": "144013",
+    "material_label": "Essencial Mangas 18 GR 0,11L PET Nv"
+  },
+  {
+    "material_code": "144014",
+    "material_label": "Essencial Peras 18 GR 0,11L PET Nv"
+  },
+  {
+    "material_code": "144015",
+    "material_label": "Essencial Pêssegos 18 GR 0,11L PET Nv"
+  },
+  {
+    "material_code": "144016",
+    "material_label": "Essencial Kids 18 GR 0,11L PET Nv"
+  },
+  {
+    "material_code": "144017",
+    "material_label": "Compal Fresco Lar Alg 6GR0,25LPET Nv"
+  },
+  {
+    "material_code": "144018",
+    "material_label": "Compal Fresco Mirt Framb 6GR0,25LPET Nv"
+  },
+  {
+    "material_code": "144019",
+    "material_label": "Compal Fresco Pêss Clemen 6GR0,25LPET Nv"
+  },
+  {
+    "material_code": "144020",
+    "material_label": "Compal Fresco Morango 6 GR 0,25L PET"
+  },
+  {
+    "material_code": "144022",
+    "material_label": "Compal Fresco Mang Lar Mar 6GR 0,25L PET"
+  },
+  {
+    "material_code": "144026",
+    "material_label": "Compal Fr Smoothie Ener 6GR 0,25L PET Nv"
+  },
+  {
+    "material_code": "144027",
+    "material_label": "Compal Fr Smoothie Imun 6GR 0,25L PET Nv"
+  },
+  {
+    "material_code": "144028",
+    "material_label": "Compal Fr Smoothie SDig 6GR 0,25L PET Nv"
+  },
+  {
+    "material_code": "144037",
+    "material_label": "Compal Fresco Lar Alg 6 6GR0,75LPET Nv"
+  },
+  {
+    "material_code": "144038",
+    "material_label": "Compal Fresco Pêss Clemen 6GR0,75LPET Nv"
+  },
+  {
+    "material_code": "144039",
+    "material_label": "Compal Fresco Mang Lar Mar 6GR 0,75L PET"
+  },
+  {
+    "material_code": "146000",
+    "material_label": "Gud Concen Lar 6GR 0,74L VTP (44,44L) Nv"
+  },
+  {
+    "material_code": "146001",
+    "material_label": "Gud Concen LarMar 6GR0,74L VTP(44,44L)Nv"
+  },
+  {
+    "material_code": "147000",
+    "material_label": "Água Serra Estrela 24 GR 0,33L PET"
+  },
+  {
+    "material_code": "147001",
+    "material_label": "Água Serra Estrela 24 GR 0,33L PET Nv"
+  },
+  {
+    "material_code": "147002",
+    "material_label": "Água Serra Estrela 24 GR 0,50L PET"
+  },
+  {
+    "material_code": "147003",
+    "material_label": "Água Serra Estrela 6 GR 0,50L PET"
+  },
+  {
+    "material_code": "147005",
+    "material_label": "Água Serra Estrela 24 GR 0,50L PET Nv"
+  },
+  {
+    "material_code": "147006",
+    "material_label": "Água Serra Estrela 6 GR 0,50L PET Nv"
+  },
+  {
+    "material_code": "147007",
+    "material_label": "Água Serra Estrela 4 GR 1,5L PET"
+  },
+  {
+    "material_code": "147008",
+    "material_label": "Água Serra Estrela 12 GR 1,5L PET"
+  },
+  {
+    "material_code": "147010",
+    "material_label": "Água Serra da Estrela6x1,5L PET PackPoup"
+  },
+  {
+    "material_code": "147011",
+    "material_label": "Água Serra Estrela 4 GR 1,5L PET Nv"
+  },
+  {
+    "material_code": "147012",
+    "material_label": "Água Serra Estrela 12 GR 1,5L PET Nv"
+  },
+  {
+    "material_code": "147013",
+    "material_label": "Água Serra Estrela 6x1,5L PETPackPoup Nv"
+  },
+  {
+    "material_code": "147014",
+    "material_label": "Água Serra Estrela 60XGRF 6L Pet MPA"
+  },
+  {
+    "material_code": "147015",
+    "material_label": "Água Serra Estrela 1 GRFAO 6L PET"
+  },
+  {
+    "material_code": "147016",
+    "material_label": "Água Serra Estrela 2 GRFAO 6L PET"
+  },
+  {
+    "material_code": "147018",
+    "material_label": "Água Serra Estrela 24 GR 0,25L VTR"
+  },
+  {
+    "material_code": "147019",
+    "material_label": "Água Serra Estrela 20 GR 0,50L VTR"
+  },
+  {
+    "material_code": "147020",
+    "material_label": "Água Serra Estrela 12 GR 1L VTR"
+  },
+  {
+    "material_code": "150006",
+    "material_label": "Frize Limão 24 GR 0,25L VTP Nv"
+  },
+  {
+    "material_code": "150007",
+    "material_label": "Frize Limão 3x8 GR 0,25L VTP Nv"
+  },
+  {
+    "material_code": "150008",
+    "material_label": "Frize Limão 6x4 GR 0,25L VTP Nv"
+  },
+  {
+    "material_code": "150009",
+    "material_label": "Frize Laranja 6x4 GR 0,25L VTP"
+  },
+  {
+    "material_code": "150012",
+    "material_label": "Frize Limão 6x4 GR 0,25L VTP CxE Nv"
+  },
+  {
+    "material_code": "150021",
+    "material_label": "Frize Groselha 6x4 GR 0,25L VTP Nv"
+  },
+  {
+    "material_code": "150022",
+    "material_label": "Frize Maracujá 6x4 GR 0,25L VTP Nv"
+  },
+  {
+    "material_code": "150023",
+    "material_label": "Frize Lima Pepino 6x4 GR 0,25L VTP Nv"
+  },
+  {
+    "material_code": "150024",
+    "material_label": "Frize Ananás 6x4 GR 0,25L VTP Nv"
+  },
+  {
+    "material_code": "150025",
+    "material_label": "Frize Original Blues 24 GR 0,25L VTP"
+  },
+  {
+    "material_code": "150026",
+    "material_label": "Frize Original 4x6 GR 0,25L VTP"
+  },
+  {
+    "material_code": "150029",
+    "material_label": "Frize Limão 90 x 8 GR 0,25L VTP MPA Nv"
+  },
+  {
+    "material_code": "150030",
+    "material_label": "Frize Limão/Ananás 6x4 GR 0,25 VTP Nv"
+  },
+  {
+    "material_code": "150033",
+    "material_label": "Frize Original 12 GR 0,75L VTP"
+  },
+  {
+    "material_code": "150034",
+    "material_label": "Frize Limão 12 GR 0,75L VTP Nv"
+  },
+  {
+    "material_code": "150036",
+    "material_label": "Frize Bot Lima Pepin Geng 6x4GR0,25L VTP"
+  },
+  {
+    "material_code": "150037",
+    "material_label": "Frize Bot Clementina Card 6x4GR0,25L VTP"
+  },
+  {
+    "material_code": "150038",
+    "material_label": "Frize Bot Framb Pim Rosa 6x4GR0,25L VTP"
+  },
+  {
+    "material_code": "170004",
+    "material_label": "Lipton Limão Bib 10L (88L) Nv"
+  },
+  {
+    "material_code": "170005",
+    "material_label": "Lipton Pês Bib 10L (88L) Nv"
+  },
+  {
+    "material_code": "170021",
+    "material_label": "Lipton Ice Tea Manga 24 LT 0,33 Nv"
+  },
+  {
+    "material_code": "170022",
+    "material_label": "Lipton Ice Tea MAN 28 LT 0,33 Sleek Nv"
+  },
+  {
+    "material_code": "170023",
+    "material_label": "Lipton Kombucha Manga MaracujáLT12x0,33L"
+  },
+  {
+    "material_code": "170024",
+    "material_label": "Lipton Kombucha Morango Menta LT12x0,33L"
+  },
+  {
+    "material_code": "170025",
+    "material_label": "Lipton Kombucha Framboesa LT 12x0,33L"
+  },
+  {
+    "material_code": "170026",
+    "material_label": "Lipton Ice Tea LIM 24 LT 0,33 Nv"
+  },
+  {
+    "material_code": "170027",
+    "material_label": "Lipton Ice Tea PES 24 LT 0,33 Nv"
+  },
+  {
+    "material_code": "170028",
+    "material_label": "Lipton Ice Tea LIM 28 LT 0,33 Sleek Nv"
+  },
+  {
+    "material_code": "170029",
+    "material_label": "Lipton Ice Tea PES 28 LT 0,33 Sleek Nv"
+  },
+  {
+    "material_code": "170032",
+    "material_label": "Lipton Chá Ver Hort Lima 12X0,33L PET Nv"
+  },
+  {
+    "material_code": "170036",
+    "material_label": "Lipton Limão 12 GR 0,5L PET Nv"
+  },
+  {
+    "material_code": "170037",
+    "material_label": "Lipton Pês 12 GR 0,5L PET Nv"
+  },
+  {
+    "material_code": "170038",
+    "material_label": "Lipton Ice Tea Manga 12 GR 0,5L PET Nv"
+  },
+  {
+    "material_code": "170042",
+    "material_label": "Lipton Limão 6 GR 1,5L PET Nv"
+  },
+  {
+    "material_code": "170043",
+    "material_label": "Lipton Pês 6 GR 1,5L PET"
+  },
+  {
+    "material_code": "170044",
+    "material_label": "Lipton Ice Tea Manga 6 GR 1,5L PET Nv"
+  },
+  {
+    "material_code": "170047",
+    "material_label": "Lipton Ice Tea Pêssego 8x3 TET 0,20L Nv"
+  },
+  {
+    "material_code": "170052",
+    "material_label": "Lipton Ice Tea Manga 24 GR 0,33L VTR Nv"
+  },
+  {
+    "material_code": "170053",
+    "material_label": "Lipton Limão 24 GR 0,33L VTR Nv"
+  },
+  {
+    "material_code": "170054",
+    "material_label": "Lipton Pêssego 24 GR 0,33L VTR Nv"
+  },
+  {
+    "material_code": "170006",
+    "material_label": "Lipton Ice Tea Manga 24 LT 0,33 Nv"
+  },
+  {
+    "material_code": "170007",
+    "material_label": "Lipton Ice Tea LIM 24 LT 0,33 Nv"
+  },
+  {
+    "material_code": "170008",
+    "material_label": "Lipton Ice Tea PES 24 LT 0,33 Nv"
+  },
+  {
+    "material_code": "170009",
+    "material_label": "Lipton Ice Tea MAN 28 LT 0,33 Sleek Nv"
+  },
+  {
+    "material_code": "170010",
+    "material_label": "Lipton Ice Tea LIM 28 LT 0,33 Sleek Nv"
+  },
+  {
+    "material_code": "170011",
+    "material_label": "Lipton Ice Tea PES 28 LT 0,33 Sleek Nv"
+  },
+  {
+    "material_code": "170055",
+    "material_label": "Lipton Chá Ver Hort Lima 12X0,33L PET Nv"
+  },
+  {
+    "material_code": "170056",
+    "material_label": "Lipton Limão 12 GR 0,5L PET Nv"
+  },
+  {
+    "material_code": "170057",
+    "material_label": "Lipton Pês 12 GR 0,5L PET Nv"
+  },
+  {
+    "material_code": "170058",
+    "material_label": "Lipton Ice Tea Manga 12 GR 0,5L PET Nv"
+  },
+  {
+    "material_code": "170059",
+    "material_label": "Lipton Limão 6 GR 1,5L PET Nv"
+  },
+  {
+    "material_code": "170060",
+    "material_label": "Lipton Pês 6 GR 1,5L PET Nv"
+  },
+  {
+    "material_code": "170061",
+    "material_label": "Lipton Ice Tea Manga 6 GR 1,5L PET Nv"
+  },
+  {
+    "material_code": "172000",
+    "material_label": "Damm Voll Barril 20L"
+  },
+  {
+    "material_code": "172001",
+    "material_label": "Damm Inedit Barril 20L"
+  },
+  {
+    "material_code": "172003",
+    "material_label": "Damm Bock Barril 20L"
+  },
+  {
+    "material_code": "172004",
+    "material_label": "Damm Lemon Barril 20L"
+  },
+  {
+    "material_code": "172005",
+    "material_label": "Damm Estrella Barril 30L FS"
+  },
+  {
+    "material_code": "172007",
+    "material_label": "Damm Estrella Barril 50L FS"
+  },
+  {
+    "material_code": "172009",
+    "material_label": "Damm Estrella 4x6 Lata 0,50L"
+  },
+  {
+    "material_code": "172011",
+    "material_label": "Damm Estrella 24 GR 0,20L VTP"
+  },
+  {
+    "material_code": "172012",
+    "material_label": "Damm Estrella 4x6 GR 0,25 VTP"
+  },
+  {
+    "material_code": "172013",
+    "material_label": "Damm Free 4x6 GR 0,25 VTP"
+  },
+  {
+    "material_code": "172015",
+    "material_label": "Damm Estrella 12 GR 0,25 VTP Nv"
+  },
+  {
+    "material_code": "172017",
+    "material_label": "Damm Voll 4x6 GR 0,25 VTP Nv"
+  },
+  {
+    "material_code": "172018",
+    "material_label": "Damm Bock 4x6 GR 0,25 VTP Nv"
+  },
+  {
+    "material_code": "172019",
+    "material_label": "Damm Lemon 4x6 GR 0,25L VTP"
+  },
+  {
+    "material_code": "172020",
+    "material_label": "Damm Free Tostada 4x6 GR 0,25 VTP"
+  },
+  {
+    "material_code": "172021",
+    "material_label": "Damm Estrella 24 GR 0,33 VTP"
+  },
+  {
+    "material_code": "172022",
+    "material_label": "Damm Daura 4X6 GR 0,33 VTP"
+  },
+  {
+    "material_code": "172023",
+    "material_label": "Damm Inedit 6X4 GR 0,33 VTP"
+  },
+  {
+    "material_code": "172025",
+    "material_label": "Damm Estrella Inedit 12GR 0,75 VTP Nv"
+  },
+  {
+    "material_code": "172027",
+    "material_label": "Sangria Sureo Barril 30L Nv"
+  },
+  {
+    "material_code": "172028",
+    "material_label": "Tagus Barril 30L"
+  },
+  {
+    "material_code": "172029",
+    "material_label": "Tagus Barril 50L"
+  },
+  {
+    "material_code": "172030",
+    "material_label": "Tagus Original 24 GR 0,25L VTP Nv"
+  },
+  {
+    "material_code": "174000",
+    "material_label": "Gatorade Cool Blue 12 GR 0,5L PET Nv"
+  },
+  {
+    "material_code": "200165",
+    "material_label": "SUMOL-Copo Cartão 50cl B RANCH MNG(50)"
+  },
+  {
+    "material_code": "200171",
+    "material_label": "SUMOL-Copo Cartão 40cl MNG(50)"
+  },
+  {
+    "material_code": "200212",
+    "material_label": "SUMOL-Copo Cartão 75cl B RANCH MNG(36)"
+  },
+  {
+    "material_code": "200614",
+    "material_label": "SUMOL-Copo Cartão 40cl PIZZA HUT MNG(50)"
+  },
+  {
+    "material_code": "200619",
+    "material_label": "SUMOL-Copo Cartão 40cl KFC MNG(50)"
+  },
+  {
+    "material_code": "200620",
+    "material_label": "SUMOL-Copo Cartão 50cl KFC MNG(50)"
+  },
+  {
+    "material_code": "200623",
+    "material_label": "SUMOL - Cadeira Esplanada Ibersol 15"
+  },
+  {
+    "material_code": "200653",
+    "material_label": "SUMOL - Copos Cartão 50W Copo Azul(50)13"
+  },
+  {
+    "material_code": "200693",
+    "material_label": "SUMOL - Mega-Chapéu 3M Verde 15"
+  },
+  {
+    "material_code": "200696",
+    "material_label": "SUMOL - Copo 0,40L Ibersol (6) 15"
+  },
+  {
+    "material_code": "200705",
+    "material_label": "SUMOL - Copo 0,25L Ibersol (6) 15"
+  },
+  {
+    "material_code": "200732",
+    "material_label": "SUMOL - Copo Porto (6) 15"
+  },
+  {
+    "material_code": "200757",
+    "material_label": "SUMOL - CAIXA MADEIRA MULTIUSOS 16"
+  },
+  {
+    "material_code": "200776",
+    "material_label": "SUMOL - KIT POUFS MI 16"
+  },
+  {
+    "material_code": "200800",
+    "material_label": "SUMOL-Copo Cartão 30cl B RANCH MNG(100)"
+  },
+  {
+    "material_code": "200801",
+    "material_label": "SUMOL-Copo Cartão 30cl  MNG(100)"
+  },
+  {
+    "material_code": "200802",
+    "material_label": "SUMOL-Copo Cartão 30cl PIZZ HUT MNG(100)"
+  },
+  {
+    "material_code": "200803",
+    "material_label": "SUMOL-Copo Cartão 30cl KFC MNG(100)"
+  },
+  {
+    "material_code": "200828",
+    "material_label": "SUMOL - Mesa Esplanada Fen. 19"
+  },
+  {
+    "material_code": "200833",
+    "material_label": "SUMOL - Bandeja Metálica (20) MI 17"
+  },
+  {
+    "material_code": "200834",
+    "material_label": "SUMOL - Bandeja Metálica EN (20) MI 17"
+  },
+  {
+    "material_code": "200906",
+    "material_label": "Sumol - Cavalete MI 18"
+  },
+  {
+    "material_code": "200924",
+    "material_label": "SUMOL - Copo (6) 19"
+  },
+  {
+    "material_code": "200940",
+    "material_label": "SUMOL - Mega-Chapéu CNH 2,5M 19"
+  },
+  {
+    "material_code": "200942",
+    "material_label": "SUMOL - T-shirts (20) MI 19"
+  },
+  {
+    "material_code": "200944",
+    "material_label": "SUMOL - Copo Reutilizável 19"
+  },
+  {
+    "material_code": "200990",
+    "material_label": "SUMOL-Copo Cartão 30cl TAC BELL MNG(100)"
+  },
+  {
+    "material_code": "200991",
+    "material_label": "SUMOL-Copo Cartão 40cl TAC BELL MNG(50)"
+  },
+  {
+    "material_code": "201007",
+    "material_label": "SUMOL - EXPOSITOR LARANJAS ALG 21"
+  },
+  {
+    "material_code": "201009",
+    "material_label": "SUMOL LA base Cimento (1) PT 21"
+  },
+  {
+    "material_code": "201027",
+    "material_label": "SUMOL - Base de cimento PT 22"
+  },
+  {
+    "material_code": "201031",
+    "material_label": "Sumol - Copo Sestriere 39 (6) PT 22"
+  },
+  {
+    "material_code": "201038",
+    "material_label": "SUMOL - Chapéus de Sol 1,8m (10) MI 22"
+  },
+  {
+    "material_code": "201045",
+    "material_label": "SUMOL-Copo Cartão 30cl MNG(45)"
+  },
+  {
+    "material_code": "201046",
+    "material_label": "SUMOL-Copo Cartão 40cl MNG(35)"
+  },
+  {
+    "material_code": "201049",
+    "material_label": "SUMOL - Copo Cartão Planícies 30cl (100)"
+  },
+  {
+    "material_code": "201078",
+    "material_label": "SUMOL - Copo Cartão 40cl MNG(50)"
+  },
+  {
+    "material_code": "201080",
+    "material_label": "SUMOL Mega Chapeu CNH 23"
+  },
+  {
+    "material_code": "201088",
+    "material_label": "SUMOL - Headphones (24) MI 23"
+  },
+  {
+    "material_code": "201096",
+    "material_label": "SUMOL-Kit 3 T Shirts Verdes Progr Pratos"
+  },
+  {
+    "material_code": "201103",
+    "material_label": "SUMOL - Copo Vidro 25cl (6) Ibersol 23"
+  },
+  {
+    "material_code": "201104",
+    "material_label": "SUMOL - Toalhete Pratos com Sabor(250)23"
+  },
+  {
+    "material_code": "201105",
+    "material_label": "SUMOL - Descapsulador Balcão 23"
+  },
+  {
+    "material_code": "201106",
+    "material_label": "SUMOL - Copo Icónico AM (6) PT 24"
+  },
+  {
+    "material_code": "201107",
+    "material_label": "SUMOL - Copo Vidro Icónico (24) MI 24"
+  },
+  {
+    "material_code": "201108",
+    "material_label": "SUMOL - Roll UP FR MI 24"
+  },
+  {
+    "material_code": "201110",
+    "material_label": "SUMOL-CopoCartão 30cl B RANCH MNG(100)24"
+  },
+  {
+    "material_code": "201111",
+    "material_label": "SUMOL-Copo Cartão 40cl BRANCH MNG(50) 24"
+  },
+  {
+    "material_code": "201112",
+    "material_label": "SUMOL-Copo Cartão 50cl BRANCH MNG(50) 24"
+  },
+  {
+    "material_code": "201113",
+    "material_label": "SUMOL-Copo Cartão 75cl BRANCH MNG(36) 24"
+  },
+  {
+    "material_code": "201114",
+    "material_label": "SUMOL-Copo Cartão 30cl PIZHUT MNG(100)24"
+  },
+  {
+    "material_code": "201116",
+    "material_label": "SUMOL-Copo Cartão 30cl KFC MNG(100) 24"
+  },
+  {
+    "material_code": "201118",
+    "material_label": "SUMOL-Copo Cartão 50cl KFC MNG(50) 24"
+  },
+  {
+    "material_code": "201119",
+    "material_label": "SUMOL-Copo Cartão 30cl TBELL MNG(100) 24"
+  },
+  {
+    "material_code": "201124",
+    "material_label": "SUMOL - Copo Cartão 30cl MNG (100) 24"
+  },
+  {
+    "material_code": "201125",
+    "material_label": "SUMOL - Copo Cartão 40cl MNG (50) 24"
+  },
+  {
+    "material_code": "201126",
+    "material_label": "SUMOL - Mega Chapéu IBERSOL 24"
+  },
+  {
+    "material_code": "201127",
+    "material_label": "SUMOL - Mega Chapéu 24"
+  },
+  {
+    "material_code": "201128",
+    "material_label": "SUMOL - Base Mega Chapéu 24"
+  },
+  {
+    "material_code": "201130",
+    "material_label": "SUMOL - Cadeira Portuguesa CNH 24"
+  },
+  {
+    "material_code": "201131",
+    "material_label": "SUMOL - Kit 1 Mesa + 2 Bancos 24"
+  },
+  {
+    "material_code": "201132",
+    "material_label": "SUMOL - Mesa Fenólica CNH 24"
+  },
+  {
+    "material_code": "201136",
+    "material_label": "SUMOL - Saco pano Carica (50) MI 24"
+  },
+  {
+    "material_code": "201141",
+    "material_label": "SUMOL - T-Shirt Verde M (100) MI 24"
+  },
+  {
+    "material_code": "201144",
+    "material_label": "SUMOL - Cadeira IBERSOL 24"
+  },
+  {
+    "material_code": "201145",
+    "material_label": "SUMOL - Mesa IBERSOL 24"
+  },
+  {
+    "material_code": "201147",
+    "material_label": "SUMOL - PG (8) 24"
+  },
+  {
+    "material_code": "201148",
+    "material_label": "SUMOL - Chapéus Palha (207) MI 24"
+  },
+  {
+    "material_code": "201149",
+    "material_label": "SUMOL - Coletes (10) MI 24"
+  },
+  {
+    "material_code": "201151",
+    "material_label": "SUMOL - Óculos Sol Premium (500) MI 24"
+  },
+  {
+    "material_code": "201153",
+    "material_label": "SUMOL - Chapéus Palha (100) MI 24"
+  },
+  {
+    "material_code": "201154",
+    "material_label": "SUMOL - Porta Menú Parede (15) MI 24"
+  },
+  {
+    "material_code": "201156",
+    "material_label": "SUMOL - Polo Bordado S (50) MI 24"
+  },
+  {
+    "material_code": "201157",
+    "material_label": "SUMOL - Polo Bordado M (50) MI 24"
+  },
+  {
+    "material_code": "201158",
+    "material_label": "SUMOL - Polo Bordado L (50) MI 24"
+  },
+  {
+    "material_code": "201159",
+    "material_label": "SUMOL - Polo Bordado XL (50) MI 24"
+  },
+  {
+    "material_code": "201160",
+    "material_label": "SUMOL - Toalhete Genérico (250) MI 24"
+  },
+  {
+    "material_code": "201161",
+    "material_label": "SUMOL - Mesa Fen Verde Pistachio 24"
+  },
+  {
+    "material_code": "201162",
+    "material_label": "SUMOL-Chapéu Sol 1,8mt África (10) MI 24"
+  },
+  {
+    "material_code": "201163",
+    "material_label": "SUMOL - Chapéu Sol (1) 24"
+  },
+  {
+    "material_code": "201164",
+    "material_label": "SUMOL - Cadeira de praia 24"
+  },
+  {
+    "material_code": "201165",
+    "material_label": "SUMOL - Expositor Prancha 24"
+  },
+  {
+    "material_code": "201166",
+    "material_label": "SUMOL - Menu de mesa 24"
+  },
+  {
+    "material_code": "201167",
+    "material_label": "SUMOL - Cadeira madeira + mesa apoio 24"
+  },
+  {
+    "material_code": "201168",
+    "material_label": "SUMOL -  Base Mega Chapeu Sol MI"
+  },
+  {
+    "material_code": "201169",
+    "material_label": "SUMOL-Chapéu Sol Franjas 1,8mt (6)MI 24"
+  },
+  {
+    "material_code": "201170",
+    "material_label": "SUMOL -  Mega Chapeu Sol MI 24"
+  },
+  {
+    "material_code": "201173",
+    "material_label": "SUMOL-Copo Cartão 30cl KFC MNG(100)24"
+  },
+  {
+    "material_code": "201174",
+    "material_label": "SUMOL-Copo Cartão 40cl KFC MNG(50)24"
+  },
+  {
+    "material_code": "201176",
+    "material_label": "SUMOL-Copo Cartão 30cl PIZHUT MNG(100)24"
+  },
+  {
+    "material_code": "201177",
+    "material_label": "SUMOL-Copo Cartão 40cl PIZHUT MNG(50)24"
+  },
+  {
+    "material_code": "201178",
+    "material_label": "SUMOL-Copo Cartão 30cl TACBEL MNG(100)24"
+  },
+  {
+    "material_code": "201179",
+    "material_label": "SUMOL-Copo Cartão 40cl TACBEL MNG(50)24"
+  },
+  {
+    "material_code": "201180",
+    "material_label": "SUMOL - Porta Menu Mesa (25) MI 24"
+  },
+  {
+    "material_code": "201181",
+    "material_label": "SUMOL - T-Shirt Verde S (100) MI 24"
+  },
+  {
+    "material_code": "201182",
+    "material_label": "SUMOL - Cavalete 1 Face (1) MI 24"
+  },
+  {
+    "material_code": "201184",
+    "material_label": "SUMOL - Vitrine black cooler MI 24"
+  },
+  {
+    "material_code": "201185",
+    "material_label": "SUMOL - T-Shirt Bolso S (25) MI 24"
+  },
+  {
+    "material_code": "201186",
+    "material_label": "SUMOL - T-Shirt Bolso M (25) MI 24"
+  },
+  {
+    "material_code": "201187",
+    "material_label": "SUMOL - T-Shirt Bolso L (25) MI 24"
+  },
+  {
+    "material_code": "201188",
+    "material_label": "SUMOL - T-Shirt Bolso XL (25) MI 24"
+  },
+  {
+    "material_code": "201189",
+    "material_label": "SUMOL - Expositor Permanente MI 24"
+  },
+  {
+    "material_code": "201190",
+    "material_label": "SUMOL - Saco pano Ondas (50) MI 24"
+  },
+  {
+    "material_code": "201191",
+    "material_label": "SUMOL-Kit Tshirt Pratos com sabor (3) 24"
+  },
+  {
+    "material_code": "201192",
+    "material_label": "SUMOL - Menu A5 Maracujá (3) 24"
+  },
+  {
+    "material_code": "201194",
+    "material_label": "SUMOL - Bidon com mesa decorada MI 24"
+  },
+  {
+    "material_code": "201197",
+    "material_label": "SUMOL - Cadeira Assento Madeira (4)MI 24"
+  },
+  {
+    "material_code": "201198",
+    "material_label": "SUMOL - Mesa empilhável (10) MI 24"
+  },
+  {
+    "material_code": "201199",
+    "material_label": "SUMOL-Chapéu Sol Stickers 1,8m (10)MI 24"
+  },
+  {
+    "material_code": "201200",
+    "material_label": "SUMOL - Toalha Plástico (100) MI 25"
+  },
+  {
+    "material_code": "201201",
+    "material_label": "SUMOL - Chapéu Palha (200) MI 25"
+  },
+  {
+    "material_code": "201205",
+    "material_label": "SUMOL - Caixa oferta GB (1) MI 24"
+  },
+  {
+    "material_code": "201208",
+    "material_label": "SUMOL - Copo Vidro 40cl (6) Ibersol 25"
+  },
+  {
+    "material_code": "201209",
+    "material_label": "SUMOL - Cadeira Montana 25"
+  },
+  {
+    "material_code": "201210",
+    "material_label": "SUMOL - Cadeira Portuguesa 25"
+  },
+  {
+    "material_code": "201211",
+    "material_label": "SUMOL - Mega Chapéu 25"
+  },
+  {
+    "material_code": "201212",
+    "material_label": "SUMOL - Mesa de Madeira 25"
+  },
+  {
+    "material_code": "201213",
+    "material_label": "SUMOL - Mesa Fenólica 25"
+  },
+  {
+    "material_code": "201215",
+    "material_label": "SUMOL - Topo Permanente MI 25"
+  },
+  {
+    "material_code": "201216",
+    "material_label": "SUMOL - Fitas Copos (100) MI 25"
+  },
+  {
+    "material_code": "201217",
+    "material_label": "SUMOL - T-shirt S Flavour PT (100) 25"
+  },
+  {
+    "material_code": "201218",
+    "material_label": "SUMOL - T-shirt M Flavour PT (100) 25"
+  },
+  {
+    "material_code": "201219",
+    "material_label": "SUMOL - T-shirt XL Flavour PT (100) 25"
+  },
+  {
+    "material_code": "201220",
+    "material_label": "Sumol - Porta Guardanapo Grade L (4) 25"
+  },
+  {
+    "material_code": "201221",
+    "material_label": "SUMOL - Kit Aventais (2) 25"
+  },
+  {
+    "material_code": "201222",
+    "material_label": "SUMOL - Fitas Pescoço EUA (1000) MI 25"
+  },
+  {
+    "material_code": "201223",
+    "material_label": "SUMOL - Eletrostáticos Manga (50 25"
+  },
+  {
+    "material_code": "201224",
+    "material_label": "SUMOL - Fitas Copo (1000) MI 25"
+  },
+  {
+    "material_code": "201226",
+    "material_label": "SUMOL - Óculos Laranjas (500) MI 25"
+  },
+  {
+    "material_code": "201227",
+    "material_label": "SUMOL - Óculos Verdes (500) MI 25"
+  },
+  {
+    "material_code": "201228",
+    "material_label": "SUMOL - Expositor Balcão (25) MI 25"
+  },
+  {
+    "material_code": "201229",
+    "material_label": "SUMOL - Mega Chapéu MI 25"
+  },
+  {
+    "material_code": "201230",
+    "material_label": "SUMOL - Panamá Festival (500) MI 25"
+  },
+  {
+    "material_code": "201231",
+    "material_label": "SUMOL - Porta Guardan. Zig Zag (6) MI 25"
+  },
+  {
+    "material_code": "201233",
+    "material_label": "SUMOL - Toalhete Maracujá (250) 25"
+  },
+  {
+    "material_code": "201234",
+    "material_label": "SUMOL - Toalhetes Malcata (250) MI 25"
+  },
+  {
+    "material_code": "201236",
+    "material_label": "SUMOL - Expositor Nova Identid. MI25"
+  },
+  {
+    "material_code": "201237",
+    "material_label": "SUMOL - Bancada de Degustação (10) MI 25"
+  },
+  {
+    "material_code": "201238",
+    "material_label": "SUMOL - Bandeja (36) MI 25"
+  },
+  {
+    "material_code": "201239",
+    "material_label": "SUMOL - Porta-Talheres (24) 25"
+  },
+  {
+    "material_code": "201240",
+    "material_label": "SUMOL - Toalha de Praia (40) MI 25"
+  },
+  {
+    "material_code": "201241",
+    "material_label": "SUMOL - Toalha de Mesa (60) MI 25"
+  },
+  {
+    "material_code": "201242",
+    "material_label": "SUMOL - Raquetes de Praia (36) MI 25"
+  },
+  {
+    "material_code": "201243",
+    "material_label": "SUMOL - Sumol Cadeira Praia (2) MI 25"
+  },
+  {
+    "material_code": "201244",
+    "material_label": "SUMOL - Mesa Praia (2) MI 25"
+  },
+  {
+    "material_code": "201245",
+    "material_label": "SUMOL - Bandeja Carica 25"
+  },
+  {
+    "material_code": "201246",
+    "material_label": "SUMOL - Mega Chapéu Sol MI 25"
+  },
+  {
+    "material_code": "201247",
+    "material_label": "SUMOL - Base Mega Chapéu Sol MI 25"
+  },
+  {
+    "material_code": "201248",
+    "material_label": "SUMOL - Etiquetas Preço (1000) MI 25"
+  },
+  {
+    "material_code": "201250",
+    "material_label": "~UMOL - Toalhetes \"Flavor PT\" (250)MI25"
+  },
+  {
+    "material_code": "201251",
+    "material_label": "SUMOL - Módulo linear MI 25"
+  },
+  {
+    "material_code": "210043",
+    "material_label": "PEPSI-Copo Cartão 75cl MNG(36)"
+  },
+  {
+    "material_code": "210046",
+    "material_label": "PEPSI-Copo Cartão 100cl MNG(25)"
+  },
+  {
+    "material_code": "210047",
+    "material_label": "PEPSI - Copo Cartão 37W Manga (100)"
+  },
+  {
+    "material_code": "210049",
+    "material_label": "PEPSI-Copo Cartão 50cl MNG(50)"
+  },
+  {
+    "material_code": "210223",
+    "material_label": "PEPSI - Porta-guardanapos (10) 13"
+  },
+  {
+    "material_code": "210235",
+    "material_label": "PEPSI - Pack Hoje e a dois (50) 13"
+  },
+  {
+    "material_code": "210269",
+    "material_label": "PEPSI Max - Porta-Palhinhas 2016"
+  },
+  {
+    "material_code": "210270",
+    "material_label": "Pepsi MAX  - Copo Cartão 40cl MNG(50)"
+  },
+  {
+    "material_code": "210271",
+    "material_label": "PEPSI-Copo Cartão 30cl MNG(100)"
+  },
+  {
+    "material_code": "210272",
+    "material_label": "PEPSI-Copo Cartão 30cl MR PIZZA MNG(100)"
+  },
+  {
+    "material_code": "210273",
+    "material_label": "PEPSI - Pack Cinema (50) 16"
+  },
+  {
+    "material_code": "210284",
+    "material_label": "Pepsi - Copo 27cl (6) 18"
+  },
+  {
+    "material_code": "210293",
+    "material_label": "PEPSI - PG L (8) 19"
+  },
+  {
+    "material_code": "210303",
+    "material_label": "PEPSI - Copo 37W Zoomarine (100) 19"
+  },
+  {
+    "material_code": "210304",
+    "material_label": "PEPSI - Copo 50W Zoomarine (50) 19"
+  },
+  {
+    "material_code": "210312",
+    "material_label": "PEPSI - Porta Guardanapos (8) 20"
+  },
+  {
+    "material_code": "210315",
+    "material_label": "PEPSI MAX - Base Mega Chapeu 16kg 21"
+  },
+  {
+    "material_code": "210319",
+    "material_label": "Pepsi Max - Kit 2 Aventais cintura PT 21"
+  },
+  {
+    "material_code": "210320",
+    "material_label": "Pepsi - Bandeja madeira PT 22"
+  },
+  {
+    "material_code": "210321",
+    "material_label": "Pepsi - Descapsulador de mão PT 22"
+  },
+  {
+    "material_code": "210324",
+    "material_label": "PEPSI - Copo Cartão 37W FB (100) 22"
+  },
+  {
+    "material_code": "210325",
+    "material_label": "PEPSI - Copo Cartão 50W FB (50) 22"
+  },
+  {
+    "material_code": "210331",
+    "material_label": "Pepsi - Copo AXL 37cl (6) PT 23"
+  },
+  {
+    "material_code": "210332",
+    "material_label": "PEPSI - Copo Cartão 30cl MNG (100)"
+  },
+  {
+    "material_code": "210333",
+    "material_label": "PEPSI - Mega Chapéu Preto 23"
+  },
+  {
+    "material_code": "210338",
+    "material_label": "Pepsi - Base Azul PT 23"
+  },
+  {
+    "material_code": "210339",
+    "material_label": "PEPSI - Livro Reservas 23"
+  },
+  {
+    "material_code": "210342",
+    "material_label": "PEPSI - Mega Chapéu Creme 23"
+  },
+  {
+    "material_code": "210346",
+    "material_label": "PEPSI - Copo Cartão37cl MNG Patrono(100)"
+  },
+  {
+    "material_code": "210348",
+    "material_label": "PEPSI - Copo Cartão 37cl MNG Dfrang(100)"
+  },
+  {
+    "material_code": "210349",
+    "material_label": "PEPSI - Toalhete Pratos com Sabor(250)23"
+  },
+  {
+    "material_code": "210350",
+    "material_label": "PEPSI - Descapsulador Balcão 23"
+  },
+  {
+    "material_code": "210351",
+    "material_label": "PEPSI - Copo Cartão 0,5L MNG (50) 24"
+  },
+  {
+    "material_code": "210352",
+    "material_label": "PEPSI - Copo Cartão 0,75L MNG (36) 24"
+  },
+  {
+    "material_code": "210353",
+    "material_label": "PEPSI - Copo Cartão 1L MNG (25) 24"
+  },
+  {
+    "material_code": "210355",
+    "material_label": "PEPSI-CopoCartão 30cl MRPIZZA MNG(100)24"
+  },
+  {
+    "material_code": "210356",
+    "material_label": "PEPSI-Copo Cartão 30cl MNG(100) 24"
+  },
+  {
+    "material_code": "210357",
+    "material_label": "PEPSI - Copo Cartão 30cl MNG (100) 24"
+  },
+  {
+    "material_code": "210358",
+    "material_label": "PEPSI - Mega Chapéu 24"
+  },
+  {
+    "material_code": "210359",
+    "material_label": "PEPSI - Base Mega Chapéu 24"
+  },
+  {
+    "material_code": "210360",
+    "material_label": "PEPSI - Cadeira Portuguesa 24"
+  },
+  {
+    "material_code": "210361",
+    "material_label": "PEPSI - Mesa Fenólica 24"
+  },
+  {
+    "material_code": "210362",
+    "material_label": "PEPSI - Kit Aventais (2) 24"
+  },
+  {
+    "material_code": "210363",
+    "material_label": "PEPSI - PG (8) 24"
+  },
+  {
+    "material_code": "210365",
+    "material_label": "PEPSI - Kit Pratos com sabor (5) 24"
+  },
+  {
+    "material_code": "210366",
+    "material_label": "PEPSI-Kit Tshirt Pratos com sabor (3) 24"
+  },
+  {
+    "material_code": "210367",
+    "material_label": "PEPSI-Toalhete Pratos com Sabor (250) 24"
+  },
+  {
+    "material_code": "210368",
+    "material_label": "PEPSI - Copo vidro TITAN 37cl (6) 25"
+  },
+  {
+    "material_code": "210369",
+    "material_label": "PEPSI - Copo vidro TITAN 37cl (24) 25"
+  },
+  {
+    "material_code": "210370",
+    "material_label": "PEPSI - Expositor Bola (1) 25"
+  },
+  {
+    "material_code": "210371",
+    "material_label": "PEPSI - Caderno Futebol (1) 25"
+  },
+  {
+    "material_code": "210372",
+    "material_label": "PEPSI - Kit Menu Campeão (2) 25"
+  },
+  {
+    "material_code": "210373",
+    "material_label": "PEPSI - Lisboa Extra Copos (6) 25"
+  },
+  {
+    "material_code": "210374",
+    "material_label": "PEPSI - Lisboa Extra Kit Aventais (4) 25"
+  },
+  {
+    "material_code": "210375",
+    "material_label": "PEPSI -Copo vidro TITAN 37cl HOR(6)Nv 25"
+  },
+  {
+    "material_code": "210819",
+    "material_label": "ANTARCTICA- Bola Futebol Cx (20)MI 14"
+  },
+  {
+    "material_code": "210869",
+    "material_label": "ANTARCTICA - Cadeira Port Branca 23"
+  },
+  {
+    "material_code": "210870",
+    "material_label": "ANTARCTICA - Mesa Creme 23"
+  },
+  {
+    "material_code": "210874",
+    "material_label": "ANTARCTICA - Expositor Pé Cartão MI 23"
+  },
+  {
+    "material_code": "210876",
+    "material_label": "ANTARCTICA - Copo Vidro (48) MI 23"
+  },
+  {
+    "material_code": "210878",
+    "material_label": "ANTARCTICA - Base Mega Chapéu 24"
+  },
+  {
+    "material_code": "210879",
+    "material_label": "ANTARCTICA - Mega Chapéu 24"
+  },
+  {
+    "material_code": "210883",
+    "material_label": "ANTARTICA-T-Shirt Verde Bolso M (25)MI24"
+  },
+  {
+    "material_code": "210884",
+    "material_label": "ANTARTICA-T-Shirt Verde Bolso L (25)MI24"
+  },
+  {
+    "material_code": "210887",
+    "material_label": "ANTARCTICA - Hoodie M (7) MI 24"
+  },
+  {
+    "material_code": "210888",
+    "material_label": "ANTARCTICA - Hoodie L (3) MI 24"
+  },
+  {
+    "material_code": "210889",
+    "material_label": "ANTARCTICA - Saco Compras (100) MI 24"
+  },
+  {
+    "material_code": "210890",
+    "material_label": "ANTARCTICA - Vinil (10) MI 25"
+  },
+  {
+    "material_code": "210892",
+    "material_label": "ANTARCTICA - Expositor Lata Sleek MI 25"
+  },
+  {
+    "material_code": "220222",
+    "material_label": "7UP - Kit Pratos com sabor (5) 24"
+  },
+  {
+    "material_code": "220223",
+    "material_label": "7UP - Kit Tshirt Pratos com sabor (3) 24"
+  },
+  {
+    "material_code": "220224",
+    "material_label": "7UP - Toalhete Pratos com Sabor (250) 24"
+  },
+  {
+    "material_code": "220225",
+    "material_label": "7UP - Expositor Pink 2025"
+  },
+  {
+    "material_code": "220226",
+    "material_label": "7UP - Toalhete Pink (250) 25"
+  },
+  {
+    "material_code": "230004",
+    "material_label": "TAGUS-Copo Plást 50cl MNG(30)"
+  },
+  {
+    "material_code": "230203",
+    "material_label": "TAGUS - Caneca 0,50L 2012"
+  },
+  {
+    "material_code": "230212",
+    "material_label": "TAGUS-Copo Plást 50cl MNG(50)"
+  },
+  {
+    "material_code": "230214",
+    "material_label": "TAGUS-Copo Plást 25cl MNG(50)"
+  },
+  {
+    "material_code": "230217",
+    "material_label": "TAGUS - Expositor de balcão (1) 17"
+  },
+  {
+    "material_code": "230221",
+    "material_label": "TAGUS - Copo Vidro Principe 20cl (6) 18"
+  },
+  {
+    "material_code": "230702",
+    "material_label": "ED - Frapé de Balcão INEDIT 2012"
+  },
+  {
+    "material_code": "230705",
+    "material_label": "ED - Frapé de Mesa INEDIT 2012"
+  },
+  {
+    "material_code": "230727",
+    "material_label": "ED-Copo Plást 50cl s/logo MNG(50)"
+  },
+  {
+    "material_code": "230728",
+    "material_label": "ED - Copo Plást 40cl MNG (50)"
+  },
+  {
+    "material_code": "230745",
+    "material_label": "ED-Bases copos ED (100) 21"
+  },
+  {
+    "material_code": "230750",
+    "material_label": "ED - Copo Plást 50cl MNG (50)"
+  },
+  {
+    "material_code": "230751",
+    "material_label": "ED - Copo Plást 20cl MNG (50)"
+  },
+  {
+    "material_code": "230752",
+    "material_label": "ED - Copo Plást 25cl MNG (50)"
+  },
+  {
+    "material_code": "230754",
+    "material_label": "ED - Copo Inédit 0,20 (6)"
+  },
+  {
+    "material_code": "230775",
+    "material_label": "ED - Caneca 50cl (6) 18"
+  },
+  {
+    "material_code": "230776",
+    "material_label": "ED - Copo Vidro Túlipa 33cl (6) 18"
+  },
+  {
+    "material_code": "230777",
+    "material_label": "ED - Copo vidro Principe 20cl (6) 18"
+  },
+  {
+    "material_code": "230778",
+    "material_label": "ED - Copo Vidro Túlipa 20cl (6) 18"
+  },
+  {
+    "material_code": "230783",
+    "material_label": "ED - Frapé Malquerida (1) 18"
+  },
+  {
+    "material_code": "230786",
+    "material_label": "ED - Frapé Metalico 18"
+  },
+  {
+    "material_code": "230787",
+    "material_label": "ED - Cavalete de Rua 18"
+  },
+  {
+    "material_code": "230792",
+    "material_label": "ED - Toalha de balcão 18"
+  },
+  {
+    "material_code": "230795",
+    "material_label": "ED - Copo plas. Malquerida 15cl (100) 18"
+  },
+  {
+    "material_code": "230808",
+    "material_label": "ED - Copo Gastro 0,33 (6) 2020"
+  },
+  {
+    "material_code": "230809",
+    "material_label": "ED - Copo Gastro 0,25 (6) 2020"
+  },
+  {
+    "material_code": "230814",
+    "material_label": "ED - Frapé Metálico Peq. 20"
+  },
+  {
+    "material_code": "230815",
+    "material_label": "ED - Luminoso Exterior Redondo 20"
+  },
+  {
+    "material_code": "230816",
+    "material_label": "ED - Cadeira Realizador 20"
+  },
+  {
+    "material_code": "230818",
+    "material_label": "ED - Mesa Aluminio 20"
+  },
+  {
+    "material_code": "230820",
+    "material_label": "ED - Mesa Madeira 20"
+  },
+  {
+    "material_code": "230822",
+    "material_label": "ED -Copo PLA 40cl MNG(65)"
+  },
+  {
+    "material_code": "230829",
+    "material_label": "ED-Copo Voll Vaso 0,33 (6) 21"
+  },
+  {
+    "material_code": "230831",
+    "material_label": "ED-Bases copos Voll (100) 21"
+  },
+  {
+    "material_code": "230832",
+    "material_label": "ED-Caneca Bock Damm 0,30 (6) 21"
+  },
+  {
+    "material_code": "230836",
+    "material_label": "ED - Descapsulador de Balcão PT 22"
+  },
+  {
+    "material_code": "230837",
+    "material_label": "ED - Descapsulador de Mão PT 22"
+  },
+  {
+    "material_code": "230839",
+    "material_label": "ED - Expositor Balcão 23"
+  },
+  {
+    "material_code": "230840",
+    "material_label": "ED - Mega Chapeu Branco 23"
+  },
+  {
+    "material_code": "230841",
+    "material_label": "ED - Cadeira PP Portuguesa Preta 23"
+  },
+  {
+    "material_code": "230842",
+    "material_label": "ED - Tábua de Madeira 23"
+  },
+  {
+    "material_code": "230843",
+    "material_label": "ED - Copo Gastro Pe 33cl (6) 23"
+  },
+  {
+    "material_code": "230844",
+    "material_label": "ED - Mesa Fenólica Preta 23"
+  },
+  {
+    "material_code": "230845",
+    "material_label": "ED - Copo Bock 33cl (12) 23"
+  },
+  {
+    "material_code": "230846",
+    "material_label": "ED - T-Shirt Preta ED (4) 23"
+  },
+  {
+    "material_code": "230847",
+    "material_label": "ED - Caneca Damm Lemon 33cl (6) 24"
+  },
+  {
+    "material_code": "230850",
+    "material_label": "ED - Mega Chapéu Preto S/Aba 24"
+  },
+  {
+    "material_code": "230851",
+    "material_label": "ED - Base Mega Chapéu 24"
+  },
+  {
+    "material_code": "230852",
+    "material_label": "ED - Cadeira Realizador Preta 24"
+  },
+  {
+    "material_code": "230853",
+    "material_label": "ED - Luminoso Interior 24"
+  },
+  {
+    "material_code": "230854",
+    "material_label": "ED - Balde Gelo DL 24"
+  },
+  {
+    "material_code": "230855",
+    "material_label": "ED - Copo Pinta 40cl (6) 25"
+  },
+  {
+    "material_code": "230856",
+    "material_label": "ED - Copo Gastro de Pe Baixo 33cl (6) 25"
+  },
+  {
+    "material_code": "230857",
+    "material_label": "ED - Copo Bock 30cl (12) 25"
+  },
+  {
+    "material_code": "230858",
+    "material_label": "ED - Caneca 50cl (6) 25"
+  },
+  {
+    "material_code": "230859",
+    "material_label": "Tagus - Caneca 50cl (6) 25"
+  },
+  {
+    "material_code": "230860",
+    "material_label": "ED - Copo Voll 33cl (6) 25"
+  },
+  {
+    "material_code": "230861",
+    "material_label": "ED - Copo Reutilizável 20cl|25cl (250)"
+  },
+  {
+    "material_code": "230862",
+    "material_label": "ED - Copo Reutilizável 40cl|50cl (300)"
+  },
+  {
+    "material_code": "230863",
+    "material_label": "ED - Kit Ação Consumidor 25"
+  },
+  {
+    "material_code": "240112",
+    "material_label": "ASE-Copo Plást 20cl MNG(50)"
+  },
+  {
+    "material_code": "240113",
+    "material_label": "ASE-Copo Plást 25cl MNG(50)"
+  },
+  {
+    "material_code": "240119",
+    "material_label": "ASE - Porta Guardanapos (8) 20"
+  },
+  {
+    "material_code": "240635",
+    "material_label": "FRIZE - KIT CAFÉ PEDE FRIZE 21"
+  },
+  {
+    "material_code": "240638",
+    "material_label": "Frize - PG Zig Zag (10) PT 22"
+  },
+  {
+    "material_code": "240644",
+    "material_label": "FRIZE - Copo Vila Flor (6) 23"
+  },
+  {
+    "material_code": "240647",
+    "material_label": "FRIZE - Toalhete Pede Frize (250) 23"
+  },
+  {
+    "material_code": "240649",
+    "material_label": "FRIZE - Toalhete Pede Laranja (250) 24"
+  },
+  {
+    "material_code": "240650",
+    "material_label": "FRIZE - Kit Aventais F&C (2) 24"
+  },
+  {
+    "material_code": "240651",
+    "material_label": "FRIZE -  Expositor Madeira  MI 24"
+  },
+  {
+    "material_code": "240652",
+    "material_label": "FRIZE - Kit T-shirts Laranja (2) 24"
+  },
+  {
+    "material_code": "240654",
+    "material_label": "FRIZE-Kit Tshirt Pratos com sabor (3) 24"
+  },
+  {
+    "material_code": "240655",
+    "material_label": "FRIZE-Toalhete Pratos com Sabor (250) 24"
+  },
+  {
+    "material_code": "240656",
+    "material_label": "FRIZE - Porta Guardanapo (8) 25"
+  },
+  {
+    "material_code": "240657",
+    "material_label": "FRIZE - Dispensador Balcão AF&Café 25"
+  },
+  {
+    "material_code": "240658",
+    "material_label": "FRIZE - Toalhetes (250) MI 25"
+  },
+  {
+    "material_code": "250111",
+    "material_label": "UM BONGO - Kit Cad (9) Cromos (54)14"
+  },
+  {
+    "material_code": "250127",
+    "material_label": "UM BONGO - Carimbos (108) 15"
+  },
+  {
+    "material_code": "250150",
+    "material_label": "UM BONGO - Livros Contos (108) 16"
+  },
+  {
+    "material_code": "250151",
+    "material_label": "UM BONGO - Livros Contos (54) 2016"
+  },
+  {
+    "material_code": "250161",
+    "material_label": "UM BONGO - Cartas Memoria (108) 17"
+  },
+  {
+    "material_code": "250181",
+    "material_label": "UM BONGO - Puzzle (56) 18"
+  },
+  {
+    "material_code": "250182",
+    "material_label": "UM BONGO - RELÓGIO PAREDE 18"
+  },
+  {
+    "material_code": "250185",
+    "material_label": "UM BONGO - COPOS PP MNG (50) 19"
+  },
+  {
+    "material_code": "250186",
+    "material_label": "UM BONGO - Mesa Fenólica 23"
+  },
+  {
+    "material_code": "250187",
+    "material_label": "UM BONGO - Mega Chapéu 23"
+  },
+  {
+    "material_code": "250188",
+    "material_label": "UM BONGO - Cadeira PT Verde 23"
+  },
+  {
+    "material_code": "250189",
+    "material_label": "UM BONGO - Caderneta Cromos NOS (200) 25"
+  },
+  {
+    "material_code": "250190",
+    "material_label": "UM BONGO - Cromos NOS (105) 25"
+  },
+  {
+    "material_code": "270441",
+    "material_label": "COMPAL - Copo (6) DDI 14"
+  },
+  {
+    "material_code": "270444",
+    "material_label": "COMPAL - Display CN MI 14"
+  },
+  {
+    "material_code": "270520",
+    "material_label": "COMPAL - Copo 34cl Espanha (6) 15"
+  },
+  {
+    "material_code": "270638",
+    "material_label": "COMPAL - COPO IMAGEM 2.0 (6) 19"
+  },
+  {
+    "material_code": "270641",
+    "material_label": "COMPAL - Copo Vidro (48) MI 19"
+  },
+  {
+    "material_code": "270658",
+    "material_label": "COMPAL - CADERNO  (50)  MI 20"
+  },
+  {
+    "material_code": "270681",
+    "material_label": "COMPAL-Copo Cartão 20cl MNG (95)"
+  },
+  {
+    "material_code": "270703",
+    "material_label": "COMPAL - TOALHETE FIGO MAÇÃ (250) 21"
+  },
+  {
+    "material_code": "270724",
+    "material_label": "Compal - Toalha de praia ES 21"
+  },
+  {
+    "material_code": "270725",
+    "material_label": "COMPAL - KIT PEQUENO ALMOÇO DIA 21"
+  },
+  {
+    "material_code": "270743",
+    "material_label": "COMPAL - Copo Vidro (48) MI 22"
+  },
+  {
+    "material_code": "270744",
+    "material_label": "COMPAL -SACOS PANO PREMIUM (50)  MI 22"
+  },
+  {
+    "material_code": "270745",
+    "material_label": "COMPAL -SACOS PANO  (50)  MI 22"
+  },
+  {
+    "material_code": "270747",
+    "material_label": "Compal - Porta-Guardanapo Cubo (8) PT 22"
+  },
+  {
+    "material_code": "270804",
+    "material_label": "COMPAL - Copo 70 Anos (6) PT 22"
+  },
+  {
+    "material_code": "270821",
+    "material_label": "COMPAL - Cadernos A5 Quadri FR (40)MI 22"
+  },
+  {
+    "material_code": "270844",
+    "material_label": "Compal-Expositor Balcão Lata FR(10)MI 22"
+  },
+  {
+    "material_code": "270865",
+    "material_label": "COMPAL - Porta Guardanapos (20) MI 22"
+  },
+  {
+    "material_code": "270869",
+    "material_label": "COMPAL - Copo Vidro (6) 23"
+  },
+  {
+    "material_code": "270873",
+    "material_label": "COMPAL - Expositor de Pé em cartão MI 23"
+  },
+  {
+    "material_code": "270875",
+    "material_label": "COMPAL - Lancheira Criança (100) MI 23"
+  },
+  {
+    "material_code": "270876",
+    "material_label": "COMPAL - Expositor Balcão 23"
+  },
+  {
+    "material_code": "270878",
+    "material_label": "COMPAL-Porta Guardanapos Zig-Zag(8)MI 23"
+  },
+  {
+    "material_code": "270881",
+    "material_label": "COMPAL - Toalhete Genérico (250) MI 23"
+  },
+  {
+    "material_code": "270888",
+    "material_label": "COMPAL - Ilha Carroça MI 23"
+  },
+  {
+    "material_code": "270890",
+    "material_label": "COMPAL - Kit 2 Aventais Verdes"
+  },
+  {
+    "material_code": "270894",
+    "material_label": "COMPAL -Ilha Compal FR MI 23"
+  },
+  {
+    "material_code": "270895",
+    "material_label": "COMPAL - Kit Aventais JMJ (2) 23"
+  },
+  {
+    "material_code": "270903",
+    "material_label": "COMPAL - Topo Permanente MI 23"
+  },
+  {
+    "material_code": "270905",
+    "material_label": "COMPAL - Roll UP FR MI 24"
+  },
+  {
+    "material_code": "270908",
+    "material_label": "COMPAL - Expositor Pequeno Almoço 24"
+  },
+  {
+    "material_code": "270910",
+    "material_label": "COMPAL - Bancada Degustação FR MI 24"
+  },
+  {
+    "material_code": "270911",
+    "material_label": "COMPAL - Réguas Linear (500) MI 24"
+  },
+  {
+    "material_code": "270913",
+    "material_label": "COMPAL - Caderno Pautado (100) MI 24"
+  },
+  {
+    "material_code": "270914",
+    "material_label": "COMPAL - Caderno Quadriculado(100) MI 24"
+  },
+  {
+    "material_code": "270915",
+    "material_label": "COMPAL - Avental Vermelho (50) MI 24"
+  },
+  {
+    "material_code": "270916",
+    "material_label": "COMPAL - Copo 22cl (36) MI 24"
+  },
+  {
+    "material_code": "270917",
+    "material_label": "COMPAL - Polo Verde (20) MI 24"
+  },
+  {
+    "material_code": "270919",
+    "material_label": "COMPAL - Chapéu Sol 1,8mt (10) MI 24"
+  },
+  {
+    "material_code": "270920",
+    "material_label": "COMPAL - Base Chapéu Sol 1,8m (5) MI 24"
+  },
+  {
+    "material_code": "270921",
+    "material_label": "COMPAL - Puff MI 24"
+  },
+  {
+    "material_code": "270922",
+    "material_label": "COMPAL - Caneta Cortiça (100) MI 24S"
+  },
+  {
+    "material_code": "270925",
+    "material_label": "COMPAL - Polo Bordado S (50) MI 24"
+  },
+  {
+    "material_code": "270926",
+    "material_label": "COMPAL - Polo Bordado M (50) MI 24"
+  },
+  {
+    "material_code": "270928",
+    "material_label": "COMPAL - Polo Bordado XL (50) MI 24"
+  },
+  {
+    "material_code": "270929",
+    "material_label": "COMPAL - Polo Bordado S (25) MI 24"
+  },
+  {
+    "material_code": "270930",
+    "material_label": "COMPAL - Polo Bordado XL (25) MI 24"
+  },
+  {
+    "material_code": "270931",
+    "material_label": "COMPAL - Ilha Carroça Manga MI 24"
+  },
+  {
+    "material_code": "270932",
+    "material_label": "COMPAL-Porta-Chaves Cortiça (100) MI 24"
+  },
+  {
+    "material_code": "270933",
+    "material_label": "COMPAL - Expositor Madeira MI 24"
+  },
+  {
+    "material_code": "270934",
+    "material_label": "COMPAL-Expositor Madeira Permanente MI24"
+  },
+  {
+    "material_code": "270935",
+    "material_label": "COMPAL - T-Shirt Tamanho S (20) MI 24"
+  },
+  {
+    "material_code": "270936",
+    "material_label": "COMPAL - T-Shirt Tamanho M (20) MI 24"
+  },
+  {
+    "material_code": "270937",
+    "material_label": "COMPAL - T-Shirt Tamanho L (20) MI 24"
+  },
+  {
+    "material_code": "270938",
+    "material_label": "COMPAL - T-Shirt Tamanho XL (20) MI 24"
+  },
+  {
+    "material_code": "270939",
+    "material_label": "COMPAL - Cavalete 1 Face (1) MI 24"
+  },
+  {
+    "material_code": "270940",
+    "material_label": "COMPAL-Kit Avental Empregado Mesa (2) 24"
+  },
+  {
+    "material_code": "270942",
+    "material_label": "COMPAL - T-shirt Adulto (100) MI 24"
+  },
+  {
+    "material_code": "270944",
+    "material_label": "COMPAL - Lenço (1000) MI 24"
+  },
+  {
+    "material_code": "270946",
+    "material_label": "COMPAL-Expositor 2 Caixas Madeira MI 24"
+  },
+  {
+    "material_code": "270947",
+    "material_label": "COMPAL-Expositor 3 Caixas Madeira MI 24"
+  },
+  {
+    "material_code": "270948",
+    "material_label": "COMPAL - Saquetas Peq Almoço (100) 24"
+  },
+  {
+    "material_code": "270951",
+    "material_label": "COMPAL - Mochila (40) MI 24"
+  },
+  {
+    "material_code": "270952",
+    "material_label": "COMPAL - Toalha Plástico (100) MI 25"
+  },
+  {
+    "material_code": "270953",
+    "material_label": "COMPAL - Chapéu Men (200) MI 25"
+  },
+  {
+    "material_code": "270954",
+    "material_label": "COMPAL - Chapéu Women (200) MI 25"
+  },
+  {
+    "material_code": "270955",
+    "material_label": "COMPAL - Saco Compras (100) MI 24"
+  },
+  {
+    "material_code": "270956",
+    "material_label": "COMPAL  - Ventoinha (100) MI 25"
+  },
+  {
+    "material_code": "270957",
+    "material_label": "COMPAL - Expositor Balcão 25"
+  },
+  {
+    "material_code": "270958",
+    "material_label": "COMPAL - Mesa empilhável (10) MI 25"
+  },
+  {
+    "material_code": "270959",
+    "material_label": "COMPAL - Cadeira empilhável (4) MI 25"
+  },
+  {
+    "material_code": "270960",
+    "material_label": "COMPAL - Caderno Pautado (100) MI 25"
+  },
+  {
+    "material_code": "270961",
+    "material_label": "COMPAL - Caderno Quadriculado(100) MI 25"
+  },
+  {
+    "material_code": "270962",
+    "material_label": "COMPAL - T-Shirts Criança (100) MI 25"
+  },
+  {
+    "material_code": "270963",
+    "material_label": "COMPAL - T-Shirts Adulto (100) MI 25"
+  },
+  {
+    "material_code": "270964",
+    "material_label": "COMPAL - Boné (300) MI 25"
+  },
+  {
+    "material_code": "270965",
+    "material_label": "COMPAL - Topo Permanente MI 25"
+  },
+  {
+    "material_code": "270966",
+    "material_label": "Compal - Vitrine cooler MI 25"
+  },
+  {
+    "material_code": "270969",
+    "material_label": "COMPAL - T-shirt S (100) MI 25"
+  },
+  {
+    "material_code": "270970",
+    "material_label": "COMPAL - T-shirt M (100) MI 25"
+  },
+  {
+    "material_code": "270971",
+    "material_label": "COMPAL - T-shirt L (100) MI 25"
+  },
+  {
+    "material_code": "270972",
+    "material_label": "COMPAL - Dispensador MI 25"
+  },
+  {
+    "material_code": "270973",
+    "material_label": "COMPAL - Porta-Guardanapo Cubo (8) MI 25"
+  },
+  {
+    "material_code": "270974",
+    "material_label": "COMPAL - Copo Vidro (36) MI 25"
+  },
+  {
+    "material_code": "270975",
+    "material_label": "COMPAL -  Woblers (200) MI 25"
+  },
+  {
+    "material_code": "270976",
+    "material_label": "COMPAL - Cavalete 1 face MI 25"
+  },
+  {
+    "material_code": "270977",
+    "material_label": "COMPAL - Cavalete Madeira MI 25"
+  },
+  {
+    "material_code": "270978",
+    "material_label": "COMPAL - Porta Guardan. ZigZag (6) MI 25"
+  },
+  {
+    "material_code": "270979",
+    "material_label": "COMPAL - Sacos Pano Alça Verde (50) MI25"
+  },
+  {
+    "material_code": "270980",
+    "material_label": "COMPAL - Expositor Balcão (5) MI 25"
+  },
+  {
+    "material_code": "270981",
+    "material_label": "COMPAL -Bancada de Degustação (10) MI 25"
+  },
+  {
+    "material_code": "270983",
+    "material_label": "COMPAL - Porta Guardanapos (20) MI 25 FR"
+  },
+  {
+    "material_code": "270984",
+    "material_label": "COMPAL - Réguas Linear (500) MI 25 EN"
+  },
+  {
+    "material_code": "270985",
+    "material_label": "COMPAL - Etiquetas Preço (1000) MI 25"
+  },
+  {
+    "material_code": "270986",
+    "material_label": "COMPAL - Expositor Combinações 25"
+  },
+  {
+    "material_code": "270987",
+    "material_label": "COMPAL - Aventais Vermelhos (50) MI 25"
+  },
+  {
+    "material_code": "270988",
+    "material_label": "COMPAL - Aventais Pretos (50) MI 25"
+  },
+  {
+    "material_code": "270989",
+    "material_label": "COMPAL - Módulo linear MI 25"
+  },
+  {
+    "material_code": "270990",
+    "material_label": "COMPAL - Toalhete Orig Goiaba (250) 25"
+  },
+  {
+    "material_code": "270992",
+    "material_label": "COMPAL - Apagador Quadro (30) MI 26"
+  },
+  {
+    "material_code": "270993",
+    "material_label": "COMPAL - Marcador Preto (30) MI 26"
+  },
+  {
+    "material_code": "270994",
+    "material_label": "COMPAL - Marcador Vermelho (30) MI 26"
+  },
+  {
+    "material_code": "290026",
+    "material_label": "S/MARCA - Tampa Copo 44OZ 1L"
+  },
+  {
+    "material_code": "290027",
+    "material_label": "S/MARCA - Tampa Copo 45/70W 0,5L"
+  },
+  {
+    "material_code": "290029",
+    "material_label": "S/MARCA - Tampa Copo 37W 0,33L"
+  },
+  {
+    "material_code": "290065",
+    "material_label": "S/MARCA - Tampa Copo 34OZ (1500) 0,75L"
+  },
+  {
+    "material_code": "290075",
+    "material_label": "S/MARCA - Palhinha P/ Copo Dispensing 13"
+  },
+  {
+    "material_code": "290083",
+    "material_label": "S/MARCA - Base Mega Chapéu 3M 14"
+  },
+  {
+    "material_code": "290102",
+    "material_label": "S/MARCA-Copo Plást 75cl MNG(50)"
+  },
+  {
+    "material_code": "290104",
+    "material_label": "S/MARCA - Copo 0,40 EDEN (1000)"
+  },
+  {
+    "material_code": "290119",
+    "material_label": "S/MARCA - Palhinhas Flexiveis PP"
+  },
+  {
+    "material_code": "290121",
+    "material_label": "S/MARCA-Copo Plást 25cl MNG(50)"
+  },
+  {
+    "material_code": "290123",
+    "material_label": "S/MARCA-Palhinha Papel Disp CX(2000)"
+  },
+  {
+    "material_code": "290125",
+    "material_label": "S/MARCA-TAMPA CANA AÇU 40/50cl CX(1000)"
+  },
+  {
+    "material_code": "290126",
+    "material_label": "S/MARCA-TAMPA CANA AÇUCAR 30cl CX(1000)"
+  },
+  {
+    "material_code": "290127",
+    "material_label": "S/MARCA-Palhinhas Papel Disp CX(1000)"
+  },
+  {
+    "material_code": "290129",
+    "material_label": "S/MARCA-TAMPA C/ORIFICIO 40/50cl CX(500)"
+  },
+  {
+    "material_code": "290130",
+    "material_label": "S/MARCA-TAMPA CARTAO Eco 30cl CX(1386)"
+  },
+  {
+    "material_code": "290131",
+    "material_label": "S/MARCA-TAMPA CARTAOEco 40/50cl CX(1260)"
+  },
+  {
+    "material_code": "290134",
+    "material_label": "LIPTON - CAVALETE MADEIRA 21"
+  },
+  {
+    "material_code": "290137",
+    "material_label": "LIPTON-TOALHETE MOMENTOS SOL (250) PT 21"
+  },
+  {
+    "material_code": "290138",
+    "material_label": "SMARCA-Tampa Copo 34OZ 0,75L (935)"
+  },
+  {
+    "material_code": "290140",
+    "material_label": "LIPTON Saquetas Talher (250) 22"
+  },
+  {
+    "material_code": "290141",
+    "material_label": "LIPTON - Toalhete Chá Verde (250) 22"
+  },
+  {
+    "material_code": "290143",
+    "material_label": "S/MARCA-Copo Cartão Branco 40cl MNG (50)"
+  },
+  {
+    "material_code": "290148",
+    "material_label": "SMarca Porta-Menus (50) MI 23"
+  },
+  {
+    "material_code": "290150",
+    "material_label": "S/MARCA-Copos Papel Instituc (1000)MI 23"
+  },
+  {
+    "material_code": "290153",
+    "material_label": "S/MARCA -Forra Paletes (10) MI 24"
+  },
+  {
+    "material_code": "290158",
+    "material_label": "S/MARCA - Base Mega Chapéu 25"
+  },
+  {
+    "material_code": "290159",
+    "material_label": "LIPTON - Porta Guardanapo Kombucha(24)25"
+  },
+  {
+    "material_code": "290160",
+    "material_label": "LIPTON - Sacos Take Away (50) 25"
+  },
+  {
+    "material_code": "290161",
+    "material_label": "S/MARCA - Quadro Branco MI 25"
+  },
+  {
+    "material_code": "290162",
+    "material_label": "LIPTON - Toalhetes Kombucha (200) 25"
+  },
+  {
+    "material_code": "290401",
+    "material_label": "Copo de degustação 0,100L Mng (50) - DNR"
+  },
+  {
+    "material_code": "299780",
+    "material_label": "LIPTON-Copos Cartão 30cl PANS MNG(100)"
+  },
+  {
+    "material_code": "299781",
+    "material_label": "LIPTON - Copos Cartão 50cl PANS MNG(50)"
+  },
+  {
+    "material_code": "299782",
+    "material_label": "LIPTON - Copo Vidro 0,25cl Ibersol 2012"
+  },
+  {
+    "material_code": "299793",
+    "material_label": "LIPTON - Copos Cartão 40cl PANS MNG(50)"
+  },
+  {
+    "material_code": "299805",
+    "material_label": "LIPTON - Copo Vidro (6) 29cl 17"
+  },
+  {
+    "material_code": "299810",
+    "material_label": "LIPTON - Pack Guardanapo L RENOVA(4)"
+  },
+  {
+    "material_code": "299819",
+    "material_label": "LIPTON - TOALHETE CHÁ VERDE (250) 21"
+  },
+  {
+    "material_code": "299820",
+    "material_label": "LIPTON - Saquetas Talher (250) 21"
+  },
+  {
+    "material_code": "299822",
+    "material_label": "LIPTON  - Bandeja Metálica 22"
+  },
+  {
+    "material_code": "299823",
+    "material_label": "LIPTON Balde c/ tampa  23"
+  },
+  {
+    "material_code": "299825",
+    "material_label": "LIPTON - Cavalete Madeira 23"
+  },
+  {
+    "material_code": "299826",
+    "material_label": "LIPTON - Porta Guardanapos Chá Verde"
+  },
+  {
+    "material_code": "299829",
+    "material_label": "LIPTON - Kit 1º Escalão (1) 24"
+  },
+  {
+    "material_code": "299830",
+    "material_label": "LIPTON - Kit 2º Escalão (1) 24"
+  },
+  {
+    "material_code": "299831",
+    "material_label": "LIPTON - Kit 3º Escalão (1) 24"
+  },
+  {
+    "material_code": "299832",
+    "material_label": "LIPTON - Copo Emboss (6) 24"
+  },
+  {
+    "material_code": "299833",
+    "material_label": "LIPTON - Copo Vidro York (6) 36cl 24"
+  },
+  {
+    "material_code": "299835",
+    "material_label": "LIPTON - Kit #1 (1) 25"
+  },
+  {
+    "material_code": "299836",
+    "material_label": "LIPTON - Kit #2 (1) 25"
+  },
+  {
+    "material_code": "299837",
+    "material_label": "LIPTON - Kit Charme Kombucha 25"
+  }
+]

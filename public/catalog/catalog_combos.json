@@ -1,0 +1,1482 @@
+[
+  {
+    "H4_code": "10",
+    "H5_code": "10",
+    "H6_code": "11",
+    "H7_code": "15",
+    "H4_label": "Compal",
+    "H5_label": "Clássico Néctar",
+    "H6_label": "Tetra",
+    "H7_label": "0,2 L"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "10",
+    "H6_code": "11",
+    "H7_code": "21",
+    "H4_label": "Compal",
+    "H5_label": "Clássico Néctar",
+    "H6_label": "Tetra",
+    "H7_label": "0,5 L"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "10",
+    "H6_code": "11",
+    "H7_code": "24",
+    "H4_label": "Compal",
+    "H5_label": "Clássico Néctar",
+    "H6_label": "Tetra",
+    "H7_label": "1 L"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "10",
+    "H6_code": "11",
+    "H7_code": "57",
+    "H4_label": "Compal",
+    "H5_label": "Clássico Néctar",
+    "H6_label": "Tetra",
+    "H7_label": "0,30 L"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "10",
+    "H6_code": "12",
+    "H7_code": "19",
+    "H4_label": "Compal",
+    "H5_label": "Clássico Néctar",
+    "H6_label": "Lata",
+    "H7_label": "0,33 L"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "10",
+    "H6_code": "13",
+    "H7_code": "18",
+    "H4_label": "Compal",
+    "H5_label": "Clássico Néctar",
+    "H6_label": "Vidro TR",
+    "H7_label": "0,25 L"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "10",
+    "H6_code": "14",
+    "H7_code": "15",
+    "H4_label": "Compal",
+    "H5_label": "Clássico Néctar",
+    "H6_label": "Vidro TP",
+    "H7_label": "0,2 L"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "10",
+    "H6_code": "14",
+    "H7_code": "24",
+    "H4_label": "Compal",
+    "H5_label": "Clássico Néctar",
+    "H6_label": "Vidro TP",
+    "H7_label": "1 L"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "12",
+    "H6_code": "11",
+    "H7_code": "15",
+    "H4_label": "Compal",
+    "H5_label": "Vital",
+    "H6_label": "Tetra",
+    "H7_label": "0,2 L"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "12",
+    "H6_code": "11",
+    "H7_code": "24",
+    "H4_label": "Compal",
+    "H5_label": "Vital",
+    "H6_label": "Tetra",
+    "H7_label": "1 L"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "12",
+    "H6_code": "11",
+    "H7_code": "57",
+    "H4_label": "Compal",
+    "H5_label": "Vital",
+    "H6_label": "Tetra",
+    "H7_label": "0,30 L"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "12",
+    "H6_code": "14",
+    "H7_code": "15",
+    "H4_label": "Compal",
+    "H5_label": "Vital",
+    "H6_label": "Vidro TP",
+    "H7_label": "0,2 L"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "13",
+    "H6_code": "11",
+    "H7_code": "15",
+    "H4_label": "Compal",
+    "H5_label": "Clássico 100%",
+    "H6_label": "Tetra",
+    "H7_label": "0,2 L"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "13",
+    "H6_code": "11",
+    "H7_code": "24",
+    "H4_label": "Compal",
+    "H5_label": "Clássico 100%",
+    "H6_label": "Tetra",
+    "H7_label": "1 L"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "38",
+    "H6_code": "20",
+    "H7_code": "62",
+    "H4_label": "Compal",
+    "H5_label": "Concentrado",
+    "H6_label": "Outros TP",
+    "H7_label": "140 g"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "39",
+    "H6_code": "11",
+    "H7_code": "35",
+    "H4_label": "Compal",
+    "H5_label": "Polpa",
+    "H6_label": "Tetra",
+    "H7_label": "210 g"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "39",
+    "H6_code": "14",
+    "H7_code": "27",
+    "H4_label": "Compal",
+    "H5_label": "Polpa",
+    "H6_label": "Vidro TP",
+    "H7_label": "1000 g"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "39",
+    "H6_code": "14",
+    "H7_code": "45",
+    "H4_label": "Compal",
+    "H5_label": "Polpa",
+    "H6_label": "Vidro TP",
+    "H7_label": "500 g"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "41",
+    "H6_code": "12",
+    "H7_code": "42",
+    "H4_label": "Compal",
+    "H5_label": "Vegetais Secos",
+    "H6_label": "Lata",
+    "H7_label": "420 g"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "41",
+    "H6_code": "12",
+    "H7_code": "49",
+    "H4_label": "Compal",
+    "H5_label": "Vegetais Secos",
+    "H6_label": "Lata",
+    "H7_label": "860 g"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "42",
+    "H6_code": "12",
+    "H7_code": "42",
+    "H4_label": "Compal",
+    "H5_label": "Vegetais Verdes",
+    "H6_label": "Lata",
+    "H7_label": "420 g"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "42",
+    "H6_code": "12",
+    "H7_code": "49",
+    "H4_label": "Compal",
+    "H5_label": "Vegetais Verdes",
+    "H6_label": "Lata",
+    "H7_label": "860 g"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "50",
+    "H6_code": "12",
+    "H7_code": "36",
+    "H4_label": "Compal",
+    "H5_label": "Cogumelos",
+    "H6_label": "Lata",
+    "H7_label": "290 g"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "59",
+    "H6_code": "11",
+    "H7_code": "15",
+    "H4_label": "Compal",
+    "H5_label": "100% Fruta",
+    "H6_label": "Tetra",
+    "H7_label": "0,2 L"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "59",
+    "H6_code": "11",
+    "H7_code": "24",
+    "H4_label": "Compal",
+    "H5_label": "100% Fruta",
+    "H6_label": "Tetra",
+    "H7_label": "1 L"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "59",
+    "H6_code": "11",
+    "H7_code": "57",
+    "H4_label": "Compal",
+    "H5_label": "100% Fruta",
+    "H6_label": "Tetra",
+    "H7_label": "0,30 L"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "59",
+    "H6_code": "14",
+    "H7_code": "15",
+    "H4_label": "Compal",
+    "H5_label": "100% Fruta",
+    "H6_label": "Vidro TP",
+    "H7_label": "0,2 L"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "73",
+    "H6_code": "11",
+    "H7_code": "24",
+    "H4_label": "Compal",
+    "H5_label": "Família",
+    "H6_label": "Tetra",
+    "H7_label": "1 L"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "82",
+    "H6_code": "11",
+    "H7_code": "24",
+    "H4_label": "Compal",
+    "H5_label": "Veggie",
+    "H6_label": "Tetra",
+    "H7_label": "1 L"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "82",
+    "H6_code": "14",
+    "H7_code": "15",
+    "H4_label": "Compal",
+    "H5_label": "Veggie",
+    "H6_label": "Vidro TP",
+    "H7_label": "0,2 L"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "95",
+    "H6_code": "11",
+    "H7_code": "24",
+    "H4_label": "Compal",
+    "H5_label": "Compal da Horta",
+    "H6_label": "Tetra",
+    "H7_label": "1 L"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "E7",
+    "H6_code": "11",
+    "H7_code": "15",
+    "H4_label": "Compal",
+    "H5_label": "Origens Néctar",
+    "H6_label": "Tetra",
+    "H7_label": "0,2 L"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "E7",
+    "H6_code": "11",
+    "H7_code": "24",
+    "H4_label": "Compal",
+    "H5_label": "Origens Néctar",
+    "H6_label": "Tetra",
+    "H7_label": "1 L"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "E7",
+    "H6_code": "11",
+    "H7_code": "57",
+    "H4_label": "Compal",
+    "H5_label": "Origens Néctar",
+    "H6_label": "Tetra",
+    "H7_label": "0,30 L"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "E7",
+    "H6_code": "14",
+    "H7_code": "15",
+    "H4_label": "Compal",
+    "H5_label": "Origens Néctar",
+    "H6_label": "Vidro TP",
+    "H7_label": "0,2 L"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "F9",
+    "H6_code": "11",
+    "H7_code": "24",
+    "H4_label": "Compal",
+    "H5_label": "Bom Dia",
+    "H6_label": "Tetra",
+    "H7_label": "1 L"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "F9",
+    "H6_code": "11",
+    "H7_code": "57",
+    "H4_label": "Compal",
+    "H5_label": "Bom Dia",
+    "H6_label": "Tetra",
+    "H7_label": "0,30 L"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "F9",
+    "H6_code": "14",
+    "H7_code": "15",
+    "H4_label": "Compal",
+    "H5_label": "Bom Dia",
+    "H6_label": "Vidro TP",
+    "H7_label": "0,2 L"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "G1",
+    "H6_code": "10",
+    "H7_code": "18",
+    "H4_label": "Compal",
+    "H5_label": "Fresco",
+    "H6_label": "Pet",
+    "H7_label": "0,25 L"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "G1",
+    "H6_code": "10",
+    "H7_code": "23",
+    "H4_label": "Compal",
+    "H5_label": "Fresco",
+    "H6_label": "Pet",
+    "H7_label": "0,75 L"
+  },
+  {
+    "H4_code": "10",
+    "H5_code": "G5",
+    "H6_code": "14",
+    "H7_code": "D3",
+    "H4_label": "Compal",
+    "H5_label": "Receitas Vegetariana",
+    "H6_label": "Vidro TP",
+    "H7_label": "360 g"
+  },
+  {
+    "H4_code": "11",
+    "H5_code": "52",
+    "H6_code": "10",
+    "H7_code": "12",
+    "H4_label": "Compal Essencial",
+    "H5_label": "Doses de fruta",
+    "H6_label": "Pet",
+    "H7_label": "0,11 L"
+  },
+  {
+    "H4_code": "13",
+    "H5_code": "14",
+    "H6_code": "10",
+    "H7_code": "24",
+    "H4_label": "7up",
+    "H5_label": "Original",
+    "H6_label": "Pet",
+    "H7_label": "1 L"
+  },
+  {
+    "H4_code": "13",
+    "H5_code": "14",
+    "H6_code": "10",
+    "H7_code": "25",
+    "H4_label": "7up",
+    "H5_label": "Original",
+    "H6_label": "Pet",
+    "H7_label": "1,5 L"
+  },
+  {
+    "H4_code": "13",
+    "H5_code": "14",
+    "H6_code": "10",
+    "H7_code": "61",
+    "H4_label": "7up",
+    "H5_label": "Original",
+    "H6_label": "Pet",
+    "H7_label": "1,25 L"
+  },
+  {
+    "H4_code": "13",
+    "H5_code": "14",
+    "H6_code": "10",
+    "H7_code": "73",
+    "H4_label": "7up",
+    "H5_label": "Original",
+    "H6_label": "Pet",
+    "H7_label": "1,75 L"
+  },
+  {
+    "H4_code": "13",
+    "H5_code": "14",
+    "H6_code": "12",
+    "H7_code": "19",
+    "H4_label": "7up",
+    "H5_label": "Original",
+    "H6_label": "Lata",
+    "H7_label": "0,33 L"
+  },
+  {
+    "H4_code": "13",
+    "H5_code": "14",
+    "H6_code": "13",
+    "H7_code": "57",
+    "H4_label": "7up",
+    "H5_label": "Original",
+    "H6_label": "Vidro TR",
+    "H7_label": "0,30 L"
+  },
+  {
+    "H4_code": "13",
+    "H5_code": "19",
+    "H6_code": "10",
+    "H7_code": "21",
+    "H4_label": "7up",
+    "H5_label": "Z",
+    "H6_label": "Pet",
+    "H7_label": "0,5 L"
+  },
+  {
+    "H4_code": "13",
+    "H5_code": "19",
+    "H6_code": "10",
+    "H7_code": "24",
+    "H4_label": "7up",
+    "H5_label": "Z",
+    "H6_label": "Pet",
+    "H7_label": "1 L"
+  },
+  {
+    "H4_code": "13",
+    "H5_code": "19",
+    "H6_code": "10",
+    "H7_code": "25",
+    "H4_label": "7up",
+    "H5_label": "Z",
+    "H6_label": "Pet",
+    "H7_label": "1,5 L"
+  },
+  {
+    "H4_code": "13",
+    "H5_code": "19",
+    "H6_code": "10",
+    "H7_code": "61",
+    "H4_label": "7up",
+    "H5_label": "Z",
+    "H6_label": "Pet",
+    "H7_label": "1,25 L"
+  },
+  {
+    "H4_code": "13",
+    "H5_code": "19",
+    "H6_code": "10",
+    "H7_code": "73",
+    "H4_label": "7up",
+    "H5_label": "Z",
+    "H6_label": "Pet",
+    "H7_label": "1,75 L"
+  },
+  {
+    "H4_code": "13",
+    "H5_code": "19",
+    "H6_code": "12",
+    "H7_code": "19",
+    "H4_label": "7up",
+    "H5_label": "Z",
+    "H6_label": "Lata",
+    "H7_label": "0,33 L"
+  },
+  {
+    "H4_code": "13",
+    "H5_code": "19",
+    "H6_code": "15",
+    "H7_code": "31",
+    "H4_label": "7up",
+    "H5_label": "Z",
+    "H6_label": "Tanqueta",
+    "H7_label": "18,9 L"
+  },
+  {
+    "H4_code": "13",
+    "H5_code": "19",
+    "H6_code": "16",
+    "H7_code": "43",
+    "H4_label": "7up",
+    "H5_label": "Z",
+    "H6_label": "Bib",
+    "H7_label": "5 L"
+  },
+  {
+    "H4_code": "14",
+    "H5_code": "14",
+    "H6_code": "10",
+    "H7_code": "24",
+    "H4_label": "Pepsi",
+    "H5_label": "Original",
+    "H6_label": "Pet",
+    "H7_label": "1 L"
+  },
+  {
+    "H4_code": "14",
+    "H5_code": "14",
+    "H6_code": "10",
+    "H7_code": "25",
+    "H4_label": "Pepsi",
+    "H5_label": "Original",
+    "H6_label": "Pet",
+    "H7_label": "1,5 L"
+  },
+  {
+    "H4_code": "14",
+    "H5_code": "14",
+    "H6_code": "10",
+    "H7_code": "73",
+    "H4_label": "Pepsi",
+    "H5_label": "Original",
+    "H6_label": "Pet",
+    "H7_label": "1,75 L"
+  },
+  {
+    "H4_code": "14",
+    "H5_code": "14",
+    "H6_code": "12",
+    "H7_code": "19",
+    "H4_label": "Pepsi",
+    "H5_label": "Original",
+    "H6_label": "Lata",
+    "H7_label": "0,33 L"
+  },
+  {
+    "H4_code": "14",
+    "H5_code": "14",
+    "H6_code": "13",
+    "H7_code": "57",
+    "H4_label": "Pepsi",
+    "H5_label": "Original",
+    "H6_label": "Vidro TR",
+    "H7_label": "0,30 L"
+  },
+  {
+    "H4_code": "14",
+    "H5_code": "14",
+    "H6_code": "15",
+    "H7_code": "31",
+    "H4_label": "Pepsi",
+    "H5_label": "Original",
+    "H6_label": "Tanqueta",
+    "H7_label": "18,9 L"
+  },
+  {
+    "H4_code": "14",
+    "H5_code": "14",
+    "H6_code": "16",
+    "H7_code": "26",
+    "H4_label": "Pepsi",
+    "H5_label": "Original",
+    "H6_label": "Bib",
+    "H7_label": "10 L"
+  },
+  {
+    "H4_code": "14",
+    "H5_code": "14",
+    "H6_code": "16",
+    "H7_code": "34",
+    "H4_label": "Pepsi",
+    "H5_label": "Original",
+    "H6_label": "Bib",
+    "H7_label": "20 L"
+  },
+  {
+    "H4_code": "14",
+    "H5_code": "19",
+    "H6_code": "10",
+    "H7_code": "21",
+    "H4_label": "Pepsi",
+    "H5_label": "Z",
+    "H6_label": "Pet",
+    "H7_label": "0,5 L"
+  },
+  {
+    "H4_code": "14",
+    "H5_code": "19",
+    "H6_code": "10",
+    "H7_code": "24",
+    "H4_label": "Pepsi",
+    "H5_label": "Z",
+    "H6_label": "Pet",
+    "H7_label": "1 L"
+  },
+  {
+    "H4_code": "14",
+    "H5_code": "19",
+    "H6_code": "10",
+    "H7_code": "25",
+    "H4_label": "Pepsi",
+    "H5_label": "Z",
+    "H6_label": "Pet",
+    "H7_label": "1,5 L"
+  },
+  {
+    "H4_code": "14",
+    "H5_code": "19",
+    "H6_code": "10",
+    "H7_code": "73",
+    "H4_label": "Pepsi",
+    "H5_label": "Z",
+    "H6_label": "Pet",
+    "H7_label": "1,75 L"
+  },
+  {
+    "H4_code": "14",
+    "H5_code": "19",
+    "H6_code": "12",
+    "H7_code": "19",
+    "H4_label": "Pepsi",
+    "H5_label": "Z",
+    "H6_label": "Lata",
+    "H7_label": "0,33 L"
+  },
+  {
+    "H4_code": "14",
+    "H5_code": "19",
+    "H6_code": "13",
+    "H7_code": "57",
+    "H4_label": "Pepsi",
+    "H5_label": "Z",
+    "H6_label": "Vidro TR",
+    "H7_label": "0,30 L"
+  },
+  {
+    "H4_code": "14",
+    "H5_code": "19",
+    "H6_code": "16",
+    "H7_code": "43",
+    "H4_label": "Pepsi",
+    "H5_label": "Z",
+    "H6_label": "Bib",
+    "H7_label": "5 L"
+  },
+  {
+    "H4_code": "15",
+    "H5_code": "14",
+    "H6_code": "10",
+    "H7_code": "25",
+    "H4_label": "Guaraná Antárctica",
+    "H5_label": "Original",
+    "H6_label": "Pet",
+    "H7_label": "1,5 L"
+  },
+  {
+    "H4_code": "15",
+    "H5_code": "14",
+    "H6_code": "12",
+    "H7_code": "19",
+    "H4_label": "Guaraná Antárctica",
+    "H5_label": "Original",
+    "H6_label": "Lata",
+    "H7_label": "0,33 L"
+  },
+  {
+    "H4_code": "15",
+    "H5_code": "19",
+    "H6_code": "10",
+    "H7_code": "24",
+    "H4_label": "Guaraná Antárctica",
+    "H5_label": "Z",
+    "H6_label": "Pet",
+    "H7_label": "1 L"
+  },
+  {
+    "H4_code": "15",
+    "H5_code": "19",
+    "H6_code": "12",
+    "H7_code": "19",
+    "H4_label": "Guaraná Antárctica",
+    "H5_label": "Z",
+    "H6_label": "Lata",
+    "H7_label": "0,33 L"
+  },
+  {
+    "H4_code": "16",
+    "H5_code": "14",
+    "H6_code": "10",
+    "H7_code": "21",
+    "H4_label": "Gatorade",
+    "H5_label": "Original",
+    "H6_label": "Pet",
+    "H7_label": "0,5 L"
+  },
+  {
+    "H4_code": "18",
+    "H5_code": "38",
+    "H6_code": "14",
+    "H7_code": "22",
+    "H4_label": "Gud",
+    "H5_label": "Concentrado",
+    "H6_label": "Vidro TP",
+    "H7_label": "0,74 L"
+  },
+  {
+    "H4_code": "21",
+    "H5_code": "14",
+    "H6_code": "14",
+    "H7_code": "18",
+    "H4_label": "Tagus",
+    "H5_label": "Original",
+    "H6_label": "Vidro TP",
+    "H7_label": "0,25 L"
+  },
+  {
+    "H4_code": "21",
+    "H5_code": "14",
+    "H6_code": "17",
+    "H7_code": "39",
+    "H4_label": "Tagus",
+    "H5_label": "Original",
+    "H6_label": "Barril",
+    "H7_label": "30 L"
+  },
+  {
+    "H4_code": "21",
+    "H5_code": "14",
+    "H6_code": "17",
+    "H7_code": "44",
+    "H4_label": "Tagus",
+    "H5_label": "Original",
+    "H6_label": "Barril",
+    "H7_label": "50 L"
+  },
+  {
+    "H4_code": "23",
+    "H5_code": "14",
+    "H6_code": "10",
+    "H7_code": "19",
+    "H4_label": "Serra da Estrela",
+    "H5_label": "Original",
+    "H6_label": "Pet",
+    "H7_label": "0,33 L"
+  },
+  {
+    "H4_code": "23",
+    "H5_code": "14",
+    "H6_code": "10",
+    "H7_code": "21",
+    "H4_label": "Serra da Estrela",
+    "H5_label": "Original",
+    "H6_label": "Pet",
+    "H7_label": "0,5 L"
+  },
+  {
+    "H4_code": "23",
+    "H5_code": "14",
+    "H6_code": "10",
+    "H7_code": "25",
+    "H4_label": "Serra da Estrela",
+    "H5_label": "Original",
+    "H6_label": "Pet",
+    "H7_label": "1,5 L"
+  },
+  {
+    "H4_code": "23",
+    "H5_code": "14",
+    "H6_code": "10",
+    "H7_code": "63",
+    "H4_label": "Serra da Estrela",
+    "H5_label": "Original",
+    "H6_label": "Pet",
+    "H7_label": "6 L"
+  },
+  {
+    "H4_code": "23",
+    "H5_code": "14",
+    "H6_code": "13",
+    "H7_code": "18",
+    "H4_label": "Serra da Estrela",
+    "H5_label": "Original",
+    "H6_label": "Vidro TR",
+    "H7_label": "0,25 L"
+  },
+  {
+    "H4_code": "23",
+    "H5_code": "14",
+    "H6_code": "13",
+    "H7_code": "21",
+    "H4_label": "Serra da Estrela",
+    "H5_label": "Original",
+    "H6_label": "Vidro TR",
+    "H7_label": "0,5 L"
+  },
+  {
+    "H4_code": "23",
+    "H5_code": "14",
+    "H6_code": "13",
+    "H7_code": "24",
+    "H4_label": "Serra da Estrela",
+    "H5_label": "Original",
+    "H6_label": "Vidro TR",
+    "H7_label": "1 L"
+  },
+  {
+    "H4_code": "24",
+    "H5_code": "14",
+    "H6_code": "10",
+    "H7_code": "25",
+    "H4_label": "B!",
+    "H5_label": "Original",
+    "H6_label": "Pet",
+    "H7_label": "1,5 L"
+  },
+  {
+    "H4_code": "24",
+    "H5_code": "14",
+    "H6_code": "14",
+    "H7_code": "19",
+    "H4_label": "B!",
+    "H5_label": "Original",
+    "H6_label": "Vidro TP",
+    "H7_label": "0,33 L"
+  },
+  {
+    "H4_code": "24",
+    "H5_code": "78",
+    "H6_code": "16",
+    "H7_code": "43",
+    "H4_label": "B!",
+    "H5_label": "B!Monadas",
+    "H6_label": "Bib",
+    "H7_label": "5 L"
+  },
+  {
+    "H4_code": "25",
+    "H5_code": "14",
+    "H6_code": "11",
+    "H7_code": "15",
+    "H4_label": "Um Bongo",
+    "H5_label": "Original",
+    "H6_label": "Tetra",
+    "H7_label": "0,2 L"
+  },
+  {
+    "H4_code": "25",
+    "H5_code": "14",
+    "H6_code": "11",
+    "H7_code": "24",
+    "H4_label": "Um Bongo",
+    "H5_label": "Original",
+    "H6_label": "Tetra",
+    "H7_label": "1 L"
+  },
+  {
+    "H4_code": "25",
+    "H5_code": "D1",
+    "H6_code": "27",
+    "H7_code": "67",
+    "H4_label": "Um Bongo",
+    "H5_label": "Purés de Fruta",
+    "H6_label": "Pouch",
+    "H7_label": "90 g"
+  },
+  {
+    "H4_code": "26",
+    "H5_code": "14",
+    "H6_code": "10",
+    "H7_code": "21",
+    "H4_label": "Sumol",
+    "H5_label": "Original",
+    "H6_label": "Pet",
+    "H7_label": "0,5 L"
+  },
+  {
+    "H4_code": "26",
+    "H5_code": "14",
+    "H6_code": "10",
+    "H7_code": "24",
+    "H4_label": "Sumol",
+    "H5_label": "Original",
+    "H6_label": "Pet",
+    "H7_label": "1 L"
+  },
+  {
+    "H4_code": "26",
+    "H5_code": "14",
+    "H6_code": "10",
+    "H7_code": "25",
+    "H4_label": "Sumol",
+    "H5_label": "Original",
+    "H6_label": "Pet",
+    "H7_label": "1,5 L"
+  },
+  {
+    "H4_code": "26",
+    "H5_code": "14",
+    "H6_code": "10",
+    "H7_code": "61",
+    "H4_label": "Sumol",
+    "H5_label": "Original",
+    "H6_label": "Pet",
+    "H7_label": "1,25 L"
+  },
+  {
+    "H4_code": "26",
+    "H5_code": "14",
+    "H6_code": "10",
+    "H7_code": "73",
+    "H4_label": "Sumol",
+    "H5_label": "Original",
+    "H6_label": "Pet",
+    "H7_label": "1,75 L"
+  },
+  {
+    "H4_code": "26",
+    "H5_code": "14",
+    "H6_code": "12",
+    "H7_code": "19",
+    "H4_label": "Sumol",
+    "H5_label": "Original",
+    "H6_label": "Lata",
+    "H7_label": "0,33 L"
+  },
+  {
+    "H4_code": "26",
+    "H5_code": "14",
+    "H6_code": "13",
+    "H7_code": "18",
+    "H4_label": "Sumol",
+    "H5_label": "Original",
+    "H6_label": "Vidro TR",
+    "H7_label": "0,25 L"
+  },
+  {
+    "H4_code": "26",
+    "H5_code": "14",
+    "H6_code": "13",
+    "H7_code": "57",
+    "H4_label": "Sumol",
+    "H5_label": "Original",
+    "H6_label": "Vidro TR",
+    "H7_label": "0,30 L"
+  },
+  {
+    "H4_code": "26",
+    "H5_code": "14",
+    "H6_code": "14",
+    "H7_code": "57",
+    "H4_label": "Sumol",
+    "H5_label": "Original",
+    "H6_label": "Vidro TP",
+    "H7_label": "0,30 L"
+  },
+  {
+    "H4_code": "26",
+    "H5_code": "14",
+    "H6_code": "15",
+    "H7_code": "31",
+    "H4_label": "Sumol",
+    "H5_label": "Original",
+    "H6_label": "Tanqueta",
+    "H7_label": "18,9 L"
+  },
+  {
+    "H4_code": "26",
+    "H5_code": "14",
+    "H6_code": "16",
+    "H7_code": "37",
+    "H4_label": "Sumol",
+    "H5_label": "Original",
+    "H6_label": "Bib",
+    "H7_label": "2x3 L"
+  },
+  {
+    "H4_code": "26",
+    "H5_code": "14",
+    "H6_code": "16",
+    "H7_code": "38",
+    "H4_label": "Sumol",
+    "H5_label": "Original",
+    "H6_label": "Bib",
+    "H7_label": "3 L"
+  },
+  {
+    "H4_code": "26",
+    "H5_code": "14",
+    "H6_code": "16",
+    "H7_code": "43",
+    "H4_label": "Sumol",
+    "H5_label": "Original",
+    "H6_label": "Bib",
+    "H7_label": "5 L"
+  },
+  {
+    "H4_code": "26",
+    "H5_code": "19",
+    "H6_code": "10",
+    "H7_code": "24",
+    "H4_label": "Sumol",
+    "H5_label": "Z",
+    "H6_label": "Pet",
+    "H7_label": "1 L"
+  },
+  {
+    "H4_code": "26",
+    "H5_code": "19",
+    "H6_code": "10",
+    "H7_code": "73",
+    "H4_label": "Sumol",
+    "H5_label": "Z",
+    "H6_label": "Pet",
+    "H7_label": "1,75 L"
+  },
+  {
+    "H4_code": "27",
+    "H5_code": "14",
+    "H6_code": "14",
+    "H7_code": "18",
+    "H4_label": "Frize",
+    "H5_label": "Original",
+    "H6_label": "Vidro TP",
+    "H7_label": "0,25 L"
+  },
+  {
+    "H4_code": "27",
+    "H5_code": "14",
+    "H6_code": "14",
+    "H7_code": "23",
+    "H4_label": "Frize",
+    "H5_label": "Original",
+    "H6_label": "Vidro TP",
+    "H7_label": "0,75 L"
+  },
+  {
+    "H4_code": "27",
+    "H5_code": "21",
+    "H6_code": "14",
+    "H7_code": "18",
+    "H4_label": "Frize",
+    "H5_label": "Sabores",
+    "H6_label": "Vidro TP",
+    "H7_label": "0,25 L"
+  },
+  {
+    "H4_code": "27",
+    "H5_code": "21",
+    "H6_code": "14",
+    "H7_code": "23",
+    "H4_label": "Frize",
+    "H5_label": "Sabores",
+    "H6_label": "Vidro TP",
+    "H7_label": "0,75 L"
+  },
+  {
+    "H4_code": "27",
+    "H5_code": "62",
+    "H6_code": "14",
+    "H7_code": "18",
+    "H4_label": "Frize",
+    "H5_label": "Bar Collection",
+    "H6_label": "Vidro TP",
+    "H7_label": "0,25 L"
+  },
+  {
+    "H4_code": "27",
+    "H5_code": "G8",
+    "H6_code": "14",
+    "H7_code": "18",
+    "H4_label": "Frize",
+    "H5_label": "Botânicos",
+    "H6_label": "Vidro TP",
+    "H7_label": "0,25 L"
+  },
+  {
+    "H4_code": "38",
+    "H5_code": "14",
+    "H6_code": "17",
+    "H7_code": "39",
+    "H4_label": "Sureo",
+    "H5_label": "Original",
+    "H6_label": "Barril",
+    "H7_label": "30 L"
+  },
+  {
+    "H4_code": "40",
+    "H5_code": "67",
+    "H6_code": "14",
+    "H7_code": "18",
+    "H4_label": "Damm",
+    "H5_label": "Bock",
+    "H6_label": "Vidro TP",
+    "H7_label": "0,25 L"
+  },
+  {
+    "H4_code": "40",
+    "H5_code": "67",
+    "H6_code": "17",
+    "H7_code": "34",
+    "H4_label": "Damm",
+    "H5_label": "Bock",
+    "H6_label": "Barril",
+    "H7_label": "20 L"
+  },
+  {
+    "H4_code": "40",
+    "H5_code": "68",
+    "H6_code": "12",
+    "H7_code": "21",
+    "H4_label": "Damm",
+    "H5_label": "Estrella",
+    "H6_label": "Lata",
+    "H7_label": "0,5 L"
+  },
+  {
+    "H4_code": "40",
+    "H5_code": "68",
+    "H6_code": "14",
+    "H7_code": "15",
+    "H4_label": "Damm",
+    "H5_label": "Estrella",
+    "H6_label": "Vidro TP",
+    "H7_label": "0,20 L"
+  },
+  {
+    "H4_code": "40",
+    "H5_code": "68",
+    "H6_code": "14",
+    "H7_code": "18",
+    "H4_label": "Damm",
+    "H5_label": "Estrella",
+    "H6_label": "Vidro TP",
+    "H7_label": "0,25 L"
+  },
+  {
+    "H4_code": "40",
+    "H5_code": "68",
+    "H6_code": "14",
+    "H7_code": "19",
+    "H4_label": "Damm",
+    "H5_label": "Estrella",
+    "H6_label": "Vidro TP",
+    "H7_label": "0,33 L"
+  },
+  {
+    "H4_code": "40",
+    "H5_code": "68",
+    "H6_code": "17",
+    "H7_code": "39",
+    "H4_label": "Damm",
+    "H5_label": "Estrella",
+    "H6_label": "Barril",
+    "H7_label": "30 L"
+  },
+  {
+    "H4_code": "40",
+    "H5_code": "68",
+    "H6_code": "17",
+    "H7_code": "44",
+    "H4_label": "Damm",
+    "H5_label": "Estrella",
+    "H6_label": "Barril",
+    "H7_label": "50 L"
+  },
+  {
+    "H4_code": "40",
+    "H5_code": "69",
+    "H6_code": "14",
+    "H7_code": "19",
+    "H4_label": "Damm",
+    "H5_label": "Inedit",
+    "H6_label": "Vidro TP",
+    "H7_label": "0,33 L"
+  },
+  {
+    "H4_code": "40",
+    "H5_code": "69",
+    "H6_code": "14",
+    "H7_code": "23",
+    "H4_label": "Damm",
+    "H5_label": "Inedit",
+    "H6_label": "Vidro TP",
+    "H7_label": "0,75 L"
+  },
+  {
+    "H4_code": "40",
+    "H5_code": "69",
+    "H6_code": "17",
+    "H7_code": "34",
+    "H4_label": "Damm",
+    "H5_label": "Inedit",
+    "H6_label": "Barril",
+    "H7_label": "20 L"
+  },
+  {
+    "H4_code": "40",
+    "H5_code": "70",
+    "H6_code": "14",
+    "H7_code": "18",
+    "H4_label": "Damm",
+    "H5_label": "Free",
+    "H6_label": "Vidro TP",
+    "H7_label": "0,25 L"
+  },
+  {
+    "H4_code": "40",
+    "H5_code": "71",
+    "H6_code": "14",
+    "H7_code": "18",
+    "H4_label": "Damm",
+    "H5_label": "Voll",
+    "H6_label": "Vidro TP",
+    "H7_label": "0,25 L"
+  },
+  {
+    "H4_code": "40",
+    "H5_code": "71",
+    "H6_code": "17",
+    "H7_code": "34",
+    "H4_label": "Damm",
+    "H5_label": "Voll",
+    "H6_label": "Barril",
+    "H7_label": "20 L"
+  },
+  {
+    "H4_code": "40",
+    "H5_code": "84",
+    "H6_code": "14",
+    "H7_code": "19",
+    "H4_label": "Damm",
+    "H5_label": "Daura",
+    "H6_label": "Vidro TP",
+    "H7_label": "0,33 L"
+  },
+  {
+    "H4_code": "40",
+    "H5_code": "E4",
+    "H6_code": "17",
+    "H7_code": "34",
+    "H4_label": "Damm",
+    "H5_label": "MALQUERIDA",
+    "H6_label": "Barril",
+    "H7_label": "20 L"
+  },
+  {
+    "H4_code": "40",
+    "H5_code": "G3",
+    "H6_code": "14",
+    "H7_code": "18",
+    "H4_label": "Damm",
+    "H5_label": "Lemon",
+    "H6_label": "Vidro TP",
+    "H7_label": "0,25 L"
+  },
+  {
+    "H4_code": "40",
+    "H5_code": "G3",
+    "H6_code": "17",
+    "H7_code": "34",
+    "H4_label": "Damm",
+    "H5_label": "Lemon",
+    "H6_label": "Barril",
+    "H7_label": "20 L"
+  },
+  {
+    "H4_code": "56",
+    "H5_code": "14",
+    "H6_code": "10",
+    "H7_code": "19",
+    "H4_label": "Lipton Ice Tea",
+    "H5_label": "Original",
+    "H6_label": "Pet",
+    "H7_label": "0,33 L"
+  },
+  {
+    "H4_code": "56",
+    "H5_code": "14",
+    "H6_code": "10",
+    "H7_code": "21",
+    "H4_label": "Lipton Ice Tea",
+    "H5_label": "Original",
+    "H6_label": "Pet",
+    "H7_label": "0,5 L"
+  },
+  {
+    "H4_code": "56",
+    "H5_code": "14",
+    "H6_code": "10",
+    "H7_code": "25",
+    "H4_label": "Lipton Ice Tea",
+    "H5_label": "Original",
+    "H6_label": "Pet",
+    "H7_label": "1,5 L"
+  },
+  {
+    "H4_code": "56",
+    "H5_code": "14",
+    "H6_code": "11",
+    "H7_code": "15",
+    "H4_label": "Lipton Ice Tea",
+    "H5_label": "Original",
+    "H6_label": "Tetra",
+    "H7_label": "0,2 L"
+  },
+  {
+    "H4_code": "56",
+    "H5_code": "14",
+    "H6_code": "11",
+    "H7_code": "24",
+    "H4_label": "Lipton Ice Tea",
+    "H5_label": "Original",
+    "H6_label": "Tetra",
+    "H7_label": "1 L"
+  },
+  {
+    "H4_code": "56",
+    "H5_code": "14",
+    "H6_code": "12",
+    "H7_code": "19",
+    "H4_label": "Lipton Ice Tea",
+    "H5_label": "Original",
+    "H6_label": "Lata",
+    "H7_label": "0,33 L"
+  },
+  {
+    "H4_code": "56",
+    "H5_code": "14",
+    "H6_code": "13",
+    "H7_code": "19",
+    "H4_label": "Lipton Ice Tea",
+    "H5_label": "Original",
+    "H6_label": "Vidro TR",
+    "H7_label": "0,33 L"
+  },
+  {
+    "H4_code": "56",
+    "H5_code": "14",
+    "H6_code": "16",
+    "H7_code": "26",
+    "H4_label": "Lipton Ice Tea",
+    "H5_label": "Original",
+    "H6_label": "Bib",
+    "H7_label": "10 L"
+  },
+  {
+    "H4_code": "56",
+    "H5_code": "19",
+    "H6_code": "12",
+    "H7_code": "19",
+    "H4_label": "Lipton Ice Tea",
+    "H5_label": "Z",
+    "H6_label": "Lata",
+    "H7_label": "0,33 L"
+  },
+  {
+    "H4_code": "56",
+    "H5_code": "29",
+    "H6_code": "12",
+    "H7_code": "19",
+    "H4_label": "Lipton Ice Tea",
+    "H5_label": "Green",
+    "H6_label": "Lata",
+    "H7_label": "0,33 L"
+  },
+  {
+    "H4_code": "56",
+    "H5_code": "G4",
+    "H6_code": "12",
+    "H7_code": "19",
+    "H4_label": "Lipton Ice Tea",
+    "H5_label": "Kombucha",
+    "H6_label": "Lata",
+    "H7_label": "0,33 L"
+  },
+  {
+    "H4_code": "57",
+    "H5_code": "55",
+    "H6_code": "19",
+    "H7_code": "48",
+    "H4_label": "CO2",
+    "H5_label": "CO2",
+    "H6_label": "Gás",
+    "H7_label": "8000 g"
+  },
+  {
+    "H4_code": "57",
+    "H5_code": "55",
+    "H6_code": "19",
+    "H7_code": "C8",
+    "H4_label": "CO2",
+    "H5_label": "CO2",
+    "H6_label": "Gás",
+    "H7_label": "10 Kg"
+  },
+  {
+    "H4_code": "89",
+    "H5_code": "14",
+    "H6_code": "17",
+    "H7_code": "39",
+    "H4_label": "Coral Sidra",
+    "H5_label": "Original",
+    "H6_label": "Barril",
+    "H7_label": "30 L"
+  },
+  {
+    "H4_code": "89",
+    "H5_code": "14",
+    "H6_code": "17",
+    "H7_code": "D2",
+    "H4_label": "Coral Sidra",
+    "H5_label": "Original",
+    "H6_label": "Barril",
+    "H7_label": "10 L"
+  }
+]
