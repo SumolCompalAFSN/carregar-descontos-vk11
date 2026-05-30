@@ -1907,58 +1907,67 @@ export default function App() {
                       })}
 
                     {/* TAB H4_H6 */}
-                    {activeTab === 'H4_H6' && paginatedRows.map(item => {
-                        const record = h4H6Discounts[item.id] || { discountPercent: '', endDate: '' };
-                        const hasVal = record.discountPercent && parseFloat(record.discountPercent.replace(',', '.')) !== 0;
-                        const isSelected = (selectedKeys.H4_H6 || new Set()).has(item.id);
-                        return (
-                          <tr key={item.id} className={`hover:bg-slate-50 transition-colors ${hasVal ? 'bg-blue-50/15' : ''} ${isSelected ? 'bg-blue-100/20' : ''}`}>
-                            <td className="py-2 px-3 border-r border-slate-200 text-center sticky left-0 z-10 bg-white/40 shadow-r">
-                              <input
-                                type="checkbox"
-                                checked={isSelected}
-                                onChange={() => toggleRowSelected('H4_H6', item.id)}
-                                className="rounded border-slate-300 text-blue-600 focus:ring-blue-500 w-3.5 h-3.5 cursor-pointer"
-                              />
-                            </td>
-                            
-                            <td className="py-2 px-4 border-r border-slate-200">
-  <span className="font-semibold text-slate-900 truncate">{item.brandLabel}</span>
-</td>
-                            <td className="py-2 px-4 border-r border-slate-200">
-                              <div className="flex items-center space-x-1.5 font-semibold text-slate-800">
-                                <span className="text-slate-500 font-mono text-[10px] bg-slate-50 px-1.5 py-0.5 rounded border border-slate-150">{item.packTypeCode}</span>
-                                <span className="truncate">{item.packTypeLabel}</span>
-                              </div>
-                            </td>
-                            
-                            <td className="py-1 px-3 border-r border-slate-200 bg-amber-50/10">
-                              <div className="flex items-center space-x-1 justify-center">
-                                <input
-                                  type="text"
-                                  placeholder="0.000"
-                                  value={record.discountPercent}
-                                  onChange={(e) => updateDiscountInput('H4_H6', item.id, 'discountPercent', e.target.value)}
-                                  className="w-24 text-center bg-white border border-amber-300 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 rounded font-semibold text-slate-900 text-xs py-1"
-                                />
-                                <span className="text-[10px] font-bold text-amber-700">%</span>
-                              </div>
-                            </td>
-                            <td className="py-1 px-3 border-r border-slate-200 bg-slate-55 text-slate-500 font-semibold text-center select-none font-mono">
-                              {formatDateToPT(COCKPIT_TODAY)}
-                            </td>
-                            <td className="py-1 px-3 bg-amber-50/10">
-                              <input
-                                type="date"
-                                value={record.endDate}
-                                min={COCKPIT_TODAY}
-                                onChange={(e) => updateDiscountInput('H4_H6', item.id, 'endDate', e.target.value)}
-                                className="w-full text-xs font-semibold bg-white border border-amber-300 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 rounded text-center py-1 font-mono"
-                              />
-                            </td>
-                          </tr>
-                        );
-                      })}
+                   {activeTab === 'H4_H6' && paginatedRows.map(item => {
+  const record = h4H6Discounts[item.id] || { discountPercent: '', endDate: '' };
+  const hasVal = record.discountPercent && parseFloat(record.discountPercent.replace(',', '.')) !== 0;
+  const isSelected = (selectedKeys.H4_H6 || new Set()).has(item.id);
+
+  return (
+    <tr
+      key={item.id}
+      className={`hover:bg-slate-50 transition-colors ${hasVal ? 'bg-blue-50/15' : ''} ${isSelected ? 'bg-blue-100/20' : ''}`}
+    >
+      <td className="py-2 px-3 border-r border-slate-200 text-center sticky left-0 z-10 bg-white/40 shadow-r">
+        <input
+          type="checkbox"
+          checked={isSelected}
+          onChange={() => toggleRowSelected('H4_H6', item.id)}
+          className="rounded border-slate-300 text-blue-600 focus:ring-blue-500 w-3.5 h-3.5 cursor-pointer"
+        />
+      </td>
+
+      {/* H4 (MARCA) */}
+      <td className="py-2 px-4 border-r border-slate-200">
+        <span className="font-semibold text-slate-900 truncate">{item.brandLabel}</span>
+      </td>
+
+      {/* H6 (EMBALAGEM) */}
+      <td className="py-2 px-4 border-r border-slate-200">
+        <span className="text-slate-800 truncate">{item.packTypeLabel}</span>
+      </td>
+
+      {/* DESCONTO */}
+      <td className="py-1 px-3 border-r border-slate-200 bg-amber-50/10">
+        <div className="flex items-center space-x-1 justify-center">
+          <input
+            type="text"
+            placeholder="0.000"
+            value={record.discountPercent}
+            onChange={(e) => updateDiscountInput('H4_H6', item.id, 'discountPercent', e.target.value)}
+            className="w-24 text-center bg-white border border-amber-300 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 rounded font-semibold text-slate-900 text-xs py-1"
+          />
+          <span className="text-[10px] font-bold text-amber-700">%</span>
+        </div>
+      </td>
+
+      {/* DATA INÍCIO */}
+      <td className="py-1 px-3 border-r border-slate-200 bg-slate-55 text-slate-500 font-semibold text-center select-none font-mono">
+        {formatDateToPT(COCKPIT_TODAY)}
+      </td>
+
+      {/* DATA FIM */}
+      <td className="py-1 px-3 bg-amber-50/10">
+        <input
+          type="date"
+          value={record.endDate}
+          min={COCKPIT_TODAY}
+          onChange={(e) => updateDiscountInput('H4_H6', item.id, 'endDate', e.target.value)}
+          className="w-full text-xs font-semibold bg-white border border-amber-300 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 rounded text-center py-1 font-mono"
+        />
+      </td>
+    </tr>
+  );
+})}
 
                     {/* TAB H4_H5 */}
                     {activeTab === 'H4_H5' && paginatedRows.map(item => {
