@@ -1555,7 +1555,7 @@ export default function App() {
           <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
             <h2 className="font-semibold text-slate-800 flex items-center space-x-2 text-sm">
               <span className="w-6 h-6 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center text-xs font-bold">1</span>
-              <span>Propriedades do Contexto de Negócio SAP</span>
+              <span>Carregamento de Descontos no Cliente</span>
             </h2>
             {target && modo ? (
               <span className="text-xs text-green-600 font-semibold flex items-center space-x-1 bg-green-50 px-2 py-1 rounded">
@@ -1597,7 +1597,7 @@ export default function App() {
                   }`}
                 >
                   <span className="text-sm font-bold">HQ</span>
-                  <span className="text-[10px] opacity-80">Por Estrutura Grupo</span>
+                  <span className="text-[10px] opacity-80">Por Hirerquia</span>
                 </button>
               </div>
             </div>
@@ -1605,12 +1605,12 @@ export default function App() {
             {/* MODO */}
             <div>
               <label className="block text-[10px] font-extrabold uppercase tracking-wider text-slate-500 mb-2">
-                2. MODO SAP (VK11 ACTION) <span className="text-rose-500">*</span>
+                2. MODO DE CARREGAMENTO <span className="text-rose-500">*</span>
               </label>
               <div className="grid grid-cols-3 gap-2">
                 {(['CARREGAR_1X', 'ACRESCENTAR', 'SUBSTITUIR'] as const).map(m => {
                   const label = m === 'CARREGAR_1X' ? '1ª Vez' : m === 'ACRESCENTAR' ? 'Acrescentar' : 'Substituir';
-                  const desc = m === 'CARREGAR_1X' ? 'Inicial' : m === 'ACRESCENTAR' ? 'Adiciona' : 'Invalida ant.';
+                  const desc = m === 'CARREGAR_1X' ? 'Inicial' : m === 'ACRESCENTAR' ? 'Adiciona Descontos aos Existentes' : 'Substitui Todos os Existentes';
                   return (
                     <button
                       key={m}
@@ -1632,7 +1632,7 @@ export default function App() {
             {/* Free TargetCode input with strict 7-digit validation and catalog display lookup */}
             <div>
               <label className="block text-[10px] font-extrabold uppercase tracking-wider text-slate-500 mb-2">
-                3. CÓDIGO DO CLIENTE / TARGET (7 DÍGITOS) <span className="text-rose-500">*</span>
+                3. CÓDIGO DO CLIENTE PAGADOR / TARGET (7 DÍGITOS) <span className="text-rose-500">*</span>
               </label>
               {target ? (
                 <div>
@@ -1650,7 +1650,7 @@ export default function App() {
                     {/^\d{7}$/.test(targetCode) ? (
                       <span className="text-emerald-700 flex items-center space-x-1 font-semibold">
                         <UserCheck className="w-3.5 h-3.5" />
-                        <span>Código Pagador: <strong>{
+                        <span> -  <strong>{
                           mockClients.find(c => c.code === targetCode && c.type === target)?.name || 'Código corretamente introduzido'
                         }</strong></span>
                       </span>
