@@ -1488,18 +1488,17 @@ export default function App() {
   // ==========================================
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 font-sans flex flex-col antialiased">
-      {/* Portfolio Info Banner - Strictly Seller Information */}
+      {/* Top Info Bar */}
       <div className="bg-slate-950 text-slate-300 text-[11px] px-6 py-2 border-b border-slate-800 flex items-center justify-end gap-4 shadow-inner">
-  <span>
-    Versão Publicada:{' '}
-    <strong className="text-white bg-blue-600 px-2 py-0.5 rounded font-mono text-[11px] font-bold">
-      {catalogVersion}
-    </strong>
-  </span>
-  <span className="text-slate-400">
-    Atualizado: {catalogUpdatedAt ? formatDateToPT(catalogUpdatedAt.slice(0, 10)) : '—'}
-  </span>
-</div>
+        <span>
+          Versão Publicada:{' '}
+          <strong className="text-white bg-blue-600 px-2 py-0.5 rounded font-mono text-[11px] font-bold">
+            {catalogVersion}
+          </strong>
+        </span>
+        <span className="text-slate-400">
+          Atualizado: {catalogUpdatedAt ? formatDateToPT(catalogUpdatedAt.slice(0, 10)) : '—'}
+        </span>
       </div>
 
       {/* Seller Header */}
@@ -1510,12 +1509,18 @@ export default function App() {
           </div>
           <div>
             <h1 className="text-xl font-extrabold tracking-tight text-slate-900 flex items-center gap-2">
-              Carregamento de Descontos
+              Gestor de Descontos SAP VK11
+              <span className="text-[10px] px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 font-normal border border-slate-200">
+                Excel Assistant v1.9
+              </span>
             </h1>
+            <p className="text-xs text-slate-500">
+              Preenchimento rápido de descontos comerciais e exportação direta formatada para carregamento manual no SAP
+            </p>
           </div>
         </div>
 
-        {/* Strictly Vendedor reset controls (No admin switches or uploader inputs) */}
+        {/* Strictly Vendedor reset controls */}
         <div className="flex flex-wrap items-center gap-3 w-full lg:w-auto">
           <div className="flex items-center gap-2 ml-auto lg:ml-0">
             <button
