@@ -1639,7 +1639,7 @@ export default function App() {
                   <input
                     type="text"
                     maxLength={7}
-                    placeholder="Ex: 4100223"
+                    placeholder="Ex: 1234567"
                     value={targetCode}
                     onChange={(e) => setTargetCode(e.target.value)}
                     className={`w-full h-11 px-3 bg-white border rounded-lg text-xs font-semibold text-slate-800 focus:ring-1 focus:ring-blue-500 focus:outline-none ${
