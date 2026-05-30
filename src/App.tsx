@@ -1515,14 +1515,8 @@ export default function App() {
           </div>
           <div>
             <h1 className="text-xl font-extrabold tracking-tight text-slate-900 flex items-center gap-2">
-              Gestor de Descontos SAP VK11
-              <span className="text-[10px] px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 font-normal border border-slate-200">
-                Excel Assistant v1.9
-              </span>
+              Carregamento de Descontos
             </h1>
-            <p className="text-xs text-slate-500">
-              Preenchimento rápido de descontos comerciais e exportação direta formatada para carregamento manual no SAP
-            </p>
           </div>
         </div>
 
@@ -1661,24 +1655,30 @@ export default function App() {
                       /^\d{7}$/.test(targetCode) ? 'border-slate-300' : 'border-rose-300 focus:ring-rose-500'
                     }`}
                   />
-                  {targetCode.trim() !== '' && (
-  <p className="text-[11px] mt-1.5 flex items-center space-x-1">
+                 {targetCode.trim() !== '' && (
+  <p className="text-[11px] mt-1.5 flex items-center">
     {/^\d{7}$/.test(targetCode) ? (
       (() => {
-        const matchedClient = mockClients.find(c => c.code === targetCode && c.type === target);
+        const matchedClient = mockClients.find(
+          c => c.code === targetCode && c.type === target
+        );
+
         return matchedClient ? (
-          <span className="text-emerald-700 flex items-center space-x-1 font-semibold">
-            <UserCheck className="w-3.5 h-3.5" />
-            <span>Nome (Lookup): <strong>{matchedClient.name}</strong></span>
+          <span className="text-emerald-700 flex items-center gap-1.5 font-semibold">
+            <UserCheck className="w-3.5 h-3.5 text-emerald-600" />
+            <span>
+              Nome (Lookup): <strong>{matchedClient.name}</strong>
+            </span>
           </span>
         ) : (
-          <span className="text-slate-500 font-semibold">
-            Código válido
+          <span className="text-emerald-700 flex items-center gap-1.5 font-semibold">
+            <UserCheck className="w-3.5 h-3.5 text-emerald-600" />
+            <span>Código válido</span>
           </span>
         );
       })()
     ) : (
-      <span className="text-rose-500 font-semibold flex items-center space-x-1">
+      <span className="text-rose-500 font-semibold flex items-center gap-1.5">
         <AlertTriangle className="w-3.5 h-3.5 text-rose-400" />
         <span>Introduza exatamente 7 dígitos numéricos.</span>
       </span>
