@@ -1661,21 +1661,30 @@ export default function App() {
                       /^\d{7}$/.test(targetCode) ? 'border-slate-300' : 'border-rose-300 focus:ring-rose-500'
                     }`}
                   />
-                  <p className="text-[11px] mt-1.5 flex items-center space-x-1">
-                    {/^\d{7}$/.test(targetCode) ? (
-                      <span className="text-emerald-700 flex items-center space-x-1 font-semibold">
-                        <UserCheck className="w-3.5 h-3.5" />
-                        <span> -  <strong>{
-                          mockClients.find(c => c.code === targetCode && c.type === target)?.name || 'Código Válido'
-                        }</strong></span>
-                      </span>
-                    ) : (
-                      <span className="text-rose-500 font-semibold flex items-center space-x-1">
-                        <AlertTriangle className="w-3.5 h-3.5 text-rose-400" />
-                        <span>Requer padrão ^\d{"{7}"}$ (exatamente 7 dígitos).</span>
-                      </span>
-                    )}
-                  </p>
+                  {targetCode.trim() !== '' && (
+  <p className="text-[11px] mt-1.5 flex items-center space-x-1">
+    {/^\d{7}$/.test(targetCode) ? (
+      (() => {
+        const matchedClient = mockClients.find(c => c.code === targetCode && c.type === target);
+        return matchedClient ? (
+          <span className="text-emerald-700 flex items-center space-x-1 font-semibold">
+            <UserCheck className="w-3.5 h-3.5" />
+            <span>Nome (Lookup): <strong>{matchedClient.name}</strong></span>
+          </span>
+        ) : (
+          <span className="text-slate-500 font-semibold">
+            Código válido
+          </span>
+        );
+      })()
+    ) : (
+      <span className="text-rose-500 font-semibold flex items-center space-x-1">
+        <AlertTriangle className="w-3.5 h-3.5 text-rose-400" />
+        <span>Introduza exatamente 7 dígitos numéricos.</span>
+      </span>
+    )}
+  </p>
+)}
                 </div>
               ) : (
                 <div className="h-11 border border-dashed border-slate-200 bg-slate-50 rounded-lg flex items-center justify-center text-slate-400 text-xs px-2 text-center">
