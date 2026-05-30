@@ -1632,7 +1632,7 @@ export default function App() {
             {/* Free TargetCode input with strict 7-digit validation and catalog display lookup */}
             <div>
               <label className="block text-[10px] font-extrabold uppercase tracking-wider text-slate-500 mb-2">
-                3. CÓDIGO DO CLIENTE PAGADOR / TARGET (7 DÍGITOS) <span className="text-rose-500">*</span>
+                3. CÓDIGO DO CLIENTE <span className="text-rose-500">*</span>
               </label>
               {target ? (
                 <div>
