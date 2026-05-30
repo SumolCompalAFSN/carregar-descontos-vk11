@@ -46,9 +46,24 @@ interface DiscountRecord {
 type DiscountMap = Record<string, DiscountRecord>;
 
 export default function App() {
-  // Constant local date representation (HOJE = 2026-05-28)
-  const COCKPIT_TODAY = '2026-05-28';
-  const defaultEndYearStr = '2026-12-31';
+ // Dynamic date helpers (HOJE)
+  const toISODate = (date: Date) => {
+    const y = date.getFullYear();
+    const m = String(date.getMonth() + 1).padStart(2, '0');
+    const d = String(date.getDate()).padStart(2, '0');
+    return `${y}-${m}-${d}`;
+  };
+
+  const now = new Date();
+
+  const COCKPIT_TODAY = toISODate(now);
+
+  const currentMonthEnd = (() => {
+    const lastDay = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+    return toISODate(lastDay);
+  })();
+
+  const currentYearEnd = `${now.getFullYear()}-12-31`;
 
   // Setup flow controls
   const [target, setTarget] = useState<'PAGADOR' | 'HQ' | null>(null);
@@ -242,31 +257,31 @@ export default function App() {
   const handleLoadSampleData = () => {
     // Brand (H4) prefilled (Compal = '10', Sumol = '13')
     setH4Discounts({
-      '10': { discountPercent: '5.250', endDate: '2026-12-31' },
-      '13': { discountPercent: '8.450', endDate: '2026-12-31' },
-    });
+  '10': { discountPercent: '5.250', endDate: currentYearEnd },
+  '13': { discountPercent: '8.450', endDate: currentYearEnd },
+});
 
     // Brand + Pack Type (H4+H6) prefilled
     setH4H6Discounts({
-      '13|12': { discountPercent: '12.000', endDate: '2026-08-31' },
-      '14|36': { discountPercent: '3.750', endDate: '2026-09-30' },
-    });
+  '13|12': { discountPercent: '12.000', endDate: currentMonthEnd },
+  '14|36': { discountPercent: '3.750', endDate: currentYearEnd },
+});
 
     // Brand + SubBrand (H4+H5) prefilled
-    setH4H5Discounts({
-      '10|E7': { discountPercent: '9.500', endDate: '2026-12-31' },
-    });
+   setH4H5Discounts({
+  '10|E7': { discountPercent: '9.500', endDate: currentYearEnd },
+});
 
     // Brand + Pack Type + Capacity (H4+H6+H7)
     setH4H6H7Discounts({
-      '56|12|D3': { discountPercent: '15.125', endDate: '2026-08-15' },
-    });
+  '56|12|D3': { discountPercent: '15.125', endDate: currentMonthEnd },
+});
 
     // Material prefilled (valid 7-digit SKU material codes)
     setMaterialDiscounts({
-      '2000101': { discountPercent: '10.500', endDate: '2026-06-30' },
-      '2000131': { discountPercent: '18.000', endDate: '2026-07-31' },
-    });
+  '2000101': { discountPercent: '10.500', endDate: currentMonthEnd },
+  '2000131': { discountPercent: '18.000', endDate: currentYearEnd },
+});
 
     // Set Target, Modo, and TargetCode automatically for rapid presentation
     setTarget('PAGADOR');
@@ -591,15 +606,15 @@ export default function App() {
   // Compute calculated values for Bulk Edit Options
   const calculatedBulkTargetDate = useMemo<string>(() => {
     if (bulkValidToOption === 'aberto') {
-      return ''; // Blank represents 31/12/9999
+      return ''; // vazio representa 31/12/9999 no export
     } else if (bulkValidToOption === 'fim_mes') {
-      return '2026-05-31'; // End day of current month (May 2026)
+      return currentMonthEnd;
     } else if (bulkValidToOption === 'fim_ano') {
-      return '2026-12-31'; // Year End
+      return currentYearEnd;
     } else {
-      return bulkValidToSpecificDate; // Chosen custom date
+      return bulkValidToSpecificDate;
     }
-  }, [bulkValidToOption, bulkValidToSpecificDate]);
+  }, [bulkValidToOption, bulkValidToSpecificDate, currentMonthEnd, currentYearEnd]);
 
   // Handle preparing the Bulk Edit validTo modal/confirm segment
   const handlePrepareBulkValidTo = () => {
@@ -1876,7 +1891,7 @@ export default function App() {
                             </td>
                             {/* validFrom: READ-ONLY PRE-FILLED WITH HOJE */}
                             <td className="py-1 px-3 border-r border-slate-200 bg-slate-55 text-slate-500 font-semibold text-center select-none font-mono tracking-tight">
-                              28/05/2026
+                              {formatDateToPT(COCKPIT_TODAY)}
                             </td>
                             {/* validTo: EDITABLE */}
                             <td className="py-1 px-3 bg-amber-50/10">
@@ -1932,7 +1947,7 @@ export default function App() {
                               </div>
                             </td>
                             <td className="py-1 px-3 border-r border-slate-200 bg-slate-55 text-slate-500 font-semibold text-center select-none font-mono">
-                              28/05/2026
+                              {formatDateToPT(COCKPIT_TODAY)}
                             </td>
                             <td className="py-1 px-3 bg-amber-50/10">
                               <input
@@ -1987,7 +2002,7 @@ export default function App() {
                               </div>
                             </td>
                             <td className="py-1 px-3 border-r border-slate-200 bg-slate-55 text-slate-500 font-semibold text-center select-none font-mono">
-                              28/05/2026
+                              {formatDateToPT(COCKPIT_TODAY)}
                             </td>
                             <td className="py-1 px-3 bg-amber-50/10">
                               <input
@@ -2048,7 +2063,7 @@ export default function App() {
                               </div>
                             </td>
                             <td className="py-1 px-3 border-r border-slate-200 bg-slate-55 text-slate-500 font-semibold text-center select-none font-mono">
-                              28/05/2026
+                              {formatDateToPT(COCKPIT_TODAY)}
                             </td>
                             <td className="py-1 px-3 bg-amber-50/10">
                               <input
@@ -2115,7 +2130,7 @@ export default function App() {
                               </div>
                             </td>
                             <td className="py-1 px-3 border-r border-slate-200 bg-slate-55 text-slate-500 font-semibold text-center select-none font-mono">
-                              28/05/2026
+                              {formatDateToPT(COCKPIT_TODAY)}
                             </td>
                             <td className="py-1 px-3 bg-amber-50/10">
                               <input
@@ -2165,7 +2180,7 @@ export default function App() {
                               </div>
                             </td>
                             <td className="py-1 px-3 border-r border-slate-200 bg-slate-55 text-slate-500 font-semibold text-center select-none font-mono">
-                              28/05/2026
+                              {formatDateToPT(COCKPIT_TODAY)}
                             </td>
                             <td className="py-1 px-3 bg-amber-50/10">
                               <input
@@ -2322,15 +2337,15 @@ export default function App() {
 
                     {/* SELECT OPTION SELECTOR */}
                     <select
-                      value={bulkValidToOption}
-                      onChange={(e: any) => setBulkValidToOption(e.target.value)}
-                      className="px-2.5 py-1.5 bg-white border border-slate-350 rounded text-xs font-semibold focus:ring-1 focus:ring-blue-500"
-                    >
-                      <option value="aberto">1) Período Aberto (A data vira 31/12/9999)</option>
-                      <option value="fim_mes">2) Fim do Mês Corrente (31/05/2026)</option>
-                      <option value="fim_ano">3) Fim do Ano (31/12/2026)</option>
-                      <option value="especifica">4) Escolher Data Específica...</option>
-                    </select>
+  value={bulkValidToOption}
+  onChange={(e: any) => setBulkValidToOption(e.target.value)}
+  className="px-2.5 py-1.5 bg-white border border-slate-350 rounded text-xs font-semibold focus:ring-1 focus:ring-blue-500"
+>
+  <option value="aberto">1) Período Aberto (A data vira 31/12/9999)</option>
+  <option value="fim_mes">2) Fim do Mês Corrente ({formatDateToPT(currentMonthEnd)})</option>
+  <option value="fim_ano">3) Fim do Ano ({formatDateToPT(currentYearEnd)})</option>
+  <option value="especifica">4) Escolher Data Específica...</option>
+</select>
 
                     {/* Conditional date picker for Custom Specific Date */}
                     {bulkValidToOption === 'especifica' && (
