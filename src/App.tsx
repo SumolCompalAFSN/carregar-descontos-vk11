@@ -1771,7 +1771,7 @@ export default function App() {
                     { key: 'H4_H5', label: 'H4 + H5', desc: 'Marca + SubMarca', count: filledCounts.H4_H5 },
                     { key: 'H4_H6_H7', label: 'H4+H6+H7', desc: 'Marca+Emb+Capacid.', count: filledCounts.H4_H6_H7 },
                     { key: 'H4_H5_H6_H7', label: 'H4+H5+H6+H7', desc: 'Todo Nível H4...H7', count: filledCounts.H4_H5_H6_H7 },
-                    { key: 'Material', label: 'Material SAP', desc: 'SKU Material Nível', count: filledCounts.Material },
+                    { key: 'Material', label: 'Material', desc: 'SKU Material Nível', count: filledCounts.Material },
                   ].map((tab) => {
                     const isSelected = activeTab === tab.key;
                     return (
@@ -1796,7 +1796,7 @@ export default function App() {
                             </span>
                           )}
                         </div>
-                        <span className="text-[9px] font-normal block text-left opacity-70 mt-0.5">{tab.desc}</span>
+                        
                       </button>
                     );
                   })}
@@ -1871,10 +1871,9 @@ export default function App() {
                               />
                             </td>
                             
-                            <td className="py-2 px-4 border-r border-slate-200 font-semibold text-slate-900 flex items-center space-x-2">
-                              <span className="text-slate-600 font-semibold font-mono text-[10px] bg-slate-100 px-1.5 py-0.5 rounded border border-slate-200">{item.code}</span>
-                              <span className="truncate">{item.label}</span>
-                            </td>
+                            <td className="py-2 px-4 border-r border-slate-200 font-semibold text-slate-900">
+  <span className="truncate">{item.label}</span>
+</td>
                             
                             {/* YELLOW INPUT CELLS */}
                             <td className="py-1 px-3 border-r border-slate-200 bg-amber-50/10">
@@ -1923,10 +1922,9 @@ export default function App() {
                               />
                             </td>
                             
-                            <td className="py-2 px-4 border-r border-slate-200 flex items-center space-x-2">
-                              <span className="text-slate-600 font-semibold font-mono text-[10px] bg-slate-100 px-1.5 py-0.5 rounded border border-slate-200">{item.brandCode}</span>
-                              <span className="font-semibold text-slate-900 truncate">{item.brandLabel}</span>
-                            </td>
+                            <td className="py-2 px-4 border-r border-slate-200">
+  <span className="font-semibold text-slate-900 truncate">{item.brandLabel}</span>
+</td>
                             <td className="py-2 px-4 border-r border-slate-200">
                               <div className="flex items-center space-x-1.5 font-semibold text-slate-800">
                                 <span className="text-slate-500 font-mono text-[10px] bg-slate-50 px-1.5 py-0.5 rounded border border-slate-150">{item.packTypeCode}</span>
@@ -1978,16 +1976,12 @@ export default function App() {
                               />
                             </td>
                             
-                            <td className="py-2 px-4 border-r border-slate-200 flex items-center space-x-1.5">
-                              <span className="text-slate-600 font-semibold font-mono text-[10px] bg-slate-100 px-1.5 py-0.5 rounded border border-slate-200">{item.brandCode}</span>
-                              <span className="font-semibold text-slate-900 truncate">{item.brandLabel}</span>
-                            </td>
                             <td className="py-2 px-4 border-r border-slate-200">
-                              <div className="flex items-center space-x-1.5 text-slate-800">
-                                <span className="text-slate-550 font-semibold font-mono text-[10px] bg-slate-50 px-1.5 py-0.5 rounded border border-slate-150">{item.subBrandCode}</span>
-                                <span className="truncate">{item.subBrandLabel}</span>
-                              </div>
-                            </td>
+  <span className="font-semibold text-slate-900 truncate">{item.brandLabel}</span>
+</td>
+                            <td className="py-2 px-4 border-r border-slate-200">
+  <span className="text-slate-800 truncate">{item.subBrandLabel}</span>
+</td>
                             
                             <td className="py-1 px-3 border-r border-slate-200 bg-amber-50/10">
                               <div className="flex items-center space-x-1 justify-center">
@@ -2032,17 +2026,10 @@ export default function App() {
                                 className="rounded border-slate-300 text-blue-600 focus:ring-blue-500 w-3.5 h-3.5 cursor-pointer"
                               />
                             </td>
-                            <td className="py-2 px-4 border-r border-slate-200 font-mono text-[10px] text-slate-500">H4 + H6 + H7</td>
-                            <td className="py-2 px-4 border-r border-slate-200 flex items-center space-x-1">
-                              <span className="text-slate-600 font-semibold font-mono text-[10px] bg-slate-100 px-1.5 py-0.5 rounded border border-slate-200">{item.brandCode}</span>
-                              <span className="font-semibold text-slate-900 truncate">{item.brandLabel}</span>
-                            </td>
+                      
                             <td className="py-2 px-4 border-r border-slate-200">
-                              <div className="flex items-center space-x-1.5 text-slate-800">
-                                <span className="text-slate-500 font-mono text-[10px] bg-slate-50 px-1.5 py-0.5 rounded border border-slate-150">{item.packTypeCode}</span>
-                                <span className="truncate">{item.packTypeLabel}</span>
-                              </div>
-                            </td>
+  <span className="font-semibold text-slate-800 truncate">{item.packTypeLabel}</span>
+</td>
                             <td className="py-2 px-4 border-r border-slate-200">
                               <div className="flex items-center space-x-1.5 text-slate-800 font-bold bg-slate-50/30">
                                 <span className="text-slate-500 font-mono text-[10px] bg-slate-100 px-1.5 py-0.5 rounded border border-slate-150">{item.capacityCode}</span>
@@ -2094,28 +2081,19 @@ export default function App() {
                               />
                             </td>
                             
-                            <td className="py-2 px-4 border-r border-slate-200 flex items-center space-x-1.5">
-                              <span className="text-slate-600 font-semibold font-mono text-[10px] bg-slate-100 px-1 py-0.5 rounded border border-slate-200">{item.brandCode}</span>
-                              <span className="font-semibold text-slate-900 truncate">{item.brandLabel}</span>
-                            </td>
+                            <td className="py-2 px-4 border-r border-slate-200">
+  <span className="font-semibold text-slate-900 truncate">{item.brandLabel}</span>
+</td>
                             <td className="py-2 px-4 border-r border-slate-200 text-slate-600">
-                              <div className="flex items-center space-x-1.5">
-                                <span className="text-slate-500 font-mono text-[10px] bg-slate-50 px-1 py-0.5 rounded border border-slate-150">{item.subBrandCode}</span>
-                                <span className="truncate">{item.subBrandLabel}</span>
-                              </div>
-                            </td>
+  <span className="truncate">{item.subBrandLabel}</span>
+</td>
                             <td className="py-2 px-4 border-r border-slate-200 text-slate-600">
-                              <div className="flex items-center space-x-1.5">
-                                <span className="text-slate-500 font-mono text-[10px] bg-slate-50 px-1 py-0.5 rounded border border-slate-150">{item.packTypeCode}</span>
-                                <span className="truncate">{item.packTypeLabel}</span>
-                              </div>
-                            </td>
+  <span className="truncate">{item.packTypeLabel}</span>
+</td>
                             <td className="py-2 px-4 border-r border-slate-200 text-slate-600 font-bold bg-slate-50/30">
-                              <div className="flex items-center space-x-1.5">
-                                <span className="text-slate-500 font-mono text-[10px] bg-slate-100 px-1 py-0.5 rounded border border-slate-150">{item.capacityCode}</span>
-                                <span className="truncate">{item.capacityLabel}</span>
-                              </div>
-                            </td>
+  <span className="truncate">{item.capacityLabel}</span>
+</td>
+
                             
                             <td className="py-1 px-3 border-r border-slate-200 bg-amber-50/10">
                               <div className="flex items-center space-x-1 justify-center">
