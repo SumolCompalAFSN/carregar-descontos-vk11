@@ -1489,22 +1489,17 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 font-sans flex flex-col antialiased">
       {/* Portfolio Info Banner - Strictly Seller Information */}
-      <div className="bg-slate-950 text-slate-300 text-[11px] px-6 py-2 border-b border-slate-800 flex flex-wrap items-center justify-between gap-2 shadow-inner">
-        <div className="flex items-center space-x-3">
-          <span className="flex items-center space-x-1 font-semibold text-emerald-400 font-mono tracking-wider">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse mr-1 inline-block" />
-            <span>PORTFÓLIO DE APOIO SAP (VENDEDOR)</span>
-          </span>
-          <span className="text-slate-700">|</span>
-          <span className="flex items-center space-x-1">
-            <Database className="w-3.5 h-3.5 text-slate-500" />
-            <span>Origem: <strong>{catalogSource || 'Catálogo Central Publicado'}</strong></span>
-          </span>
-        </div>
-        <div className="flex items-center space-x-4">
-          <span>Versão Publicada: <strong className="text-white bg-blue-600 px-2 py-0.5 rounded font-mono text-[11px] font-bold">{catalogVersion}</strong></span>
-          <span className="text-slate-400">Ativo Centralizado — Atualizado: {formatDateToPT(catalogUpdatedAt.slice(0,10))}</span>
-        </div>
+      <div className="bg-slate-950 text-slate-300 text-[11px] px-6 py-2 border-b border-slate-800 flex items-center justify-end gap-4 shadow-inner">
+  <span>
+    Versão Publicada:{' '}
+    <strong className="text-white bg-blue-600 px-2 py-0.5 rounded font-mono text-[11px] font-bold">
+      {catalogVersion}
+    </strong>
+  </span>
+  <span className="text-slate-400">
+    Atualizado: {catalogUpdatedAt ? formatDateToPT(catalogUpdatedAt.slice(0, 10)) : '—'}
+  </span>
+</div>
       </div>
 
       {/* Seller Header */}
@@ -1538,24 +1533,6 @@ export default function App() {
       {/* Main Area */}
       <div className="flex-1 p-6 flex flex-col space-y-6 overflow-y-auto max-w-7xl w-full mx-auto">
         
-        {/* Autocarload Notification Center */}
-        <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 shadow-xs">
-          <div className="flex items-start space-x-2.5">
-            <Database className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
-            <div>
-              <p className="text-xs text-blue-900 font-bold">Portfólio Oficial Ativo Autocarregado</p>
-              <p className="text-[11px] text-blue-700 mt-0.5 leading-relaxed">
-                A sua base de trabalho de Marcas <strong>(H4)</strong>, Embalagens <strong>(H6)</strong> e SKUs é monitorizada centralmente. A aplicação carrega automaticamente as regras corretas de governança.
-              </p>
-            </div>
-          </div>
-          <div className="flex items-center space-x-2 flex-shrink-0">
-            <span className="text-[10px] font-bold text-slate-500 uppercase">Versão em Uso:</span>
-            <span className="text-xs font-bold text-blue-850 bg-blue-10 bg-blue-100 border border-blue-200 px-2.5 py-0.5 rounded font-mono">
-              {catalogVersion}
-            </span>
-          </div>
-        </div>
 
         {/* STEP 1: PARÂMETROS OBRIGATÓRIOS DO TOPO */}
         <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-xs relative overflow-hidden">
@@ -1646,15 +1623,19 @@ export default function App() {
               {target ? (
                 <div>
                   <input
-                    type="text"
-                    maxLength={7}
-                    placeholder="Cod. Cliente"
-                    value={targetCode}
-                    onChange={(e) => setTargetCode(e.target.value)}
-                    className={`w-full h-11 px-3 bg-white border rounded-lg text-xs font-semibold text-slate-800 focus:ring-1 focus:ring-blue-500 focus:outline-none ${
-                      /^\d{7}$/.test(targetCode) ? 'border-slate-300' : 'border-rose-300 focus:ring-rose-500'
-                    }`}
-                  />
+  type="text"
+  maxLength={7}
+  placeholder="Cod. Cliente"
+  value={targetCode}
+  onChange={(e) => setTargetCode(e.target.value)}
+  className={`w-44 h-11 px-3 bg-white border rounded-lg text-xs font-semibold text-slate-800 focus:outline-none ${
+    targetCode.trim() === ''
+      ? 'border-slate-300 focus:ring-1 focus:ring-blue-500'
+      : /^\d{7}$/.test(targetCode)
+      ? 'border-slate-300 focus:ring-1 focus:ring-blue-500'
+      : 'border-rose-300 focus:ring-1 focus:ring-rose-500'
+  }`}
+/>
                  {targetCode.trim() !== '' && (
   <p className="text-[11px] mt-1.5 flex items-center">
     {/^\d{7}$/.test(targetCode) ? (
