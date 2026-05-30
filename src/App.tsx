@@ -68,7 +68,7 @@ export default function App() {
   // Setup flow controls
   const [target, setTarget] = useState<'PAGADOR' | 'HQ' | null>(null);
   const [modo, setModo] = useState<'CARREGAR_1X' | 'ACRESCENTAR' | 'SUBSTITUIR' | null>(null);
-  const [targetCode, setTargetCode] = useState<string>('4100223');
+  const [targetCode, setTargetCode] = useState<string>('');
   const [brandFilter, setBrandFilter] = useState<string>('ALL');
   const [materialSearch, setMaterialSearch] = useState<string>('');
   const [activeTab, setActiveTab] = useState<'H4' | 'H4_H6' | 'H4_H5' | 'H4_H6_H7' | 'H4_H5_H6_H7' | 'Material'>('H4');
@@ -286,7 +286,7 @@ export default function App() {
     // Set Target, Modo, and TargetCode automatically for rapid presentation
     setTarget('PAGADOR');
     setModo('CARREGAR_1X');
-    setTargetCode('4100223');
+    setTargetCode('');
   };
 
   // Reset all states helper
@@ -309,7 +309,7 @@ export default function App() {
     setBulkConfirmPreview(null);
     setTarget(null);
     setModo(null);
-    setTargetCode('4100223');
+    setTargetCode('');
     setMaterialSearch('');
     setCurrentPage(1);
   };
@@ -1654,7 +1654,7 @@ export default function App() {
                   <input
                     type="text"
                     maxLength={7}
-                    placeholder="Ex: 1234567"
+                    placeholder="Cod. Cliente"
                     value={targetCode}
                     onChange={(e) => setTargetCode(e.target.value)}
                     className={`w-full h-11 px-3 bg-white border rounded-lg text-xs font-semibold text-slate-800 focus:ring-1 focus:ring-blue-500 focus:outline-none ${
@@ -1666,7 +1666,7 @@ export default function App() {
                       <span className="text-emerald-700 flex items-center space-x-1 font-semibold">
                         <UserCheck className="w-3.5 h-3.5" />
                         <span> -  <strong>{
-                          mockClients.find(c => c.code === targetCode && c.type === target)?.name || 'Código corretamente introduzido'
+                          mockClients.find(c => c.code === targetCode && c.type === target)?.name || 'Código Válido'
                         }</strong></span>
                       </span>
                     ) : (
