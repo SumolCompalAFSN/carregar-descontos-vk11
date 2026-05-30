@@ -1818,26 +1818,26 @@ export default function App() {
                         />
                       </th>
                       
-                      <th className="py-2.5 px-4 border-r border-slate-200 w-36">SAP KEY TYPE</th>
+                      
                       
                       {(activeTab === 'H4' || activeTab === 'H4_H6' || activeTab === 'H4_H5' || activeTab === 'H4_H6_H7' || activeTab === 'H4_H5_H6_H7') && (
-                        <th className="py-2.5 px-4 border-r border-slate-200 w-52 text-slate-700">H4_code • H4_label (Marca)</th>
+                        <th className="py-2.5 px-4 border-r border-slate-200 w-52 text-slate-700">H4 (MARCA)</th>
                       )}
                       {(activeTab === 'H4_H5' || activeTab === 'H4_H5_H6_H7') && (
-                        <th className="py-2.5 px-4 border-r border-slate-200 w-48 text-slate-700">H5_code • H5_label (SubMarca)</th>
+                        <th className="py-2.5 px-4 border-r border-slate-200 w-48 text-slate-700">H5 (SUBMARCA)</th>
                       )}
                       {(activeTab === 'H4_H6' || activeTab === 'H4_H6_H7' || activeTab === 'H4_H5_H6_H7') && (
-                        <th className="py-2.5 px-4 border-r border-slate-200 w-48 text-slate-700">H6_code • H6_label (Embalagem)</th>
+                        <th className="py-2.5 px-4 border-r border-slate-200 w-48 text-slate-700">H6 (EMBALAGEM)</th>
                       )}
                       {(activeTab === 'H4_H6_H7' || activeTab === 'H4_H5_H6_H7') && (
-                        <th className="py-2.5 px-4 border-r border-slate-200 w-40 text-slate-700">H7_code • H7_label (Capacidade)</th>
+                        <th className="py-2.5 px-4 border-r border-slate-200 w-40 text-slate-700">H7 (CAPACIDADE)</th>
                       )}
                       
                       {activeTab === 'Material' && (
                         <>
-                          <th className="py-2.5 px-4 border-r border-slate-200 w-40 text-slate-700 font-extrabold">material_code (Artigo)</th>
-                          <th className="py-2.5 px-4 border-r border-slate-200 w-64 text-slate-700">material_label (Designação Artigo)</th>
-                          <th className="py-2.5 px-4 border-r border-slate-200 text-slate-400 font-normal">Hierarquia Atribuição</th>
+                          <th className="py-2.5 px-4 border-r border-slate-200 w-40 text-slate-700 font-extrabold">MATERIAL (ARTIGO)</th>
+                          <th className="py-2.5 px-4 border-r border-slate-200 w-64 text-slate-700">DESIGNAÇÃO (ARTIGO)</th>
+                          
                         </>
                       )}
                       
@@ -1870,7 +1870,7 @@ export default function App() {
                                 className="rounded border-slate-300 text-blue-600 focus:ring-blue-500 w-3.5 h-3.5 cursor-pointer"
                               />
                             </td>
-                            <td className="py-2 px-4 border-r border-slate-200 font-mono text-[10px] text-slate-500">H4 (Marca)</td>
+                            
                             <td className="py-2 px-4 border-r border-slate-200 font-semibold text-slate-900 flex items-center space-x-2">
                               <span className="text-slate-600 font-semibold font-mono text-[10px] bg-slate-100 px-1.5 py-0.5 rounded border border-slate-200">{item.code}</span>
                               <span className="truncate">{item.label}</span>
@@ -1922,7 +1922,7 @@ export default function App() {
                                 className="rounded border-slate-300 text-blue-600 focus:ring-blue-500 w-3.5 h-3.5 cursor-pointer"
                               />
                             </td>
-                            <td className="py-2 px-4 border-r border-slate-200 font-mono text-[10px] text-slate-500">H4 + H6</td>
+                            
                             <td className="py-2 px-4 border-r border-slate-200 flex items-center space-x-2">
                               <span className="text-slate-600 font-semibold font-mono text-[10px] bg-slate-100 px-1.5 py-0.5 rounded border border-slate-200">{item.brandCode}</span>
                               <span className="font-semibold text-slate-900 truncate">{item.brandLabel}</span>
@@ -1977,7 +1977,7 @@ export default function App() {
                                 className="rounded border-slate-300 text-blue-600 focus:ring-blue-500 w-3.5 h-3.5 cursor-pointer"
                               />
                             </td>
-                            <td className="py-2 px-4 border-r border-slate-200 font-mono text-[10px] text-slate-500">H4 + H5</td>
+                            
                             <td className="py-2 px-4 border-r border-slate-200 flex items-center space-x-1.5">
                               <span className="text-slate-600 font-semibold font-mono text-[10px] bg-slate-100 px-1.5 py-0.5 rounded border border-slate-200">{item.brandCode}</span>
                               <span className="font-semibold text-slate-900 truncate">{item.brandLabel}</span>
@@ -2093,7 +2093,7 @@ export default function App() {
                                 className="rounded border-slate-300 text-blue-600 focus:ring-blue-500 w-3.5 h-3.5 cursor-pointer"
                               />
                             </td>
-                            <td className="py-2 px-4 border-r border-slate-200 font-mono text-[10px] text-slate-500">Todo o Nível</td>
+                            
                             <td className="py-2 px-4 border-r border-slate-200 flex items-center space-x-1.5">
                               <span className="text-slate-600 font-semibold font-mono text-[10px] bg-slate-100 px-1 py-0.5 rounded border border-slate-200">{item.brandCode}</span>
                               <span className="font-semibold text-slate-900 truncate">{item.brandLabel}</span>
@@ -2160,12 +2160,10 @@ export default function App() {
                                 className="rounded border-slate-300 text-blue-600 focus:ring-blue-500 w-3.5 h-3.5 cursor-pointer"
                               />
                             </td>
-                            <td className="py-2 px-4 border-r border-slate-200 font-mono text-[10px] text-slate-500">Material (SAP SKU)</td>
+                            
                             <td className="py-2 px-4 border-r border-slate-200 font-mono text-xs font-bold text-blue-800 bg-slate-50/30 select-all">{item.id}</td>
                             <td className="py-2 px-4 border-r border-slate-200 font-semibold text-slate-800 truncate">{item.name}</td>
-                            <td className="py-2 px-4 border-r border-slate-200 text-[10px] text-slate-500 bg-slate-50/10 truncate">
-                              H4:{item.brandCode} • H5:{item.subBrandCode} • H6:{item.packTypeCode} • H7:{item.capacityCode}
-                            </td>
+                            
                             
                             <td className="py-1 px-3 border-r border-slate-200 bg-amber-50/10">
                               <div className="flex items-center space-x-1 justify-center">
