@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import * as XLSX from 'xlsx';
+import ExcelJS from 'exceljs';
 import { 
   FileSpreadsheet, 
   Layers, 
@@ -1068,7 +1069,7 @@ const totalPages = 1;
   }, [validationAlerts]);
 
   // Excel vk11 builder export sheet logic
- const handleExportSAPExcel = () => {
+const handleExportSAPExcel = async () => {
   if (totalFilled === 0) {
     alert('Nenhum desconto preenchido para exportar.');
     return;
@@ -1089,7 +1090,7 @@ const totalPages = 1;
     return;
   }
 
-  const wb = XLSX.utils.book_new();
+  const workbook = new ExcelJS.Workbook();
   const clientCode = targetCode.trim();
   const modoLabel = getModoLabel(modo);
 
@@ -1100,50 +1101,107 @@ const totalPages = 1;
     }
     return formatDateToSAP(dateStr);
   };
+  const addStyledSheet = (
+  sheetName: string,
+  headerRow: string[],
+  dataRows: (string | number)[][]
+) => {
+  if (!dataRows.length) return;
 
-  // Helper para criar cada aba com cabeçalho inicial
-  const appendSheetWithContext = (
-    sheetName: string,
-    headerRow: string[],
-    dataRows: (string | number)[][]
-  ) => {
-    if (!dataRows.length) return;
+  const worksheet = workbook.addWorksheet(sheetName);
 
-    const uniqueEndDates = [
-      ...new Set(
-        dataRows
-          .map((r) => String(r[r.length - 1] ?? '').trim())
-          .filter(Boolean)
-      ),
-    ];
+  const uniqueEndDates = [
+    ...new Set(
+      dataRows
+        .map((r) => String(r[r.length - 1] ?? '').trim())
+        .filter(Boolean)
+    ),
+  ];
 
-    const sheetEndDate =
-      uniqueEndDates.length === 1
-        ? uniqueEndDates[0]
-        : uniqueEndDates.length > 1
-        ? 'Múltiplas'
-        : '31.12.9999';
+  const sheetEndDate =
+    uniqueEndDates.length === 1
+      ? uniqueEndDates[0]
+      : uniqueEndDates.length > 1
+      ? 'Múltiplas'
+      : '31.12.9999';
 
-    const aoa = [
-      ['Código cliente', clientCode],
-      ['Opção', modoLabel],
-      ['Data Início', formatDateToSAP(COCKPIT_TODAY)],
-      ['Data Fim', sheetEndDate],
-      headerRow,
-      ...dataRows,
-    ];
+  // Topo da folha
+  worksheet.getCell('A1').value = 'Código cliente';
+  worksheet.getCell('B1').value = clientCode;
 
-    const ws = XLSX.utils.aoa_to_sheet(aoa);
+  worksheet.getCell('A2').value = 'Opção';
+  worksheet.getCell('B2').value = modoLabel;
 
-    ws['!cols'] = headerRow.map((col, idx) => {
-      if (idx === 0) return { wch: 16 }; // Código Cliente / Material
-      if (col === 'Desconto') return { wch: 12 };
-      if (col === 'De' || col === 'Até') return { wch: 14 };
-      return { wch: 12 };
-    });
+  worksheet.getCell('A3').value = 'Data Início';
+  worksheet.getCell('B3').value = formatDateToSAP(COCKPIT_TODAY);
 
-    XLSX.utils.book_append_sheet(wb, ws, sheetName);
+  worksheet.getCell('A4').value = 'Data Fim';
+  worksheet.getCell('B4').value = sheetEndDate;
+
+  // Estilo do topo
+  ['A1', 'A2', 'A3', 'A4'].forEach((cellRef) => {
+    worksheet.getCell(cellRef).font = { bold: true };
+  });
+
+  ['B1', 'B2', 'B3', 'B4'].forEach((cellRef) => {
+    worksheet.getCell(cellRef).font = { bold: true };
+  });
+
+  worksheet.getCell('B2').fill = {
+    type: 'pattern',
+    pattern: 'solid',
+    fgColor: { argb: 'FFF200' }
   };
+
+  // Cabeçalhos da linha 5
+  headerRow.forEach((header, idx) => {
+    const cell = worksheet.getCell(5, idx + 1);
+    cell.value = header;
+    cell.font = { bold: true };
+    cell.alignment = { horizontal: 'center', vertical: 'middle' };
+    cell.fill = {
+      type: 'pattern',
+      pattern: 'solid',
+      fgColor: { argb: 'FFD9D9D9' }
+    };
+    cell.border = {
+      top: { style: 'thin', color: { argb: 'FFBFBFBF' } },
+      bottom: { style: 'thin', color: { argb: 'FFBFBFBF' } }
+    };
+  });
+
+  // Dados a partir da linha 6
+  dataRows.forEach((row, rowIndex) => {
+    row.forEach((value, colIndex) => {
+      const cell = worksheet.getCell(rowIndex + 6, colIndex + 1);
+      cell.value = value;
+
+      cell.border = {
+        bottom: { style: 'thin', color: { argb: 'FFEAEAEA' } }
+      };
+
+      if (headerRow[colIndex] === 'Desconto') {
+        cell.alignment = { horizontal: 'center' };
+      }
+
+      if (headerRow[colIndex] === 'De' || headerRow[colIndex] === 'Até') {
+        cell.alignment = { horizontal: 'center' };
+      }
+    });
+  });
+
+  // Larguras de colunas
+  worksheet.columns = headerRow.map((header) => {
+    if (header === 'Código Cliente') return { width: 16 };
+    if (header === 'Material') return { width: 16 };
+    if (header === 'Desconto') return { width: 12 };
+    if (header === 'De' || header === 'Até') return { width: 14 };
+    return { width: 12 };
+  });
+
+  // Congelar topo
+  worksheet.views = [{ state: 'frozen', ySplit: 5 }];
+};
 
   // 1. H4
   const h4Rows: (string | number)[][] = [];
@@ -1160,11 +1218,11 @@ const totalPages = 1;
     ]);
   });
 
-  appendSheetWithContext(
-    'H4 (Marca)',
-    ['Código Cliente', 'H4', 'Desconto', 'De', 'Até'],
-    h4Rows
-  );
+ addStyledSheet(
+  'H4 (Marca)',
+  ['Código Cliente', 'H4', 'Desconto', 'De', 'Até'],
+  h4Rows
+);
 
   // 2. H4 + H6
   const h4h6Rows: (string | number)[][] = [];
@@ -1183,11 +1241,11 @@ const totalPages = 1;
     ]);
   });
 
-  appendSheetWithContext(
-    'H4+H6',
-    ['Código Cliente', 'H4', 'H6', 'Desconto', 'De', 'Até'],
-    h4h6Rows
-  );
+  addStyledSheet(
+  'H4+H6',
+  ['Código Cliente', 'H4', 'H6', 'Desconto', 'De', 'Até'],
+  h4h6Rows
+);
 
   // 3. H4 + H5
   const h4h5Rows: (string | number)[][] = [];
@@ -1206,11 +1264,12 @@ const totalPages = 1;
     ]);
   });
 
-  appendSheetWithContext(
-    'H4+H5',
-    ['Código Cliente', 'H4', 'H5', 'Desconto', 'De', 'Até'],
-    h4h5Rows
-  );
+  addStyledSheet(
+  'H4+H5',
+  ['Código Cliente', 'H4', 'H5', 'Desconto', 'De', 'Até'],
+  h4h5Rows
+);
+
 
   // 4. H4 + H6 + H7
   const h4h6h7Rows: (string | number)[][] = [];
@@ -1230,11 +1289,12 @@ const totalPages = 1;
     ]);
   });
 
-  appendSheetWithContext(
-    'H4+H6+H7',
-    ['Código Cliente', 'H4', 'H6', 'H7', 'Desconto', 'De', 'Até'],
-    h4h6h7Rows
-  );
+ addStyledSheet(
+  'H4+H6+H7',
+  ['Código Cliente', 'H4', 'H6', 'H7', 'Desconto', 'De', 'Até'],
+  h4h6h7Rows
+);
+
 
   // 5. H4 + H5 + H6 + H7
   const h4h5h6h7Rows: (string | number)[][] = [];
@@ -1255,11 +1315,12 @@ const totalPages = 1;
     ]);
   });
 
-  appendSheetWithContext(
-    'H4+H5+H6+H7',
-    ['Código Cliente', 'H4', 'H5', 'H6', 'H7', 'Desconto', 'De', 'Até'],
-    h4h5h6h7Rows
-  );
+  addStyledSheet(
+  'H4+H5+H6+H7',
+  ['Código Cliente', 'H4', 'H5', 'H6', 'H7', 'Desconto', 'De', 'Até'],
+  h4h5h6h7Rows
+);
+
 
   // 6. Material
   const materialRows: (string | number)[][] = [];
@@ -1276,14 +1337,26 @@ const totalPages = 1;
     ]);
   });
 
-  appendSheetWithContext(
-    'Material SAP',
-    ['Código Cliente', 'Material', 'Desconto', 'De', 'Até'],
-    materialRows
-  );
+  addStyledSheet(
+  'Material SAP',
+  ['Código Cliente', 'Material', 'Desconto', 'De', 'Até'],
+  materialRows
+);
 
-  // Nome do ficheiro
-  XLSX.writeFile(wb, `SAP_VK11_Descontos_${clientCode}.xlsx`);
+ const buffer = await workbook.xlsx.writeBuffer();
+
+const blob = new Blob([buffer], {
+  type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+});
+
+const url = window.URL.createObjectURL(blob);
+const a = document.createElement('a');
+a.href = url;
+a.download = `SAP_VK11_Descontos_${clientCode}.xlsx`;
+document.body.appendChild(a);
+a.click();
+document.body.removeChild(a);
+window.URL.revokeObjectURL(url);
 };
    
   // 1. Loading screen during Central SAP cache synchronization
