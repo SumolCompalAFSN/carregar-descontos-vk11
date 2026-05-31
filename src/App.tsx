@@ -1607,63 +1607,81 @@ const totalPages = 1;
             </div>
 
             {/* Free TargetCode input with strict 7-digit validation and catalog display lookup */}
-            <div>
-              <label className="block text-[10px] font-extrabold uppercase tracking-wider text-slate-500 mb-2">
-                3. CÓDIGO DO CLIENTE <span className="text-rose-500">*</span>
-              </label>
-              {target ? (
-                <div>
-                  <input
-  type="text"
-  maxLength={7}
-  placeholder="Cod. Cliente"
-  value={targetCode}
-  onChange={(e) => setTargetCode(e.target.value)}
-  className={`w-44 h-11 px-3 bg-white border rounded-lg text-xs font-semibold text-slate-800 focus:outline-none ${
-    targetCode.trim() === ''
-      ? 'border-slate-300 focus:ring-1 focus:ring-blue-500'
-      : /^\d{7}$/.test(targetCode)
-      ? 'border-slate-300 focus:ring-1 focus:ring-blue-500'
-      : 'border-rose-300 focus:ring-1 focus:ring-rose-500'
-  }`}
-/>
-                 {targetCode.trim() !== '' && (
-  <p className="text-[11px] mt-1.5 flex items-center">
-    {/^\d{7}$/.test(targetCode) ? (
-      (() => {
-        const matchedClient = mockClients.find(
-          c => c.code === targetCode && c.type === target
-        );
+           <div>
+  <label className="block text-[10px] font-extrabold uppercase tracking-wider text-slate-500 mb-2">
+    3. CÓDIGO DO CLIENTE / TARGET (7 DÍGITOS) <span className="text-rose-500">*</span>
+  </label>
 
-        return matchedClient ? (
-          <span className="text-emerald-700 flex items-center gap-1.5 font-semibold">
-            <UserCheck className="w-3.5 h-3.5 text-emerald-600" />
-            <span>
-              Nome (Lookup): <strong>{matchedClient.name}</strong>
-            </span>
-          </span>
-        ) : (
-          <span className="text-emerald-700 flex items-center gap-1.5 font-semibold">
-            <UserCheck className="w-3.5 h-3.5 text-emerald-600" />
-            <span>Código válido</span>
-          </span>
-        );
-      })()
-    ) : (
-      <span className="text-rose-500 font-semibold flex items-center gap-1.5">
-        <AlertTriangle className="w-3.5 h-3.5 text-rose-400" />
-        <span>Introduza exatamente 7 dígitos numéricos.</span>
-      </span>
-    )}
-  </p>
-)}
-                </div>
+  {target ? (
+    <div>
+      <div className="flex items-start gap-2">
+        <input
+          type="text"
+          maxLength={7}
+          placeholder="Cod. Cliente"
+          value={targetCode}
+          onChange={(e) => setTargetCode(e.target.value)}
+          className={`w-36 h-11 px-3 bg-white border rounded-lg text-xs font-semibold text-slate-800 focus:outline-none ${
+            targetCode.trim() === ''
+              ? 'border-slate-300 focus:ring-1 focus:ring-blue-500'
+              : /^\d{7}$/.test(targetCode)
+              ? 'border-slate-300 focus:ring-1 focus:ring-blue-500'
+              : 'border-rose-300 focus:ring-1 focus:ring-rose-500'
+          }`}
+        />
+
+        <button
+          disabled={totalFilled === 0}
+          onClick={handleExportSAPExcel}
+          className={`h-11 px-4 rounded-lg text-xs font-bold flex items-center gap-1.5 transition whitespace-nowrap ${
+            totalFilled === 0
+              ? 'bg-slate-200 text-slate-400 cursor-not-allowed border border-slate-300'
+              : 'bg-emerald-500 text-slate-950 hover:bg-emerald-400 cursor-pointer shadow-sm'
+          }`}
+          title="Gerar ficheiro Excel final"
+        >
+          <Download className="w-4 h-4" />
+          <span>GERAR EXCEL</span>
+        </button>
+      </div>
+
+      {targetCode.trim() !== '' && (
+        <p className="text-[11px] mt-1.5">
+          {/^\d{7}$/.test(targetCode) ? (
+            (() => {
+              const matchedClient = mockClients.find(
+                c => c.code === targetCode && c.type === target
+              );
+
+              return matchedClient ? (
+                <span className="text-emerald-700 inline-flex items-center gap-1.5 font-semibold bg-emerald-50 px-2 py-1 rounded-md">
+                  <UserCheck className="w-3.5 h-3.5 text-emerald-600" />
+                  <span>
+                    Nome (Lookup): <strong>{matchedClient.name}</strong>
+                  </span>
+                </span>
               ) : (
-                <div className="h-11 border border-dashed border-slate-200 bg-slate-50 rounded-lg flex items-center justify-center text-slate-400 text-xs px-2 text-center">
-                  Escolha o TARGET (PAGADOR / HQ) para vincular a conta do cliente.
-                </div>
-              )}
-            </div>
+                <span className="text-emerald-700 inline-flex items-center gap-1.5 font-semibold bg-emerald-50 px-2 py-1 rounded-md">
+                  <UserCheck className="w-3.5 h-3.5 text-emerald-600" />
+                  <span>Código válido</span>
+                </span>
+              );
+            })()
+          ) : (
+            <span className="text-rose-500 inline-flex items-center gap-1.5 font-semibold">
+              <AlertTriangle className="w-3.5 h-3.5 text-rose-400" />
+              <span>Introduza exatamente 7 dígitos numéricos.</span>
+            </span>
+          )}
+        </p>
+      )}
+    </div>
+  ) : (
+    <div className="h-11 border border-dashed border-slate-200 bg-slate-50 rounded-lg flex items-center justify-center text-slate-400 text-xs px-2 text-center">
+      Escolha o TARGET (PAGADOR / HQ) para vincular a conta do cliente.
+    </div>
+  )}
+</div>
           </div>
         </div>
 
@@ -2350,65 +2368,8 @@ const totalPages = 1;
 
         </div>
 
-      {/* STEP 3: EXPORTER DE EXCEL SAP */}
-<div className="pb-12">
-  <div className="bg-slate-900 text-white rounded-xl p-6 shadow-md relative overflow-hidden">
-    <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-3xl -mr-16 -mt-16" />
-
-    <div>
-      <div className="flex items-center justify-between mb-3">
-        <span className="bg-amber-500 text-slate-950 font-bold text-[9px] uppercase tracking-wider px-2 py-0.5 rounded">
-          SAP VK11 LOADER
-        </span>
-        <span className="text-xs text-slate-400 font-mono">
-          Formato Excel (.xlsx)
-        </span>
-      </div>
-
-      <h4 className="text-base font-bold text-white tracking-tight">
-        Gerar Ficheiro Excel SAP VK11
-      </h4>
-
-      <p className="text-slate-300 text-xs mt-1.5 leading-relaxed">
-        Gera de forma automática abas no Excel para as dimensões configuradas.
-        O arquivo é montado sem metadados inválidos do SAP (Condições,
-        Organizações de Venda, Divisões), que devem ser inseridos livremente
-        na interface do utilitário VK11.
-      </p>
-
-      <div className="grid grid-cols-2 gap-3 mt-4 text-[10px] font-mono bg-slate-850 p-3 rounded-lg border border-slate-800">
-        <div>
-          <span className="text-slate-500 block">Ficheiro SAP Destino:</span>
-          <span className="text-slate-300 font-semibold text-[10.5px] truncate block">
-            SAP_VK11_Descontos_{targetCode || '...'}.xlsx
-          </span>
-        </div>
-
-        <div>
-          <span className="text-slate-500 block">Chaves Ativadas:</span>
-          <span className="text-amber-400 font-extrabold block">
-            {totalFilled} registos
-          </span>
-        </div>
-      </div>
-    </div>
-
-    <div className="mt-6 pt-4 border-t border-slate-800 flex flex-col space-y-2">
-      <button
-        disabled={totalFilled === 0}
-        onClick={handleExportSAPExcel}
-        className={`w-full flex items-center justify-center space-x-2 py-3.5 px-4 rounded-lg text-xs font-extrabold shadow-md transition ${
-          totalFilled === 0
-            ? 'bg-slate-800 text-slate-500 cursor-not-allowed border border-slate-700 font-bold'
-            : 'bg-emerald-500 text-slate-950 hover:bg-emerald-400 active:scale-98 cursor-pointer'
-        }`}
-      >
-        <Download className="w-4.5 h-4.5" />
-        <span>GERAR EXCEL FINAL DE CARREGAMENTO ({totalFilled} REGISTOS)</span>
-      </button>
-    </div>
-  </div>
-</div>
+     
+{/* STEP 3 removido: botão de exportação movido para o topo */}
 
     </div>
   </div>
