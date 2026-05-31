@@ -33,14 +33,7 @@ export const activeCatalogMetadata: CatalogMetadata = {
   checksum: "9d8e7c6b5a4f3e2d1c"
 };
 
-export const mockClients: Client[] = [
-  { id: '1', name: 'Supermercados Continente S.A.', type: 'PAGADOR', code: '4100223' },
-  { id: '2', name: 'Pingo Doce Distribuição Lda.', type: 'PAGADOR', code: '4100482' },
-  { id: '3', name: 'Auchan Portugal Supermercados', type: 'PAGADOR', code: '4100910' },
-  { id: '4', name: 'SONAE DISTRIBUIÇÃO SGPS (Grupo HQ)', type: 'HQ', code: '5100010' },
-  { id: '5', name: 'JERÓNIMO MARTINS SGPS (Grupo HQ)', type: 'HQ', code: '5100015' },
-  { id: '6', name: 'INTERMARCHÉ PORTUGAL', type: 'PAGADOR', code: '4101004' }
-];
+export const mockClients: Client[] = [];
 
 export const mockCatalog: CatalogItem[] = [
   // --- COMPAL (H4=10) ---

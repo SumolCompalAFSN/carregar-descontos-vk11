@@ -46,14 +46,29 @@ interface DiscountRecord {
 type DiscountMap = Record<string, DiscountRecord>;
 
 export default function App() {
-  // Constant local date representation (HOJE = 2026-05-28)
-  const COCKPIT_TODAY = '2026-05-28';
-  const defaultEndYearStr = '2026-12-31';
+ // Dynamic date helpers (HOJE)
+  const toISODate = (date: Date) => {
+    const y = date.getFullYear();
+    const m = String(date.getMonth() + 1).padStart(2, '0');
+    const d = String(date.getDate()).padStart(2, '0');
+    return `${y}-${m}-${d}`;
+  };
+
+  const now = new Date();
+
+  const COCKPIT_TODAY = toISODate(now);
+
+  const currentMonthEnd = (() => {
+    const lastDay = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+    return toISODate(lastDay);
+  })();
+
+  const currentYearEnd = `${now.getFullYear()}-12-31`;
 
   // Setup flow controls
   const [target, setTarget] = useState<'PAGADOR' | 'HQ' | null>(null);
   const [modo, setModo] = useState<'CARREGAR_1X' | 'ACRESCENTAR' | 'SUBSTITUIR' | null>(null);
-  const [targetCode, setTargetCode] = useState<string>('4100223');
+  const [targetCode, setTargetCode] = useState<string>('');
   const [brandFilter, setBrandFilter] = useState<string>('ALL');
   const [materialSearch, setMaterialSearch] = useState<string>('');
   const [activeTab, setActiveTab] = useState<'H4' | 'H4_H6' | 'H4_H5' | 'H4_H6_H7' | 'H4_H5_H6_H7' | 'Material'>('H4');
@@ -242,36 +257,36 @@ export default function App() {
   const handleLoadSampleData = () => {
     // Brand (H4) prefilled (Compal = '10', Sumol = '13')
     setH4Discounts({
-      '10': { discountPercent: '5.250', endDate: '2026-12-31' },
-      '13': { discountPercent: '8.450', endDate: '2026-12-31' },
-    });
+  '10': { discountPercent: '5.250', endDate: currentYearEnd },
+  '13': { discountPercent: '8.450', endDate: currentYearEnd },
+});
 
     // Brand + Pack Type (H4+H6) prefilled
     setH4H6Discounts({
-      '13|12': { discountPercent: '12.000', endDate: '2026-08-31' },
-      '14|36': { discountPercent: '3.750', endDate: '2026-09-30' },
-    });
+  '13|12': { discountPercent: '12.000', endDate: currentMonthEnd },
+  '14|36': { discountPercent: '3.750', endDate: currentYearEnd },
+});
 
     // Brand + SubBrand (H4+H5) prefilled
-    setH4H5Discounts({
-      '10|E7': { discountPercent: '9.500', endDate: '2026-12-31' },
-    });
+   setH4H5Discounts({
+  '10|E7': { discountPercent: '9.500', endDate: currentYearEnd },
+});
 
     // Brand + Pack Type + Capacity (H4+H6+H7)
     setH4H6H7Discounts({
-      '56|12|D3': { discountPercent: '15.125', endDate: '2026-08-15' },
-    });
+  '56|12|D3': { discountPercent: '15.125', endDate: currentMonthEnd },
+});
 
     // Material prefilled (valid 7-digit SKU material codes)
     setMaterialDiscounts({
-      '2000101': { discountPercent: '10.500', endDate: '2026-06-30' },
-      '2000131': { discountPercent: '18.000', endDate: '2026-07-31' },
-    });
+  '2000101': { discountPercent: '10.500', endDate: currentMonthEnd },
+  '2000131': { discountPercent: '18.000', endDate: currentYearEnd },
+});
 
     // Set Target, Modo, and TargetCode automatically for rapid presentation
     setTarget('PAGADOR');
     setModo('CARREGAR_1X');
-    setTargetCode('4100223');
+    setTargetCode('');
   };
 
   // Reset all states helper
@@ -294,7 +309,7 @@ export default function App() {
     setBulkConfirmPreview(null);
     setTarget(null);
     setModo(null);
-    setTargetCode('4100223');
+    setTargetCode('');
     setMaterialSearch('');
     setCurrentPage(1);
   };
@@ -591,15 +606,15 @@ export default function App() {
   // Compute calculated values for Bulk Edit Options
   const calculatedBulkTargetDate = useMemo<string>(() => {
     if (bulkValidToOption === 'aberto') {
-      return ''; // Blank represents 31/12/9999
+      return ''; // vazio representa 31/12/9999 no export
     } else if (bulkValidToOption === 'fim_mes') {
-      return '2026-05-31'; // End day of current month (May 2026)
+      return currentMonthEnd;
     } else if (bulkValidToOption === 'fim_ano') {
-      return '2026-12-31'; // Year End
+      return currentYearEnd;
     } else {
-      return bulkValidToSpecificDate; // Chosen custom date
+      return bulkValidToSpecificDate;
     }
-  }, [bulkValidToOption, bulkValidToSpecificDate]);
+  }, [bulkValidToOption, bulkValidToSpecificDate, currentMonthEnd, currentYearEnd]);
 
   // Handle preparing the Bulk Edit validTo modal/confirm segment
   const handlePrepareBulkValidTo = () => {
@@ -1473,80 +1488,52 @@ export default function App() {
   // ==========================================
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 font-sans flex flex-col antialiased">
-      {/* Portfolio Info Banner - Strictly Seller Information */}
-      <div className="bg-slate-950 text-slate-300 text-[11px] px-6 py-2 border-b border-slate-800 flex flex-wrap items-center justify-between gap-2 shadow-inner">
-        <div className="flex items-center space-x-3">
-          <span className="flex items-center space-x-1 font-semibold text-emerald-400 font-mono tracking-wider">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse mr-1 inline-block" />
-            <span>PORTFÓLIO DE APOIO SAP (VENDEDOR)</span>
-          </span>
-          <span className="text-slate-700">|</span>
-          <span className="flex items-center space-x-1">
-            <Database className="w-3.5 h-3.5 text-slate-500" />
-            <span>Origem: <strong>{catalogSource || 'Catálogo Central Publicado'}</strong></span>
-          </span>
-        </div>
-        <div className="flex items-center space-x-4">
-          <span>Versão Publicada: <strong className="text-white bg-blue-600 px-2 py-0.5 rounded font-mono text-[11px] font-bold">{catalogVersion}</strong></span>
-          <span className="text-slate-400">Ativo Centralizado — Atualizado: {formatDateToPT(catalogUpdatedAt.slice(0,10))}</span>
-        </div>
-      </div>
+      {/* Top Info Bar */}
+    
 
       {/* Seller Header */}
-      <header className="bg-white border-b border-slate-200 sticky top-0 z-45 px-6 py-4 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 shadow-xs">
-        <div className="flex items-center space-x-3">
-          <div className="bg-amber-500 text-white p-2.5 rounded-xl shadow-md">
-            <FileSpreadsheet className="w-5 h-5 animate-pulse" />
-          </div>
-          <div>
-            <h1 className="text-xl font-extrabold tracking-tight text-slate-900 flex items-center gap-2">
-              Gestor de Descontos SAP VK11
-              <span className="text-[10px] px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 font-normal border border-slate-200">
-                Excel Assistant v1.9
-              </span>
-            </h1>
-            <p className="text-xs text-slate-500">
-              Preenchimento rápido de descontos comerciais e exportação direta formatada para carregamento manual no SAP
-            </p>
-          </div>
-        </div>
+     <header className="bg-white border-b border-slate-200 sticky top-0 z-45 px-6 py-4 shadow-xs">
+  <div className="max-w-[1235px] w-full mx-auto flex items-center justify-between gap-4">
+    
+    {/* Lado esquerdo */}
+<div className="flex items-center gap-3 min-w-0">
+  <div className="bg-amber-500 text-white p-2.5 rounded-xl shadow-md flex-shrink-0">
+    <FileSpreadsheet className="w-5 h-5 animate-pulse" />
+  </div>
 
-        {/* Strictly Vendedor reset controls (No admin switches or uploader inputs) */}
-        <div className="flex flex-wrap items-center gap-3 w-full lg:w-auto">
-          <div className="flex items-center gap-2 ml-auto lg:ml-0">
-            <button
-              onClick={handleReset}
-              className="flex items-center space-x-1.5 px-4 py-2.5 text-slate-500 hover:bg-slate-100 hover:text-slate-800 rounded-lg transition border border-slate-200 bg-white text-xs font-semibold"
-              title="Limpar todos os campos"
-            >
-              <RefreshCw className="w-3.5 h-3.5 text-slate-450" />
-              <span>Limpar Cockpit</span>
-            </button>
-          </div>
-        </div>
-      </header>
+  <div className="flex flex-col min-w-0">
+    <h1 className="text-xl font-extrabold tracking-tight text-slate-900 whitespace-nowrap">
+      Carregamento de Descontos
+    </h1>
 
+    <div className="flex items-center gap-3 mt-0.5 text-[11px]">
+      <span className="text-slate-500 whitespace-nowrap">
+        Versão <span className="text-slate-500">{catalogVersion}</span>
+      </span>
+
+      <span className="text-slate-400 whitespace-nowrap">
+        {catalogUpdatedAt ? formatDateToPT(catalogUpdatedAt.slice(0, 10)) : '—'}
+      </span>
+    </div>
+  </div>
+</div>
+
+    {/* Lado direito */}
+    <div className="flex items-center flex-shrink-0">
+      <button
+        onClick={handleReset}
+        className="flex items-center space-x-1.5 px-4 py-2.5 text-slate-500 hover:bg-slate-100 hover:text-slate-800 rounded-lg transition border border-slate-200 bg-white text-xs font-semibold"
+        title="Limpar todos os campos"
+      >
+        <RefreshCw className="w-3.5 h-3.5 text-slate-450" />
+        <span>Limpar Cockpit</span>
+      </button>
+    </div>
+  </div>
+</header>
       {/* Main Area */}
       <div className="flex-1 p-6 flex flex-col space-y-6 overflow-y-auto max-w-7xl w-full mx-auto">
         
-        {/* Autocarload Notification Center */}
-        <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 shadow-xs">
-          <div className="flex items-start space-x-2.5">
-            <Database className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
-            <div>
-              <p className="text-xs text-blue-900 font-bold">Portfólio Oficial Ativo Autocarregado</p>
-              <p className="text-[11px] text-blue-700 mt-0.5 leading-relaxed">
-                A sua base de trabalho de Marcas <strong>(H4)</strong>, Embalagens <strong>(H6)</strong> e SKUs é monitorizada centralmente. A aplicação carrega automaticamente as regras corretas de governança.
-              </p>
-            </div>
-          </div>
-          <div className="flex items-center space-x-2 flex-shrink-0">
-            <span className="text-[10px] font-bold text-slate-500 uppercase">Versão em Uso:</span>
-            <span className="text-xs font-bold text-blue-850 bg-blue-10 bg-blue-100 border border-blue-200 px-2.5 py-0.5 rounded font-mono">
-              {catalogVersion}
-            </span>
-          </div>
-        </div>
 
         {/* STEP 1: PARÂMETROS OBRIGATÓRIOS DO TOPO */}
         <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-xs relative overflow-hidden">
@@ -1555,7 +1542,7 @@ export default function App() {
           <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
             <h2 className="font-semibold text-slate-800 flex items-center space-x-2 text-sm">
               <span className="w-6 h-6 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center text-xs font-bold">1</span>
-              <span>Propriedades do Contexto de Negócio SAP</span>
+              <span>Carregamento de Descontos no Cliente</span>
             </h2>
             {target && modo ? (
               <span className="text-xs text-green-600 font-semibold flex items-center space-x-1 bg-green-50 px-2 py-1 rounded">
@@ -1597,7 +1584,7 @@ export default function App() {
                   }`}
                 >
                   <span className="text-sm font-bold">HQ</span>
-                  <span className="text-[10px] opacity-80">Por Estrutura Grupo</span>
+                  <span className="text-[10px] opacity-80">Por Hirerquia</span>
                 </button>
               </div>
             </div>
@@ -1605,12 +1592,12 @@ export default function App() {
             {/* MODO */}
             <div>
               <label className="block text-[10px] font-extrabold uppercase tracking-wider text-slate-500 mb-2">
-                2. MODO SAP (VK11 ACTION) <span className="text-rose-500">*</span>
+                2. MODO DE CARREGAMENTO <span className="text-rose-500">*</span>
               </label>
               <div className="grid grid-cols-3 gap-2">
                 {(['CARREGAR_1X', 'ACRESCENTAR', 'SUBSTITUIR'] as const).map(m => {
                   const label = m === 'CARREGAR_1X' ? '1ª Vez' : m === 'ACRESCENTAR' ? 'Acrescentar' : 'Substituir';
-                  const desc = m === 'CARREGAR_1X' ? 'Inicial' : m === 'ACRESCENTAR' ? 'Adiciona' : 'Invalida ant.';
+                  const desc = m === 'CARREGAR_1X' ? 'Inicial' : m === 'ACRESCENTAR' ? 'Adiciona Descontos aos Existentes' : 'Substitui Todos os Existentes';
                   return (
                     <button
                       key={m}
@@ -1632,35 +1619,54 @@ export default function App() {
             {/* Free TargetCode input with strict 7-digit validation and catalog display lookup */}
             <div>
               <label className="block text-[10px] font-extrabold uppercase tracking-wider text-slate-500 mb-2">
-                3. CÓDIGO DO CLIENTE / TARGET (7 DÍGITOS) <span className="text-rose-500">*</span>
+                3. CÓDIGO DO CLIENTE <span className="text-rose-500">*</span>
               </label>
               {target ? (
                 <div>
                   <input
-                    type="text"
-                    maxLength={7}
-                    placeholder="Ex: 4100223"
-                    value={targetCode}
-                    onChange={(e) => setTargetCode(e.target.value)}
-                    className={`w-full h-11 px-3 bg-white border rounded-lg text-xs font-semibold text-slate-800 focus:ring-1 focus:ring-blue-500 focus:outline-none ${
-                      /^\d{7}$/.test(targetCode) ? 'border-slate-300' : 'border-rose-300 focus:ring-rose-500'
-                    }`}
-                  />
-                  <p className="text-[11px] mt-1.5 flex items-center space-x-1">
-                    {/^\d{7}$/.test(targetCode) ? (
-                      <span className="text-emerald-700 flex items-center space-x-1 font-semibold">
-                        <UserCheck className="w-3.5 h-3.5" />
-                        <span>Nome (Lookup): <strong>{
-                          mockClients.find(c => c.code === targetCode && c.type === target)?.name || 'Cliente Livre na Carteira'
-                        }</strong></span>
-                      </span>
-                    ) : (
-                      <span className="text-rose-500 font-semibold flex items-center space-x-1">
-                        <AlertTriangle className="w-3.5 h-3.5 text-rose-400" />
-                        <span>Requer padrão ^\d{"{7}"}$ (exatamente 7 dígitos).</span>
-                      </span>
-                    )}
-                  </p>
+  type="text"
+  maxLength={7}
+  placeholder="Cod. Cliente"
+  value={targetCode}
+  onChange={(e) => setTargetCode(e.target.value)}
+  className={`w-44 h-11 px-3 bg-white border rounded-lg text-xs font-semibold text-slate-800 focus:outline-none ${
+    targetCode.trim() === ''
+      ? 'border-slate-300 focus:ring-1 focus:ring-blue-500'
+      : /^\d{7}$/.test(targetCode)
+      ? 'border-slate-300 focus:ring-1 focus:ring-blue-500'
+      : 'border-rose-300 focus:ring-1 focus:ring-rose-500'
+  }`}
+/>
+                 {targetCode.trim() !== '' && (
+  <p className="text-[11px] mt-1.5 flex items-center">
+    {/^\d{7}$/.test(targetCode) ? (
+      (() => {
+        const matchedClient = mockClients.find(
+          c => c.code === targetCode && c.type === target
+        );
+
+        return matchedClient ? (
+          <span className="text-emerald-700 flex items-center gap-1.5 font-semibold">
+            <UserCheck className="w-3.5 h-3.5 text-emerald-600" />
+            <span>
+              Nome (Lookup): <strong>{matchedClient.name}</strong>
+            </span>
+          </span>
+        ) : (
+          <span className="text-emerald-700 flex items-center gap-1.5 font-semibold">
+            <UserCheck className="w-3.5 h-3.5 text-emerald-600" />
+            <span>Código válido</span>
+          </span>
+        );
+      })()
+    ) : (
+      <span className="text-rose-500 font-semibold flex items-center gap-1.5">
+        <AlertTriangle className="w-3.5 h-3.5 text-rose-400" />
+        <span>Introduza exatamente 7 dígitos numéricos.</span>
+      </span>
+    )}
+  </p>
+)}
                 </div>
               ) : (
                 <div className="h-11 border border-dashed border-slate-200 bg-slate-50 rounded-lg flex items-center justify-center text-slate-400 text-xs px-2 text-center">
@@ -1756,7 +1762,7 @@ export default function App() {
                     { key: 'H4_H5', label: 'H4 + H5', desc: 'Marca + SubMarca', count: filledCounts.H4_H5 },
                     { key: 'H4_H6_H7', label: 'H4+H6+H7', desc: 'Marca+Emb+Capacid.', count: filledCounts.H4_H6_H7 },
                     { key: 'H4_H5_H6_H7', label: 'H4+H5+H6+H7', desc: 'Todo Nível H4...H7', count: filledCounts.H4_H5_H6_H7 },
-                    { key: 'Material', label: 'Material SAP', desc: 'SKU Material Nível', count: filledCounts.Material },
+                    { key: 'Material', label: 'Material', desc: 'SKU Material Nível', count: filledCounts.Material },
                   ].map((tab) => {
                     const isSelected = activeTab === tab.key;
                     return (
@@ -1781,7 +1787,7 @@ export default function App() {
                             </span>
                           )}
                         </div>
-                        <span className="text-[9px] font-normal block text-left opacity-70 mt-0.5">{tab.desc}</span>
+                        
                       </button>
                     );
                   })}
@@ -1803,26 +1809,26 @@ export default function App() {
                         />
                       </th>
                       
-                      <th className="py-2.5 px-4 border-r border-slate-200 w-36">SAP KEY TYPE</th>
+                      
                       
                       {(activeTab === 'H4' || activeTab === 'H4_H6' || activeTab === 'H4_H5' || activeTab === 'H4_H6_H7' || activeTab === 'H4_H5_H6_H7') && (
-                        <th className="py-2.5 px-4 border-r border-slate-200 w-52 text-slate-700">H4_code • H4_label (Marca)</th>
+                        <th className="py-2.5 px-4 border-r border-slate-200 w-52 text-slate-700">H4 (MARCA)</th>
                       )}
                       {(activeTab === 'H4_H5' || activeTab === 'H4_H5_H6_H7') && (
-                        <th className="py-2.5 px-4 border-r border-slate-200 w-48 text-slate-700">H5_code • H5_label (SubMarca)</th>
+                        <th className="py-2.5 px-4 border-r border-slate-200 w-48 text-slate-700">H5 (SUBMARCA)</th>
                       )}
                       {(activeTab === 'H4_H6' || activeTab === 'H4_H6_H7' || activeTab === 'H4_H5_H6_H7') && (
-                        <th className="py-2.5 px-4 border-r border-slate-200 w-48 text-slate-700">H6_code • H6_label (Embalagem)</th>
+                        <th className="py-2.5 px-4 border-r border-slate-200 w-48 text-slate-700">H6 (EMBALAGEM)</th>
                       )}
                       {(activeTab === 'H4_H6_H7' || activeTab === 'H4_H5_H6_H7') && (
-                        <th className="py-2.5 px-4 border-r border-slate-200 w-40 text-slate-700">H7_code • H7_label (Capacidade)</th>
+                        <th className="py-2.5 px-4 border-r border-slate-200 w-40 text-slate-700">H7 (CAPACIDADE)</th>
                       )}
                       
                       {activeTab === 'Material' && (
                         <>
-                          <th className="py-2.5 px-4 border-r border-slate-200 w-40 text-slate-700 font-extrabold">material_code (Artigo)</th>
-                          <th className="py-2.5 px-4 border-r border-slate-200 w-64 text-slate-700">material_label (Designação Artigo)</th>
-                          <th className="py-2.5 px-4 border-r border-slate-200 text-slate-400 font-normal">Hierarquia Atribuição</th>
+                          <th className="py-2.5 px-4 border-r border-slate-200 w-40 text-slate-700 font-extrabold">MATERIAL (ARTIGO)</th>
+                          <th className="py-2.5 px-4 border-r border-slate-200 w-64 text-slate-700">DESIGNAÇÃO (ARTIGO)</th>
+                          
                         </>
                       )}
                       
@@ -1855,11 +1861,10 @@ export default function App() {
                                 className="rounded border-slate-300 text-blue-600 focus:ring-blue-500 w-3.5 h-3.5 cursor-pointer"
                               />
                             </td>
-                            <td className="py-2 px-4 border-r border-slate-200 font-mono text-[10px] text-slate-500">H4 (Marca)</td>
-                            <td className="py-2 px-4 border-r border-slate-200 font-semibold text-slate-900 flex items-center space-x-2">
-                              <span className="text-slate-600 font-semibold font-mono text-[10px] bg-slate-100 px-1.5 py-0.5 rounded border border-slate-200">{item.code}</span>
-                              <span className="truncate">{item.label}</span>
-                            </td>
+                            
+                            <td className="py-2 px-4 border-r border-slate-200 font-semibold text-slate-900">
+  <span className="truncate">{item.label}</span>
+</td>
                             
                             {/* YELLOW INPUT CELLS */}
                             <td className="py-1 px-3 border-r border-slate-200 bg-amber-50/10">
@@ -1876,7 +1881,7 @@ export default function App() {
                             </td>
                             {/* validFrom: READ-ONLY PRE-FILLED WITH HOJE */}
                             <td className="py-1 px-3 border-r border-slate-200 bg-slate-55 text-slate-500 font-semibold text-center select-none font-mono tracking-tight">
-                              28/05/2026
+                              {formatDateToPT(COCKPIT_TODAY)}
                             </td>
                             {/* validTo: EDITABLE */}
                             <td className="py-1 px-3 bg-amber-50/10">
@@ -1893,6 +1898,67 @@ export default function App() {
                       })}
 
                     {/* TAB H4_H6 */}
+                   {activeTab === 'H4_H6' && paginatedRows.map(item => {
+  const record = h4H6Discounts[item.id] || { discountPercent: '', endDate: '' };
+  const hasVal = record.discountPercent && parseFloat(record.discountPercent.replace(',', '.')) !== 0;
+  const isSelected = (selectedKeys.H4_H6 || new Set()).has(item.id);
+
+  return (
+    <tr
+      key={item.id}
+      className={`hover:bg-slate-50 transition-colors ${hasVal ? 'bg-blue-50/15' : ''} ${isSelected ? 'bg-blue-100/20' : ''}`}
+    >
+      <td className="py-2 px-3 border-r border-slate-200 text-center sticky left-0 z-10 bg-white/40 shadow-r">
+        <input
+          type="checkbox"
+          checked={isSelected}
+          onChange={() => toggleRowSelected('H4_H6', item.id)}
+          className="rounded border-slate-300 text-blue-600 focus:ring-blue-500 w-3.5 h-3.5 cursor-pointer"
+        />
+      </td>
+
+      {/* H4 (MARCA) */}
+      <td className="py-2 px-4 border-r border-slate-200">
+        <span className="font-semibold text-slate-900 truncate">{item.brandLabel}</span>
+      </td>
+
+      {/* H6 (EMBALAGEM) */}
+      <td className="py-2 px-4 border-r border-slate-200">
+        <span className="text-slate-800 truncate">{item.packTypeLabel}</span>
+      </td>
+
+      {/* DESCONTO */}
+      <td className="py-1 px-3 border-r border-slate-200 bg-amber-50/10">
+        <div className="flex items-center space-x-1 justify-center">
+          <input
+            type="text"
+            placeholder="0.000"
+            value={record.discountPercent}
+            onChange={(e) => updateDiscountInput('H4_H6', item.id, 'discountPercent', e.target.value)}
+            className="w-24 text-center bg-white border border-amber-300 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 rounded font-semibold text-slate-900 text-xs py-1"
+          />
+          <span className="text-[10px] font-bold text-amber-700">%</span>
+        </div>
+      </td>
+
+      {/* DATA INÍCIO */}
+      <td className="py-1 px-3 border-r border-slate-200 bg-slate-55 text-slate-500 font-semibold text-center select-none font-mono">
+        {formatDateToPT(COCKPIT_TODAY)}
+      </td>
+
+      {/* DATA FIM */}
+      <td className="py-1 px-3 bg-amber-50/10">
+        <input
+          type="date"
+          value={record.endDate}
+          min={COCKPIT_TODAY}
+          onChange={(e) => updateDiscountInput('H4_H6', item.id, 'endDate', e.target.value)}
+          className="w-full text-xs font-semibold bg-white border border-amber-300 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 rounded text-center py-1 font-mono"
+        />
+      </td>
+    </tr>
+  );
+})}
                     {activeTab === 'H4_H6' && paginatedRows.map(item => {
                         const record = h4H6Discounts[item.id] || { discountPercent: '', endDate: '' };
                         const hasVal = record.discountPercent && parseFloat(record.discountPercent.replace(',', '.')) !== 0;
@@ -1958,6 +2024,13 @@ export default function App() {
                                 className="rounded border-slate-300 text-blue-600 focus:ring-blue-500 w-3.5 h-3.5 cursor-pointer"
                               />
                             </td>
+                            
+                            <td className="py-2 px-4 border-r border-slate-200">
+  <span className="font-semibold text-slate-900 truncate">{item.brandLabel}</span>
+</td>
+                            <td className="py-2 px-4 border-r border-slate-200">
+  <span className="text-slate-800 truncate">{item.subBrandLabel}</span>
+</td>
                             <td className="py-2 px-4 border-r border-slate-200 font-mono text-[10px] text-slate-500">H4 + H5</td>
                             <td className="py-2 px-4 border-r border-slate-200 flex items-center space-x-1.5">
                               <span className="font-semibold text-slate-900 truncate">{item.brandLabel}</span>
@@ -1981,7 +2054,7 @@ export default function App() {
                               </div>
                             </td>
                             <td className="py-1 px-3 border-r border-slate-200 bg-slate-55 text-slate-500 font-semibold text-center select-none font-mono">
-                              28/05/2026
+                              {formatDateToPT(COCKPIT_TODAY)}
                             </td>
                             <td className="py-1 px-3 bg-amber-50/10">
                               <input
@@ -1997,6 +2070,72 @@ export default function App() {
                       })}
 
                     {/* TAB H4_H6_H7 */}
+                   {activeTab === 'H4_H6_H7' && paginatedRows.map(item => {
+  const record = h4H6H7Discounts[item.id] || { discountPercent: '', endDate: '' };
+  const hasVal = record.discountPercent && parseFloat(record.discountPercent.replace(',', '.')) !== 0;
+  const isSelected = (selectedKeys.H4_H6_H7 || new Set()).has(item.id);
+
+  return (
+    <tr
+      key={item.id}
+      className={`hover:bg-slate-50 transition-colors ${hasVal ? 'bg-blue-50/15' : ''} ${isSelected ? 'bg-blue-100/20' : ''}`}
+    >
+      <td className="py-2 px-3 border-r border-slate-200 text-center sticky left-0 z-10 bg-white/40 shadow-r">
+        <input
+          type="checkbox"
+          checked={isSelected}
+          onChange={() => toggleRowSelected('H4_H6_H7', item.id)}
+          className="rounded border-slate-300 text-blue-600 focus:ring-blue-500 w-3.5 h-3.5 cursor-pointer"
+        />
+      </td>
+
+      {/* H4 (MARCA) */}
+      <td className="py-2 px-4 border-r border-slate-200">
+        <span className="font-semibold text-slate-900 truncate">{item.brandLabel}</span>
+      </td>
+
+      {/* H6 (EMBALAGEM) */}
+      <td className="py-2 px-4 border-r border-slate-200">
+        <span className="text-slate-800 truncate">{item.packTypeLabel}</span>
+      </td>
+
+      {/* H7 (CAPACIDADE) */}
+      <td className="py-2 px-4 border-r border-slate-200">
+        <span className="text-slate-800 font-bold truncate">{item.capacityLabel}</span>
+      </td>
+
+      {/* DESCONTO */}
+      <td className="py-1 px-3 border-r border-slate-200 bg-amber-50/10">
+        <div className="flex items-center space-x-1 justify-center">
+          <input
+            type="text"
+            placeholder="0.000"
+            value={record.discountPercent}
+            onChange={(e) => updateDiscountInput('H4_H6_H7', item.id, 'discountPercent', e.target.value)}
+            className="w-24 text-center bg-white border border-amber-300 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 rounded font-semibold text-slate-900 text-xs py-1"
+          />
+          <span className="text-[10px] font-bold text-amber-700">%</span>
+        </div>
+      </td>
+
+      {/* DATA INÍCIO */}
+      <td className="py-1 px-3 border-r border-slate-200 bg-slate-55 text-slate-500 font-semibold text-center select-none font-mono">
+        {formatDateToPT(COCKPIT_TODAY)}
+      </td>
+
+      {/* DATA FIM */}
+      <td className="py-1 px-3 bg-amber-50/10">
+        <input
+          type="date"
+          value={record.endDate}
+          min={COCKPIT_TODAY}
+          onChange={(e) => updateDiscountInput('H4_H6_H7', item.id, 'endDate', e.target.value)}
+          className="w-full text-xs font-semibold bg-white border border-amber-300 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 rounded text-center py-1 font-mono"
+        />
+      </td>
+    </tr>
+  );
+})}
                     {activeTab === 'H4_H6_H7' && paginatedRows.map(item => {
                         const record = h4H6H7Discounts[item.id] || { discountPercent: '', endDate: '' };
                         const hasVal = record.discountPercent && parseFloat(record.discountPercent.replace(',', '.')) !== 0;
@@ -2066,6 +2205,20 @@ export default function App() {
                                 className="rounded border-slate-300 text-blue-600 focus:ring-blue-500 w-3.5 h-3.5 cursor-pointer"
                               />
                             </td>
+                            
+                            <td className="py-2 px-4 border-r border-slate-200">
+  <span className="font-semibold text-slate-900 truncate">{item.brandLabel}</span>
+</td>
+                            <td className="py-2 px-4 border-r border-slate-200 text-slate-600">
+  <span className="truncate">{item.subBrandLabel}</span>
+</td>
+                            <td className="py-2 px-4 border-r border-slate-200 text-slate-600">
+  <span className="truncate">{item.packTypeLabel}</span>
+</td>
+                            <td className="py-2 px-4 border-r border-slate-200 text-slate-600 font-bold bg-slate-50/30">
+  <span className="truncate">{item.capacityLabel}</span>
+</td>
+
                             <td className="py-2 px-4 border-r border-slate-200 font-mono text-[10px] text-slate-500">Todo o Nível</td>
                             <td className="py-2 px-4 border-r border-slate-200 flex items-center space-x-1.5">
                               <span className="font-semibold text-slate-900 truncate">{item.brandLabel}</span>
@@ -2095,7 +2248,7 @@ export default function App() {
                               </div>
                             </td>
                             <td className="py-1 px-3 border-r border-slate-200 bg-slate-55 text-slate-500 font-semibold text-center select-none font-mono">
-                              28/05/2026
+                              {formatDateToPT(COCKPIT_TODAY)}
                             </td>
                             <td className="py-1 px-3 bg-amber-50/10">
                               <input
@@ -2125,12 +2278,10 @@ export default function App() {
                                 className="rounded border-slate-300 text-blue-600 focus:ring-blue-500 w-3.5 h-3.5 cursor-pointer"
                               />
                             </td>
-                            <td className="py-2 px-4 border-r border-slate-200 font-mono text-[10px] text-slate-500">Material (SAP SKU)</td>
+                            
                             <td className="py-2 px-4 border-r border-slate-200 font-mono text-xs font-bold text-blue-800 bg-slate-50/30 select-all">{item.id}</td>
                             <td className="py-2 px-4 border-r border-slate-200 font-semibold text-slate-800 truncate">{item.name}</td>
-                            <td className="py-2 px-4 border-r border-slate-200 text-[10px] text-slate-500 bg-slate-50/10 truncate">
-                              H4:{item.brandCode} • H5:{item.subBrandCode} • H6:{item.packTypeCode} • H7:{item.capacityCode}
-                            </td>
+                            
                             
                             <td className="py-1 px-3 border-r border-slate-200 bg-amber-50/10">
                               <div className="flex items-center space-x-1 justify-center">
@@ -2145,7 +2296,7 @@ export default function App() {
                               </div>
                             </td>
                             <td className="py-1 px-3 border-r border-slate-200 bg-slate-55 text-slate-500 font-semibold text-center select-none font-mono">
-                              28/05/2026
+                              {formatDateToPT(COCKPIT_TODAY)}
                             </td>
                             <td className="py-1 px-3 bg-amber-50/10">
                               <input
@@ -2302,15 +2453,15 @@ export default function App() {
 
                     {/* SELECT OPTION SELECTOR */}
                     <select
-                      value={bulkValidToOption}
-                      onChange={(e: any) => setBulkValidToOption(e.target.value)}
-                      className="px-2.5 py-1.5 bg-white border border-slate-350 rounded text-xs font-semibold focus:ring-1 focus:ring-blue-500"
-                    >
-                      <option value="aberto">1) Período Aberto (A data vira 31/12/9999)</option>
-                      <option value="fim_mes">2) Fim do Mês Corrente (31/05/2026)</option>
-                      <option value="fim_ano">3) Fim do Ano (31/12/2026)</option>
-                      <option value="especifica">4) Escolher Data Específica...</option>
-                    </select>
+  value={bulkValidToOption}
+  onChange={(e: any) => setBulkValidToOption(e.target.value)}
+  className="px-2.5 py-1.5 bg-white border border-slate-350 rounded text-xs font-semibold focus:ring-1 focus:ring-blue-500"
+>
+  <option value="aberto">1) Período Aberto (A data vira 31/12/9999)</option>
+  <option value="fim_mes">2) Fim do Mês Corrente ({formatDateToPT(currentMonthEnd)})</option>
+  <option value="fim_ano">3) Fim do Ano ({formatDateToPT(currentYearEnd)})</option>
+  <option value="especifica">4) Escolher Data Específica...</option>
+</select>
 
                     {/* Conditional date picker for Custom Specific Date */}
                     {bulkValidToOption === 'especifica' && (
