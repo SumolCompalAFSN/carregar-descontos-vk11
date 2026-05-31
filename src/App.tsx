@@ -253,6 +253,24 @@ export default function App() {
     return dateStr;
   };
 
+  // Formatter específico para o ficheiro SAP: dd.mm.aaaa
+const formatDateToSAP = (dateStr: string) => {
+  if (!dateStr) return '';
+  const parts = dateStr.split('-');
+  if (parts.length === 3) {
+    return `${parts[2]}.${parts[1]}.${parts[0]}`;
+  }
+  return dateStr.replace(/\//g, '.');
+};
+
+// Texto legível da opção selecionada
+const getModoLabel = (modoValue: typeof modo) => {
+  if (modoValue === 'CARREGAR_1X') return '1ª vez';
+  if (modoValue === 'ACRESCENTAR') return 'Acrescentar';
+  if (modoValue === 'SUBSTITUIR') return 'Substituir';
+  return '';
+};
+
   // Populate realistic sample data using actual codes mapping to catalog
   const handleLoadSampleData = () => {
     // Brand (H4) prefilled (Compal = '10', Sumol = '13')
@@ -1025,155 +1043,167 @@ const totalPages = 1;
 
   // Excel vk11 builder export sheet logic
   const handleExportSAPExcel = () => {
-    if (hasCriticalError) {
-      alert('Impossível Exportar: Corrija os erros e conflitos críticos apontados pelo validador.');
-      return;
+  if (totalFilled === 0) {
+    alert('Nenhum desconto preenchido para exportar.');
+    return;
+  }
+
+  if (!target) {
+    alert('Falta selecionar o TARGET.');
+    return;
+  }
+
+  if (!modo) {
+    alert('Falta selecionar o MODO.');
+    return;
+  }
+
+  if (!/^\d{7}$/.test(targetCode)) {
+    alert('O Código do Cliente / Target tem de conter exatamente 7 dígitos.');
+    return;
+  }
+
+  const wb = XLSX.utils.book_new();
+  const clientCode = targetCode.trim();
+  const modoLabel = getModoLabel(modo);
+
+  // validTo vazio = 31.12.9999
+  const resolveEndDate = (dateStr?: string) => {
+    if (!dateStr || dateStr.trim() === '') {
+      return '31.12.9999';
     }
-    if (totalFilled === 0) {
-      alert('Nenhum desconto cadastrado e preenchido para exportar.');
-      return;
-    }
-
-    const wb = XLSX.utils.book_new();
-    const clientCode = targetCode;
-    const cleanModo = modo || 'SUBSTITUIR';
-
-    // Format helper for end date
-    const resolveEndDate = (dateStr?: string) => {
-      if (!dateStr || dateStr.trim() === '') {
-        return "31/12/9999";
-      }
-      return formatDateToPT(dateStr);
-    };
-
-    // 1. Level H4: targetCode | H4_code | desconto_J | validFrom | validTo
-    const h4Rows: any[] = [];
-    (Object.entries(h4Discounts) as [string, DiscountRecord][]).forEach(([brandCode, rec]) => {
-      const pctStr = rec.discountPercent.trim().replace(',', '.');
-      if (pctStr === '' || pctStr === '0' || parseFloat(pctStr) === 0) return;
-
-      h4Rows.push({
-        'targetCode': clientCode,
-        'H4_code': brandCode,
-        'desconto_J': parseFloat(pctStr),
-        'validFrom': formatDateToPT(COCKPIT_TODAY),
-        'validTo': resolveEndDate(rec.endDate),
-      });
-    });
-    if (h4Rows.length > 0) {
-      const ws = XLSX.utils.json_to_sheet(h4Rows);
-      XLSX.utils.book_append_sheet(wb, ws, 'H4 (Marca)');
-    }
-
-    // 2. Level H4_H6: targetCode | H4_code | H6_code | desconto_J | validFrom | validTo
-    const h4h6Rows: any[] = [];
-    (Object.entries(h4H6Discounts) as [string, DiscountRecord][]).forEach(([key, rec]) => {
-      const pctStr = rec.discountPercent.trim().replace(',', '.');
-      if (pctStr === '' || pctStr === '0' || parseFloat(pctStr) === 0) return;
-
-      const [brandCode, packTypeCode] = key.split('|');
-      h4h6Rows.push({
-        'targetCode': clientCode,
-        'H4_code': brandCode,
-        'H6_code': packTypeCode,
-        'desconto_J': parseFloat(pctStr),
-        'validFrom': formatDateToPT(COCKPIT_TODAY),
-        'validTo': resolveEndDate(rec.endDate),
-      });
-    });
-    if (h4h6Rows.length > 0) {
-      const ws = XLSX.utils.json_to_sheet(h4h6Rows);
-      XLSX.utils.book_append_sheet(wb, ws, 'H4+H6 (Embalagem)');
-    }
-
-    // 3. Level H4_H5: targetCode | H4_code | H5_code | desconto_J | validFrom | validTo
-    const h4h5Rows: any[] = [];
-    (Object.entries(h4H5Discounts) as [string, DiscountRecord][]).forEach(([key, rec]) => {
-      const pctStr = rec.discountPercent.trim().replace(',', '.');
-      if (pctStr === '' || pctStr === '0' || parseFloat(pctStr) === 0) return;
-
-      const [brandCode, subBrandCode] = key.split('|');
-      h4h5Rows.push({
-        'targetCode': clientCode,
-        'H4_code': brandCode,
-        'H5_code': subBrandCode,
-        'desconto_J': parseFloat(pctStr),
-        'validFrom': formatDateToPT(COCKPIT_TODAY),
-        'validTo': resolveEndDate(rec.endDate),
-      });
-    });
-    if (h4h5Rows.length > 0) {
-      const ws = XLSX.utils.json_to_sheet(h4h5Rows);
-      XLSX.utils.book_append_sheet(wb, ws, 'H4+H5 (SubMarca)');
-    }
-
-    // 4. Level H4_H6_H7: targetCode | H4_code | H6_code | H7_code | desconto_J | validFrom | validTo
-    const h4h6h7Rows: any[] = [];
-    (Object.entries(h4H6H7Discounts) as [string, DiscountRecord][]).forEach(([key, rec]) => {
-      const pctStr = rec.discountPercent.trim().replace(',', '.');
-      if (pctStr === '' || pctStr === '0' || parseFloat(pctStr) === 0) return;
-
-      const [brandCode, packTypeCode, capacityCode] = key.split('|');
-      h4h6h7Rows.push({
-        'targetCode': clientCode,
-        'H4_code': brandCode,
-        'H6_code': packTypeCode,
-        'H7_code': capacityCode,
-        'desconto_J': parseFloat(pctStr),
-        'validFrom': formatDateToPT(COCKPIT_TODAY),
-        'validTo': resolveEndDate(rec.endDate),
-      });
-    });
-    if (h4h6h7Rows.length > 0) {
-      const ws = XLSX.utils.json_to_sheet(h4h6h7Rows);
-      XLSX.utils.book_append_sheet(wb, ws, 'H4+H6+H7');
-    }
-
-    // 5. Level H4_H5_H6_H7: targetCode | H4_code | H5_code | H6_code | H7_code | desconto_J | validFrom | validTo
-    const h4h5h6h7Rows: any[] = [];
-    (Object.entries(h4H5H6H7Discounts) as [string, DiscountRecord][]).forEach(([key, rec]) => {
-      const pctStr = rec.discountPercent.trim().replace(',', '.');
-      if (pctStr === '' || pctStr === '0' || parseFloat(pctStr) === 0) return;
-
-      const [brandCode, subBrandCode, packTypeCode, capacityCode] = key.split('|');
-      h4h5h6h7Rows.push({
-        'targetCode': clientCode,
-        'H4_code': brandCode,
-        'H5_code': subBrandCode,
-        'H6_code': packTypeCode,
-         'H7_code': capacityCode,
-        'desconto_J': parseFloat(pctStr),
-        'validFrom': formatDateToPT(COCKPIT_TODAY),
-        'validTo': resolveEndDate(rec.endDate),
-      });
-    });
-    if (h4h5h6h7Rows.length > 0) {
-      const ws = XLSX.utils.json_to_sheet(h4h5h6h7Rows);
-      XLSX.utils.book_append_sheet(wb, ws, 'H4+H5+H6+H7');
-    }
-
-    // 6. Level Material: targetCode | material_code | desconto_J | validFrom | validTo
-    const materialRows: any[] = [];
-    (Object.entries(materialDiscounts) as [string, DiscountRecord][]).forEach(([matId, rec]) => {
-      const pctStr = rec.discountPercent.trim().replace(',', '.');
-      if (pctStr === '' || pctStr === '0' || parseFloat(pctStr) === 0) return;
-
-      materialRows.push({
-        'targetCode': clientCode,
-        'material_code': matId,
-        'desconto_J': parseFloat(pctStr),
-        'validFrom': formatDateToPT(COCKPIT_TODAY),
-        'validTo': resolveEndDate(rec.endDate),
-      });
-    });
-    if (materialRows.length > 0) {
-      const ws = XLSX.utils.json_to_sheet(materialRows);
-      XLSX.utils.book_append_sheet(wb, ws, 'Material SAP');
-    }
-
-    XLSX.writeFile(wb, `SAP_VK11_Descontos_${clientCode}_${cleanModo}.xlsx`);
+    return formatDateToSAP(dateStr);
   };
 
+  // Helper para criar cada aba com cabeçalho inicial
+  const appendSheetWithContext = (sheetName: string, rows: any[]) => {
+    if (!rows.length) return;
+
+    const ws = XLSX.utils.aoa_to_sheet([
+      ['Código cliente', clientCode],
+      ['Opção', modoLabel],
+      []
+    ]);
+
+    XLSX.utils.sheet_add_json(ws, rows, {
+      origin: 'A4',
+      skipHeader: false
+    });
+
+    XLSX.utils.book_append_sheet(wb, ws, sheetName);
+  };
+
+  // 1. H4
+  const h4Rows: any[] = [];
+  Object.entries(h4Discounts).forEach(([brandCode, rec]) => {
+    const pctStr = rec.discountPercent.trim().replace(',', '.');
+    if (pctStr === '' || pctStr === '0' || parseFloat(pctStr) === 0) return;
+
+    h4Rows.push({
+      targetCode: clientCode,
+      H4_code: brandCode,
+      desconto_J: parseFloat(pctStr),
+      validFrom: formatDateToSAP(COCKPIT_TODAY),
+      validTo: resolveEndDate(rec.endDate),
+    });
+  });
+  appendSheetWithContext('H4 (Marca)', h4Rows);
+
+  // 2. H4 + H6
+  const h4h6Rows: any[] = [];
+  Object.entries(h4H6Discounts).forEach(([key, rec]) => {
+    const pctStr = rec.discountPercent.trim().replace(',', '.');
+    if (pctStr === '' || pctStr === '0' || parseFloat(pctStr) === 0) return;
+
+    const [brandCode, packTypeCode] = key.split('|');
+    h4h6Rows.push({
+      targetCode: clientCode,
+      H4_code: brandCode,
+      H6_code: packTypeCode,
+      desconto_J: parseFloat(pctStr),
+      validFrom: formatDateToSAP(COCKPIT_TODAY),
+      validTo: resolveEndDate(rec.endDate),
+    });
+  });
+  appendSheetWithContext('H4+H6', h4h6Rows);
+
+  // 3. H4 + H5
+  const h4h5Rows: any[] = [];
+  Object.entries(h4H5Discounts).forEach(([key, rec]) => {
+    const pctStr = rec.discountPercent.trim().replace(',', '.');
+    if (pctStr === '' || pctStr === '0' || parseFloat(pctStr) === 0) return;
+
+    const [brandCode, subBrandCode] = key.split('|');
+    h4h5Rows.push({
+      targetCode: clientCode,
+      H4_code: brandCode,
+      H5_code: subBrandCode,
+      desconto_J: parseFloat(pctStr),
+      validFrom: formatDateToSAP(COCKPIT_TODAY),
+      validTo: resolveEndDate(rec.endDate),
+    });
+  });
+  appendSheetWithContext('H4+H5', h4h5Rows);
+
+  // 4. H4 + H6 + H7
+  const h4h6h7Rows: any[] = [];
+  Object.entries(h4H6H7Discounts).forEach(([key, rec]) => {
+    const pctStr = rec.discountPercent.trim().replace(',', '.');
+    if (pctStr === '' || pctStr === '0' || parseFloat(pctStr) === 0) return;
+
+    const [brandCode, packTypeCode, capacityCode] = key.split('|');
+    h4h6h7Rows.push({
+      targetCode: clientCode,
+      H4_code: brandCode,
+      H6_code: packTypeCode,
+      H7_code: capacityCode,
+      desconto_J: parseFloat(pctStr),
+      validFrom: formatDateToSAP(COCKPIT_TODAY),
+      validTo: resolveEndDate(rec.endDate),
+    });
+  });
+  appendSheetWithContext('H4+H6+H7', h4h6h7Rows);
+
+  // 5. H4 + H5 + H6 + H7
+  const h4h5h6h7Rows: any[] = [];
+  Object.entries(h4H5H6H7Discounts).forEach(([key, rec]) => {
+    const pctStr = rec.discountPercent.trim().replace(',', '.');
+    if (pctStr === '' || pctStr === '0' || parseFloat(pctStr) === 0) return;
+
+    const [brandCode, subBrandCode, packTypeCode, capacityCode] = key.split('|');
+    h4h5h6h7Rows.push({
+      targetCode: clientCode,
+      H4_code: brandCode,
+      H5_code: subBrandCode,
+      H6_code: packTypeCode,
+      H7_code: capacityCode,
+      desconto_J: parseFloat(pctStr),
+      validFrom: formatDateToSAP(COCKPIT_TODAY),
+      validTo: resolveEndDate(rec.endDate),
+    });
+  });
+  appendSheetWithContext('H4+H5+H6+H7', h4h5h6h7Rows);
+
+  // 6. Material
+  const materialRows: any[] = [];
+  Object.entries(materialDiscounts).forEach(([matId, rec]) => {
+    const pctStr = rec.discountPercent.trim().replace(',', '.');
+    if (pctStr === '' || pctStr === '0' || parseFloat(pctStr) === 0) return;
+
+    materialRows.push({
+      targetCode: clientCode,
+      material_code: matId,
+      desconto_J: parseFloat(pctStr),
+      validFrom: formatDateToSAP(COCKPIT_TODAY),
+      validTo: resolveEndDate(rec.endDate),
+    });
+  });
+  appendSheetWithContext('Material SAP', materialRows);
+
+  // Nome do ficheiro
+  XLSX.writeFile(wb, `SAP_VK11_Descontos_${clientCode}.xlsx`);
+};
+   
   // 1. Loading screen during Central SAP cache synchronization
   if (isFetchingCatalog) {
     return (
@@ -1610,63 +1640,81 @@ const totalPages = 1;
             </div>
 
             {/* Free TargetCode input with strict 7-digit validation and catalog display lookup */}
-            <div>
-              <label className="block text-[10px] font-extrabold uppercase tracking-wider text-slate-500 mb-2">
-                3. CÓDIGO DO CLIENTE <span className="text-rose-500">*</span>
-              </label>
-              {target ? (
-                <div>
-                  <input
-  type="text"
-  maxLength={7}
-  placeholder="Cod. Cliente"
-  value={targetCode}
-  onChange={(e) => setTargetCode(e.target.value)}
-  className={`w-44 h-11 px-3 bg-white border rounded-lg text-xs font-semibold text-slate-800 focus:outline-none ${
-    targetCode.trim() === ''
-      ? 'border-slate-300 focus:ring-1 focus:ring-blue-500'
-      : /^\d{7}$/.test(targetCode)
-      ? 'border-slate-300 focus:ring-1 focus:ring-blue-500'
-      : 'border-rose-300 focus:ring-1 focus:ring-rose-500'
-  }`}
-/>
-                 {targetCode.trim() !== '' && (
-  <p className="text-[11px] mt-1.5 flex items-center">
-    {/^\d{7}$/.test(targetCode) ? (
-      (() => {
-        const matchedClient = mockClients.find(
-          c => c.code === targetCode && c.type === target
-        );
+           <div>
+  <label className="block text-[10px] font-extrabold uppercase tracking-wider text-slate-500 mb-2">
+    3. CÓDIGO DO CLIENTE / TARGET (7 DÍGITOS) <span className="text-rose-500">*</span>
+  </label>
 
-        return matchedClient ? (
-          <span className="text-emerald-700 flex items-center gap-1.5 font-semibold">
-            <UserCheck className="w-3.5 h-3.5 text-emerald-600" />
-            <span>
-              Nome (Lookup): <strong>{matchedClient.name}</strong>
-            </span>
-          </span>
-        ) : (
-          <span className="text-emerald-700 flex items-center gap-1.5 font-semibold">
-            <UserCheck className="w-3.5 h-3.5 text-emerald-600" />
-            <span>Código válido</span>
-          </span>
-        );
-      })()
-    ) : (
-      <span className="text-rose-500 font-semibold flex items-center gap-1.5">
-        <AlertTriangle className="w-3.5 h-3.5 text-rose-400" />
-        <span>Introduza exatamente 7 dígitos numéricos.</span>
-      </span>
-    )}
-  </p>
-)}
-                </div>
+  {target ? (
+    <div>
+      <div className="flex items-start gap-2">
+        <input
+          type="text"
+          maxLength={7}
+          placeholder="Cod. Cliente"
+          value={targetCode}
+          onChange={(e) => setTargetCode(e.target.value)}
+          className={`w-36 h-11 px-3 bg-white border rounded-lg text-xs font-semibold text-slate-800 focus:outline-none ${
+            targetCode.trim() === ''
+              ? 'border-slate-300 focus:ring-1 focus:ring-blue-500'
+              : /^\d{7}$/.test(targetCode)
+              ? 'border-slate-300 focus:ring-1 focus:ring-blue-500'
+              : 'border-rose-300 focus:ring-1 focus:ring-rose-500'
+          }`}
+        />
+
+        <button
+          disabled={totalFilled === 0}
+          onClick={handleExportSAPExcel}
+          className={`h-11 px-4 rounded-lg text-xs font-bold flex items-center gap-1.5 transition whitespace-nowrap ${
+            totalFilled === 0
+              ? 'bg-slate-200 text-slate-400 cursor-not-allowed border border-slate-300'
+              : 'bg-emerald-500 text-slate-950 hover:bg-emerald-400 cursor-pointer shadow-sm'
+          }`}
+          title="Gerar ficheiro Excel final"
+        >
+          <Download className="w-4 h-4" />
+          <span>GERAR EXCEL</span>
+        </button>
+      </div>
+
+      {targetCode.trim() !== '' && (
+        <p className="text-[11px] mt-1.5">
+          {/^\d{7}$/.test(targetCode) ? (
+            (() => {
+              const matchedClient = mockClients.find(
+                c => c.code === targetCode && c.type === target
+              );
+
+              return matchedClient ? (
+                <span className="text-emerald-700 inline-flex items-center gap-1.5 font-semibold bg-emerald-50 px-2 py-1 rounded-md">
+                  <UserCheck className="w-3.5 h-3.5 text-emerald-600" />
+                  <span>
+                    Nome (Lookup): <strong>{matchedClient.name}</strong>
+                  </span>
+                </span>
               ) : (
-                <div className="h-11 border border-dashed border-slate-200 bg-slate-50 rounded-lg flex items-center justify-center text-slate-400 text-xs px-2 text-center">
-                  Escolha o TARGET (PAGADOR / HQ) para vincular a conta do cliente.
-                </div>
-              )}
-            </div>
+                <span className="text-emerald-700 inline-flex items-center gap-1.5 font-semibold bg-emerald-50 px-2 py-1 rounded-md">
+                  <UserCheck className="w-3.5 h-3.5 text-emerald-600" />
+                  <span>Código válido</span>
+                </span>
+              );
+            })()
+          ) : (
+            <span className="text-rose-500 inline-flex items-center gap-1.5 font-semibold">
+              <AlertTriangle className="w-3.5 h-3.5 text-rose-400" />
+              <span>Introduza exatamente 7 dígitos numéricos.</span>
+            </span>
+          )}
+        </p>
+      )}
+    </div>
+  ) : (
+    <div className="h-11 border border-dashed border-slate-200 bg-slate-50 rounded-lg flex items-center justify-center text-slate-400 text-xs px-2 text-center">
+      Escolha o TARGET (PAGADOR / HQ) para vincular a conta do cliente.
+    </div>
+  )}
+</div>
           </div>
         </div>
 
@@ -1746,49 +1794,49 @@ const totalPages = 1;
                 </div>
               </div>
 
-              {/* TABS SEGMENTS */}
-              <div className="border-b border-slate-200 bg-white">
-                <nav className="flex space-x-1 px-4 overflow-x-auto" aria-label="Tabs">
-                  {[
-                    { key: 'H4', label: 'H4 (Marca)', desc: 'Unica chave H4', count: filledCounts.H4 },
-                    { key: 'H4_H6', label: 'H4 + H6', desc: 'Marca + Embalagem', count: filledCounts.H4_H6 },
-                    { key: 'H4_H5', label: 'H4 + H5', desc: 'Marca + SubMarca', count: filledCounts.H4_H5 },
-                    { key: 'H4_H6_H7', label: 'H4+H6+H7', desc: 'Marca+Emb+Capacid.', count: filledCounts.H4_H6_H7 },
-                    { key: 'H4_H5_H6_H7', label: 'H4+H5+H6+H7', desc: 'Todo Nível H4...H7', count: filledCounts.H4_H5_H6_H7 },
-                    { key: 'Material', label: 'Material', desc: 'SKU Material Nível', count: filledCounts.Material },
-                  ].map((tab) => {
-                    const isSelected = activeTab === tab.key;
-                    return (
-                      <button
-                        key={tab.key}
-                        onClick={() => {
-                          setActiveTab(tab.key as any);
-                          // Clear selection list when tab swaps
-                          setSelectedKeys(prev => ({ ...prev, [tab.key]: new Set() }));
-                        }}
-                        className={`py-3 px-4 block border-b-2 font-medium text-xs whitespace-nowrap transition focus:outline-none ${
-                          isSelected
-                            ? 'border-blue-600 text-blue-600 bg-blue-50/20'
-                            : 'border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300'
-                        }`}
-                      >
-                        <div className="flex items-center space-x-1.5">
-                          <span className="font-bold text-xs">{tab.label}</span>
-                          {tab.count > 0 && (
-                            <span className="bg-amber-100 text-amber-800 px-1.5 py-0.2 rounded-full text-[9px] font-extrabold animate-pulse">
-                              {tab.count}
-                            </span>
-                          )}
-                        </div>
-                        
-                      </button>
-                    );
-                  })}
-                </nav>
-              </div>
+             {/* TABS SEGMENTS */}
+<div className="border-b border-slate-200 bg-slate-50 px-4 pt-2">
+ <nav className="flex gap-1" aria-label="Tabs">
+    {[
+      { key: 'H4', label: 'H4 (Marca)', count: filledCounts.H4 },
+      { key: 'H4_H6', label: 'H4 + H6', count: filledCounts.H4_H6 },
+      { key: 'H4_H5', label: 'H4 + H5', count: filledCounts.H4_H5 },
+      { key: 'H4_H6_H7', label: 'H4+H6+H7', count: filledCounts.H4_H6_H7 },
+      { key: 'H4_H5_H6_H7', label: 'H4+H5+H6+H7', count: filledCounts.H4_H5_H6_H7 },
+      { key: 'Material', label: 'Material', count: filledCounts.Material },
+    ].map((tab) => {
+      const isSelected = activeTab === tab.key;
+
+      return (
+        <button
+          key={tab.key}
+          onClick={() => {
+            setActiveTab(tab.key as any);
+            setSelectedKeys(prev => ({ ...prev, [tab.key]: new Set() }));
+          }}
+          className={`relative -mb-px px-4 py-3 rounded-t-xl border text-xs font-semibold whitespace-nowrap transition focus:outline-none ${
+            isSelected
+              ? 'bg-emerald-50 text-emerald-800 border-emerald-300 border-b-emerald-50 shadow-sm z-10'
+              : 'bg-slate-100 text-slate-600 border-transparent hover:bg-slate-200 hover:text-slate-800'
+          }`}
+        >
+          <div className="flex items-center gap-1.5">
+            <span className="font-bold text-xs">{tab.label}</span>
+            {tab.count > 0 && (
+              <span className="bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded-full text-[9px] font-extrabold">
+                {tab.count}
+              </span>
+            )}
+          </div>
+        </button>
+      );
+    })}
+  </nav>
+</div>
+
 
               {/* THE SPREADSHEET */}
-              <div className="max-h-[360px] overflow-auto border-b border-slate-150 relative">
+              <div className="max-h-[360px] overflow-auto border-t-0 border border-slate-200 relative bg-emerald">
                 <table className="w-full text-left border-collapse">
                   <thead>
                     <tr className="bg-slate-100/90 sticky top-0 z-15 border-b border-slate-200 text-[10px] font-extrabold text-slate-500 uppercase tracking-wider">
@@ -2353,105 +2401,10 @@ const totalPages = 1;
 
         </div>
 
-        {/* STEP 3: MÓDULO DE VALIDAÇÕES & EXPORTER DE EXCEL SAP */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pb-12">
-          
-          {/* Validations Panel */}
-          <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-xs flex flex-col justify-between">
-            <div>
-              <h4 className="font-bold text-slate-900 text-sm flex items-center space-x-2 mb-3">
-                <CheckCircle className="w-5 h-5 text-blue-600" />
-                <span>Auditoria e Regras Regulamentares (VK11 Rules)</span>
-              </h4>
-              
-              {validationAlerts.length === 0 ? (
-                <div className="p-4 bg-emerald-50 text-emerald-800 border-l-4 border-emerald-500 rounded-lg text-xs flex items-start space-x-2">
-                  <CheckCircle className="w-4.5 h-4.5 text-emerald-600 shrink-0 mt-0.5" />
-                  <div>
-                    <span className="font-bold block text-emerald-900">Nenhum Conflito Detetado</span>
-                    <span>Tudo OK para processamento. Todas as chaves mapeadas pertencem à sua dimensão exata do catálogo e as datas de cobertura são compatíveis. O download está liberado.</span>
-                  </div>
-                </div>
-              ) : (
-                <div className="space-y-1.5 max-h-[220px] overflow-y-auto">
-                  {validationAlerts.map((alert, i) => (
-                    <div 
-                      key={i} 
-                      className={`text-xs p-2.5 rounded border-l-3 flex items-start space-x-2 ${
-                        alert.type === 'ERROR' 
-                          ? 'bg-rose-50 border-rose-500 text-rose-800' 
-                          : 'bg-amber-50 border-amber-500 text-amber-800'
-                      }`}
-                    >
-                      <AlertTriangle className={`w-4 h-4 shrink-0 mt-0.5 ${alert.type === 'ERROR' ? 'text-rose-600' : 'text-amber-500'}`} />
-                      <div>
-                        <span className="font-mono bg-white px-1.5 py-0.2 rounded text-[9px] border border-slate-200 text-slate-500 mr-2 font-bold select-none">
-                          {alert.code}
-                        </span>
-                        <span className="leading-relaxed">{alert.message}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
+     
+{/* STEP 3 removido: botão de exportação movido para o topo */}
 
-            <div className="text-[10px] text-slate-500 mt-4 pt-3 border-t border-slate-100 flex items-center space-x-1.5">
-              <Info className="w-3.5 h-3.5 shrink-0 text-slate-400" />
-              <span>Qualquer mistura de códigos dimensionais incorretos do Catálogo (ex: usar H7_code em campo H4) é rigidamente classificada como ERRO BLOQUEANTE.</span>
-            </div>
-          </div>
-
-          {/* Export and Actions Area */}
-          <div className="bg-slate-900 text-white rounded-xl p-6 shadow-md flex flex-col justify-between relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-3xl -mr-16 -mt-16" />
-            
-            <div>
-              <div className="flex items-center justify-between mb-3">
-                <span className="bg-amber-500 text-slate-950 font-bold text-[9px] uppercase tracking-wider px-2 py-0.5 rounded">
-                  SAP VK11 LOADER
-                </span>
-                <span className="text-xs text-slate-400 font-mono">Formato Excel (.xlsx)</span>
-              </div>
-
-              <h4 className="text-base font-bold text-white tracking-tight">Gerar Ficheiro Excel SAP VK11</h4>
-              <p className="text-slate-300 text-xs mt-1.5 leading-relaxed">
-                Gera de forma automática abas no Excel para as dimensões configuradas. O arquivo é montado sem metadados inválidos do SAP (Condições, Organizações de Venda, Divisões), que devem ser inseridos livremente na interface do utilitário VK11.
-              </p>
-
-              <div className="grid grid-cols-2 gap-3 mt-4 text-[10px] font-mono bg-slate-850 p-3 rounded-lg border border-slate-800">
-                <div>
-                  <span className="text-slate-500 block">Ficheiro SAP Destino:</span>
-                  <span className="text-slate-300 font-semibold text-[10.5px] truncate block">
-                    SAP_VK11_Descontos_{targetCode || '...'}.xlsx
-                  </span>
-                </div>
-                <div>
-                  <span className="text-slate-500 block">Chaves Ativadas:</span>
-                  <span className="text-amber-400 font-extrabold block">{totalFilled} registos</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-6 pt-4 border-t border-slate-800 flex flex-col space-y-2">
-              <button
-                disabled={hasCriticalError || totalFilled === 0}
-                onClick={handleExportSAPExcel}
-                className={`w-full flex items-center justify-center space-x-2 py-3.5 px-4 rounded-lg text-xs font-extrabold shadow-md transition ${
-                  hasCriticalError || totalFilled === 0
-                    ? 'bg-slate-800 text-slate-500 cursor-not-allowed border border-slate-700 font-bold'
-                    : 'bg-emerald-500 text-slate-950 hover:bg-emerald-400 active:scale-98 cursor-pointer'
-                }`}
-              >
-                <Download className="w-4.5 h-4.5" />
-                <span>GERAR EXCEL FINAL DE CARREGAMENTO ({totalFilled} REGISTOS)</span>
-              </button>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
     </div>
-  );
+  </div>
+);
 }
