@@ -1101,7 +1101,7 @@ const handleExportSAPExcel = async () => {
     }
     return formatDateToSAP(dateStr);
   };
-  const addStyledSheet = (
+  const addStyledSheet = async (
   sheetName: string,
   headerRow: string[],
   dataRows: (string | number)[][]
@@ -1191,18 +1191,41 @@ const handleExportSAPExcel = async () => {
   });
 
   // Larguras de colunas
-  worksheet.columns = headerRow.map((header) => {
-    if (header === 'Código Cliente') return { width: 16 };
-    if (header === 'Material') return { width: 16 };
-    if (header === 'Desconto') return { width: 12 };
-    if (header === 'De' || header === 'Até') return { width: 14 };
-    return { width: 12 };
+ worksheet.columns = headerRow.map((header) => {
+  if (header === 'Código Cliente') return { width: 16 };
+  if (header === 'Material') return { width: 16 };
+  if (header === 'Desconto') return { width: 12 };
+  if (header === 'De' || header === 'Até') return { width: 14 };
+  return { width: 12 };
+});
+
+// Congelar topo
+worksheet.views = [{ state: 'frozen', ySplit: 5 }];
+
+// Bloquear explicitamente todas as células usadas
+worksheet.eachRow((row) => {
+  row.eachCell((cell) => {
+    cell.protection = { locked: true };
   });
+});
 
-  // Congelar topo
-  worksheet.views = [{ state: 'frozen', ySplit: 5 }];
+// Proteger a folha mas permitir seleção/copiar
+await worksheet.protect('VK11_Protegido_2026', {
+  selectLockedCells: true,
+  selectUnlockedCells: true,
+  formatCells: false,
+  formatColumns: false,
+  formatRows: false,
+  insertColumns: false,
+  insertRows: false,
+  insertHyperlinks: false,
+  deleteColumns: false,
+  deleteRows: false,
+  sort: false,
+  autoFilter: false,
+  pivotTables: false
+});
 };
-
   // 1. H4
   const h4Rows: (string | number)[][] = [];
   Object.entries(h4Discounts).forEach(([brandCode, rec]) => {
@@ -1218,7 +1241,7 @@ const handleExportSAPExcel = async () => {
     ]);
   });
 
- addStyledSheet(
+ await addStyledSheet(
   'H4 (Marca)',
   ['Código Cliente', 'H4', 'Desconto', 'De', 'Até'],
   h4Rows
@@ -1241,7 +1264,7 @@ const handleExportSAPExcel = async () => {
     ]);
   });
 
-  addStyledSheet(
+  await addStyledSheet(
   'H4+H6',
   ['Código Cliente', 'H4', 'H6', 'Desconto', 'De', 'Até'],
   h4h6Rows
@@ -1264,7 +1287,7 @@ const handleExportSAPExcel = async () => {
     ]);
   });
 
-  addStyledSheet(
+  await addStyledSheet(
   'H4+H5',
   ['Código Cliente', 'H4', 'H5', 'Desconto', 'De', 'Até'],
   h4h5Rows
@@ -1289,7 +1312,7 @@ const handleExportSAPExcel = async () => {
     ]);
   });
 
- addStyledSheet(
+ await addStyledSheet(
   'H4+H6+H7',
   ['Código Cliente', 'H4', 'H6', 'H7', 'Desconto', 'De', 'Até'],
   h4h6h7Rows
@@ -1315,7 +1338,7 @@ const handleExportSAPExcel = async () => {
     ]);
   });
 
-  addStyledSheet(
+  await addStyledSheet(
   'H4+H5+H6+H7',
   ['Código Cliente', 'H4', 'H5', 'H6', 'H7', 'Desconto', 'De', 'Até'],
   h4h5h6h7Rows
@@ -1337,7 +1360,7 @@ const handleExportSAPExcel = async () => {
     ]);
   });
 
-  addStyledSheet(
+  await addStyledSheet(
   'Material SAP',
   ['Código Cliente', 'Material', 'Desconto', 'De', 'Até'],
   materialRows
