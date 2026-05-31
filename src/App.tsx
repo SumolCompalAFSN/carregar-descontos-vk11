@@ -1746,7 +1746,7 @@ const totalPages = 1;
                 </div>
               </div>
 
-              {/* TABS SEGMENTS */}
+             {/* TABS SEGMENTS */}
 <div className="border-b border-slate-200 bg-slate-50 px-4 pt-2">
   <nav className="flex gap-1 overflow-x-auto" aria-label="Tabs">
     {[
@@ -1768,14 +1768,14 @@ const totalPages = 1;
           }}
           className={`relative -mb-px px-4 py-3 rounded-t-xl border text-xs font-semibold whitespace-nowrap transition focus:outline-none ${
             isSelected
-              ? 'bg-white text-slate-900 border-slate-300 border-b-white shadow-sm z-10'
+              ? 'bg-emerald-50 text-emerald-800 border-emerald-300 border-b-emerald-50 shadow-sm z-10'
               : 'bg-slate-100 text-slate-600 border-transparent hover:bg-slate-200 hover:text-slate-800'
           }`}
         >
           <div className="flex items-center gap-1.5">
             <span className="font-bold text-xs">{tab.label}</span>
             {tab.count > 0 && (
-              <span className="bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded-full text-[9px] font-extrabold">
+              <span className="bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded-full text-[9px] font-extrabold">
                 {tab.count}
               </span>
             )}
@@ -1788,7 +1788,7 @@ const totalPages = 1;
 
 
               {/* THE SPREADSHEET */}
-              <div className="max-h-[360px] overflow-auto border-b border-slate-150 relative">
+              <div className="max-h-[360px] overflow-auto border-t-0 border border-slate-200 relative bg-emerald">
                 <table className="w-full text-left border-collapse">
                   <thead>
                     <tr className="bg-slate-100/90 sticky top-0 z-15 border-b border-slate-200 text-[10px] font-extrabold text-slate-500 uppercase tracking-wider">
