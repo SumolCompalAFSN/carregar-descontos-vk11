@@ -2350,34 +2350,45 @@ const totalPages = 1;
 
         </div>
 
-       {/* STEP 3: EXPORTER DE EXCEL SAP */}
+      {/* STEP 3: EXPORTER DE EXCEL SAP */}
 <div className="pb-12">
-  <div className="bg-slate-900 text-white rounded-xl p-6 shadow-md flex flex-col justify-between relative overflow-hidden">
+  <div className="bg-slate-900 text-white rounded-xl p-6 shadow-md relative overflow-hidden">
     <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-3xl -mr-16 -mt-16" />
-    
+
     <div>
       <div className="flex items-center justify-between mb-3">
         <span className="bg-amber-500 text-slate-950 font-bold text-[9px] uppercase tracking-wider px-2 py-0.5 rounded">
           SAP VK11 LOADER
         </span>
-        <span className="text-xs text-slate-400 font-mono">Formato Excel (.xlsx)</span>
+        <span className="text-xs text-slate-400 font-mono">
+          Formato Excel (.xlsx)
+        </span>
       </div>
 
-      <h4 className="text-base font-bold text-white tracking-tight">Gerar Ficheiro Excel SAP VK11</h4>
+      <h4 className="text-base font-bold text-white tracking-tight">
+        Gerar Ficheiro Excel SAP VK11
+      </h4>
+
       <p className="text-slate-300 text-xs mt-1.5 leading-relaxed">
-        Gera de forma automática abas no Excel para as dimensões configuradas. O arquivo é montado sem metadados inválidos do SAP (Condições, Organizações de Venda, Divisões), que devem ser inseridos livremente na interface do utilitário VK11.
+        Gera de forma automática abas no Excel para as dimensões configuradas.
+        O arquivo é montado sem metadados inválidos do SAP (Condições,
+        Organizações de Venda, Divisões), que devem ser inseridos livremente
+        na interface do utilitário VK11.
       </p>
 
       <div className="grid grid-cols-2 gap-3 mt-4 text-[10px] font-mono bg-slate-850 p-3 rounded-lg border border-slate-800">
         <div>
           <span className="text-slate-500 block">Ficheiro SAP Destino:</span>
           <span className="text-slate-300 font-semibold text-[10.5px] truncate block">
-            SAP_VK11_Descontos_{targetCode || '...'} .xlsx
+            SAP_VK11_Descontos_{targetCode || '...'}.xlsx
           </span>
         </div>
+
         <div>
           <span className="text-slate-500 block">Chaves Ativadas:</span>
-          <span className="text-amber-400 font-extrabold block">{totalFilled} registos</span>
+          <span className="text-amber-400 font-extrabold block">
+            {totalFilled} registos
+          </span>
         </div>
       </div>
     </div>
@@ -2398,31 +2409,8 @@ const totalPages = 1;
     </div>
   </div>
 </div>
-                  <span className="text-slate-500 block">Chaves Ativadas:</span>
-                  <span className="text-amber-400 font-extrabold block">{totalFilled} registos</span>
-                </div>
-              </div>
-            </div>
 
-            <div className="mt-6 pt-4 border-t border-slate-800 flex flex-col space-y-2">
-             <button
-  disabled={totalFilled === 0}
-  onClick={handleExportSAPExcel}
-  className={`w-full flex items-center justify-center space-x-2 py-3.5 px-4 rounded-lg text-xs font-extrabold shadow-md transition ${
-    totalFilled === 0
-      ? 'bg-slate-800 text-slate-500 cursor-not-allowed border border-slate-700 font-bold'
-      : 'bg-emerald-500 text-slate-950 hover:bg-emerald-400 active:scale-98 cursor-pointer'
-  }`}
->
-                <Download className="w-4.5 h-4.5" />
-                <span>GERAR EXCEL FINAL DE CARREGAMENTO ({totalFilled} REGISTOS)</span>
-              </button>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
     </div>
-  );
+  </div>
+);
 }
