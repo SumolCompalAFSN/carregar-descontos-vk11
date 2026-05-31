@@ -1789,11 +1789,11 @@ const totalPages = 1;
 
               {/* THE SPREADSHEET */}
               <div className="max-h-[360px] overflow-auto border-b border-slate-150 relative">
-                <table className="w-full text-left border-collapse table-fixed">
+                <table className="w-full text-left border-collapse">
                   <thead>
                     <tr className="bg-slate-100/90 sticky top-0 z-15 border-b border-slate-200 text-[10px] font-extrabold text-slate-500 uppercase tracking-wider">
                       {/* Checkboxes header */}
-                      <th className="py-2.5 px-3 border-r border-slate-200 w-12 text-center bg-slate-50 sticky left-0 z-10 shadow-r">
+                     <th className="py-2.5 px-2 border-r border-slate-200 w-10 text-center bg-slate-50 sticky left-0 z-10 shadow-r">
                         <input
                           type="checkbox"
                           checked={visibleKeysForTab.length > 0 && visibleKeysForTab.every(key => (selectedKeys[activeTab] || new Set()).has(key))}
@@ -1805,34 +1805,34 @@ const totalPages = 1;
                       
                       
                       {(activeTab === 'H4' || activeTab === 'H4_H6' || activeTab === 'H4_H5' || activeTab === 'H4_H6_H7' || activeTab === 'H4_H5_H6_H7') && (
-                        <th className="py-2.5 px-4 border-r border-slate-200 w-52 text-slate-700">H4 (MARCA)</th>
+                        <th className="py-2.5 px-3 border-r border-slate-200 w-40 text-slate-700">H4 (MARCA)</th>
                       )}
                       {(activeTab === 'H4_H5' || activeTab === 'H4_H5_H6_H7') && (
-                        <th className="py-2.5 px-4 border-r border-slate-200 w-48 text-slate-700">H5 (SUBMARCA)</th>
+                       <th className="py-2.5 px-3 border-r border-slate-200 w-38 text-slate-700">H5 (SUBMARCA)</th>
                       )}
                       {(activeTab === 'H4_H6' || activeTab === 'H4_H6_H7' || activeTab === 'H4_H5_H6_H7') && (
-                        <th className="py-2.5 px-4 border-r border-slate-200 w-48 text-slate-700">H6 (EMBALAGEM)</th>
+                        <th className="py-2.5 px-3 border-r border-slate-200 w-36 text-slate-700">H6 (EMBALAGEM)</th>
                       )}
                       {(activeTab === 'H4_H6_H7' || activeTab === 'H4_H5_H6_H7') && (
-                        <th className="py-2.5 px-4 border-r border-slate-200 w-40 text-slate-700">H7 (CAPACIDADE)</th>
+                       <th className="py-2.5 px-3 border-r border-slate-200 w-28 text-slate-700">H7 (CAPACIDADE)</th>
                       )}
                       
                       {activeTab === 'Material' && (
                         <>
-                          <th className="py-2.5 px-4 border-r border-slate-200 w-40 text-slate-700 font-extrabold">MATERIAL (ARTIGO)</th>
-                          <th className="py-2.5 px-4 border-r border-slate-200 w-64 text-slate-700">DESIGNAÇÃO (ARTIGO)</th>
+                          <th className="py-2.5 px-3 border-r border-slate-200 w-32 text-slate-700 font-extrabold">MATERIAL (ARTIGO)</th>
+                         <th className="py-2.5 px-3 border-r border-slate-200 w-56 text-slate-700">DESIGNAÇÃO (ARTIGO)</th>
                           
                         </>
                       )}
                       
                       {/* INPUT FIELDS COLUMNS - COLORED AMBER FOR EXCEL CONVENTION */}
-                      <th className="py-2.5 px-4 border-r border-slate-200 text-amber-900 bg-amber-50/80 font-extrabold text-center w-48">
+                     <th className="py-2.5 px-3 border-r border-slate-200 text-amber-900 bg-amber-50/80 font-extrabold text-center w-32">
                         Desconto %
                       </th>
-                      <th className="py-2.5 px-4 border-r border-slate-200 text-slate-500 bg-slate-50 font-bold text-center w-36 select-none">
-                        Data Início (validFrom)
+                      <th className="py-2.5 px-3 border-r border-slate-200 text-slate-500 bg-slate-50 font-bold text-center w-28 select-none">
+                        Data Início
                       </th>
-                      <th className="py-2.5 px-4 text-amber-905 bg-amber-50/80 font-extrabold text-center w-44">
+                      <th className="py-2.5 px-3 text-amber-905 bg-amber-50/80 font-extrabold text-center w-32">
                         Válido até
                       </th>
                     </tr>
@@ -1867,7 +1867,7 @@ const totalPages = 1;
                                   placeholder="0.000"
                                   value={record.discountPercent}
                                   onChange={(e) => updateDiscountInput('H4', item.code, 'discountPercent', e.target.value)}
-                                  className="w-24 text-center bg-white border border-amber-300 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 rounded font-semibold text-slate-900 text-xs py-1"
+                                  className="w-20 text-center bg-white border border-amber-300 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 rounded font-semibold text-slate-900 text-xs py-1"
                                 />
                                 <span className="text-[10px] font-bold text-amber-700">%</span>
                               </div>
@@ -1929,7 +1929,7 @@ const totalPages = 1;
             placeholder="0.000"
             value={record.discountPercent}
             onChange={(e) => updateDiscountInput('H4_H6', item.id, 'discountPercent', e.target.value)}
-            className="w-24 text-center bg-white border border-amber-300 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 rounded font-semibold text-slate-900 text-xs py-1"
+            className="w-20 text-center bg-white border border-amber-300 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 rounded font-semibold text-slate-900 text-xs py-1"
           />
           <span className="text-[10px] font-bold text-amber-700">%</span>
         </div>
@@ -1993,7 +1993,7 @@ const totalPages = 1;
             placeholder="0.000"
             value={record.discountPercent}
             onChange={(e) => updateDiscountInput('H4_H5', item.id, 'discountPercent', e.target.value)}
-            className="w-24 text-center bg-white border border-amber-300 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 rounded font-semibold text-slate-900 text-xs py-1"
+            className="w-20 text-center bg-white border border-amber-300 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 rounded font-semibold text-slate-900 text-xs py-1"
           />
           <span className="text-[10px] font-bold text-amber-700">%</span>
         </div>
@@ -2062,7 +2062,7 @@ const totalPages = 1;
             placeholder="0.000"
             value={record.discountPercent}
             onChange={(e) => updateDiscountInput('H4_H6_H7', item.id, 'discountPercent', e.target.value)}
-            className="w-24 text-center bg-white border border-amber-300 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 rounded font-semibold text-slate-900 text-xs py-1"
+            className="w-20 text-center bg-white border border-amber-300 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 rounded font-semibold text-slate-900 text-xs py-1"
           />
           <span className="text-[10px] font-bold text-amber-700">%</span>
         </div>
@@ -2136,7 +2136,7 @@ const totalPages = 1;
             placeholder="0.000"
             value={record.discountPercent}
             onChange={(e) => updateDiscountInput('H4_H5_H6_H7', item.id, 'discountPercent', e.target.value)}
-            className="w-24 text-center bg-white border border-amber-300 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 rounded font-semibold text-slate-900 text-xs py-1"
+            className="w-20 text-center bg-white border border-amber-300 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 rounded font-semibold text-slate-900 text-xs py-1"
           />
           <span className="text-[10px] font-bold text-amber-700">%</span>
         </div>
@@ -2187,7 +2187,7 @@ const totalPages = 1;
                                   placeholder="0.000"
                                   value={record.discountPercent}
                                   onChange={(e) => updateDiscountInput('Material', item.id, 'discountPercent', e.target.value)}
-                                  className="w-24 text-center bg-white border border-amber-300 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 rounded font-semibold text-slate-900 text-xs py-1"
+                                  className="w-20 text-center bg-white border border-amber-300 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 rounded font-semibold text-slate-900 text-xs py-1"
                                 />
                                 <span className="text-[10px] font-bold text-amber-700">%</span>
                               </div>
