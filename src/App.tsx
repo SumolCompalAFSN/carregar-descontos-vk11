@@ -1747,45 +1747,45 @@ const totalPages = 1;
               </div>
 
               {/* TABS SEGMENTS */}
-              <div className="border-b border-slate-200 bg-white">
-                <nav className="flex space-x-1 px-4 overflow-x-auto" aria-label="Tabs">
-                  {[
-                    { key: 'H4', label: 'H4 (Marca)', desc: 'Unica chave H4', count: filledCounts.H4 },
-                    { key: 'H4_H6', label: 'H4 + H6', desc: 'Marca + Embalagem', count: filledCounts.H4_H6 },
-                    { key: 'H4_H5', label: 'H4 + H5', desc: 'Marca + SubMarca', count: filledCounts.H4_H5 },
-                    { key: 'H4_H6_H7', label: 'H4+H6+H7', desc: 'Marca+Emb+Capacid.', count: filledCounts.H4_H6_H7 },
-                    { key: 'H4_H5_H6_H7', label: 'H4+H5+H6+H7', desc: 'Todo Nível H4...H7', count: filledCounts.H4_H5_H6_H7 },
-                    { key: 'Material', label: 'Material', desc: 'SKU Material Nível', count: filledCounts.Material },
-                  ].map((tab) => {
-                    const isSelected = activeTab === tab.key;
-                    return (
-                      <button
-                        key={tab.key}
-                        onClick={() => {
-                          setActiveTab(tab.key as any);
-                          // Clear selection list when tab swaps
-                          setSelectedKeys(prev => ({ ...prev, [tab.key]: new Set() }));
-                        }}
-                        className={`py-3 px-4 block border-b-2 font-medium text-xs whitespace-nowrap transition focus:outline-none ${
-                          isSelected
-                            ? 'border-blue-600 text-blue-600 bg-blue-50/20'
-                            : 'border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300'
-                        }`}
-                      >
-                        <div className="flex items-center space-x-1.5">
-                          <span className="font-bold text-xs">{tab.label}</span>
-                          {tab.count > 0 && (
-                            <span className="bg-amber-100 text-amber-800 px-1.5 py-0.2 rounded-full text-[9px] font-extrabold animate-pulse">
-                              {tab.count}
-                            </span>
-                          )}
-                        </div>
-                        
-                      </button>
-                    );
-                  })}
-                </nav>
-              </div>
+<div className="border-b border-slate-200 bg-slate-50 px-4 pt-2">
+  <nav className="flex gap-1 overflow-x-auto" aria-label="Tabs">
+    {[
+      { key: 'H4', label: 'H4 (Marca)', count: filledCounts.H4 },
+      { key: 'H4_H6', label: 'H4 + H6', count: filledCounts.H4_H6 },
+      { key: 'H4_H5', label: 'H4 + H5', count: filledCounts.H4_H5 },
+      { key: 'H4_H6_H7', label: 'H4+H6+H7', count: filledCounts.H4_H6_H7 },
+      { key: 'H4_H5_H6_H7', label: 'H4+H5+H6+H7', count: filledCounts.H4_H5_H6_H7 },
+      { key: 'Material', label: 'Material', count: filledCounts.Material },
+    ].map((tab) => {
+      const isSelected = activeTab === tab.key;
+
+      return (
+        <button
+          key={tab.key}
+          onClick={() => {
+            setActiveTab(tab.key as any);
+            setSelectedKeys(prev => ({ ...prev, [tab.key]: new Set() }));
+          }}
+          className={`relative -mb-px px-4 py-3 rounded-t-xl border text-xs font-semibold whitespace-nowrap transition focus:outline-none ${
+            isSelected
+              ? 'bg-white text-slate-900 border-slate-300 border-b-white shadow-sm z-10'
+              : 'bg-slate-100 text-slate-600 border-transparent hover:bg-slate-200 hover:text-slate-800'
+          }`}
+        >
+          <div className="flex items-center gap-1.5">
+            <span className="font-bold text-xs">{tab.label}</span>
+            {tab.count > 0 && (
+              <span className="bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded-full text-[9px] font-extrabold">
+                {tab.count}
+              </span>
+            )}
+          </div>
+        </button>
+      );
+    })}
+  </nav>
+</div>
+
 
               {/* THE SPREADSHEET */}
               <div className="max-h-[360px] overflow-auto border-b border-slate-150 relative">
