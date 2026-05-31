@@ -2314,71 +2314,12 @@ const totalPages = 1;
                 </table>
               </div>
 
-              {/* HIGH FIDELITY PAGINATION BAR */}
-              <div className="bg-slate-50 border-t border-slate-200 px-5 py-3.5 flex items-center justify-between gap-4">
+              {/* TABLE FOOTER SUMMARY (sem paginação) */}
+<div className="bg-slate-50 border-t border-slate-200 px-5 py-3.5 flex items-center justify-between gap-4">
   <div className="text-xs text-slate-500 font-semibold">
     {filteredRows.length} registos filtrados
   </div>
 </div>
-
-                <div className="flex items-center space-x-4">
-                  {/* Page Size Select */}
-                  <div className="flex items-center space-x-1.5">
-                    <span className="text-[11px] text-slate-500 font-bold uppercase tracking-wider">Por Página:</span>
-                    <select
-                      value={pageSize}
-                      onChange={(e) => {
-                        setPageSize(Number(e.target.value));
-                        setCurrentPage(1);
-                      }}
-                      className="px-2 py-1 bg-white border border-slate-300 rounded text-xs font-semibold focus:outline-none focus:ring-1 focus:ring-blue-500 cursor-pointer"
-                    >
-                      {[25, 50, 100, 200].map(size => (
-                        <option key={size} value={size}>{size}</option>
-                      ))}
-                    </select>
-                  </div>
-
-                  {/* Navigation keys */}
-                  <div className="flex items-center space-x-1">
-                    <button
-                      onClick={() => setCurrentPage(1)}
-                      disabled={currentPage === 1}
-                      className="p-1 px-2 rounded bg-white border border-slate-300 text-xs font-bold text-slate-600 hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed transition"
-                      title="Primeira Página"
-                    >
-                      &laquo;
-                    </button>
-                    <button
-                      onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
-                      disabled={currentPage === 1}
-                      className="p-1 px-2 rounded bg-white border border-slate-300 text-xs font-bold text-slate-600 hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed transition"
-                      title="Anterior"
-                    >
-                      &lsaquo;
-                    </button>
-                    <span className="text-xs font-semibold px-2 text-slate-700">
-                      Página <strong>{currentPage}</strong> de <strong>{totalPages}</strong>
-                    </span>
-                    <button
-                      onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
-                      disabled={currentPage === totalPages}
-                      className="p-1 px-2 rounded bg-white border border-slate-300 text-xs font-bold text-slate-600 hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed transition"
-                      title="Seguinte"
-                    >
-                      &rsaquo;
-                    </button>
-                    <button
-                      onClick={() => setCurrentPage(totalPages)}
-                      disabled={currentPage === totalPages}
-                      className="p-1 px-2 rounded bg-white border border-slate-300 text-xs font-bold text-slate-600 hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed transition"
-                      title="Última Página"
-                    >
-                      &raquo;
-                    </button>
-                  </div>
-                </div>
-              </div>
 
               {/* MASS UTILITY FOOTER COCKPIT */}
               <div className="bg-slate-50 border-t border-slate-200 p-4 flex flex-col space-y-4">
