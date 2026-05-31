@@ -1191,11 +1191,20 @@ const handleExportSAPExcel = async () => {
   });
 
   // Larguras de colunas
- worksheet.columns = headerRow.map((header) => {
+worksheet.columns = headerRow.map((header) => {
   if (header === 'Código Cliente') return { width: 16 };
+  if (header === 'H4' || header === 'H5' || header === 'H6' || header === 'H7') return { width: 10 };
   if (header === 'Material') return { width: 16 };
   if (header === 'Desconto') return { width: 12 };
   if (header === 'De' || header === 'Até') return { width: 14 };
+
+  // colunas visuais
+  if (header === 'Marca') return { width: 20 };
+  if (header === 'Submarca') return { width: 22 };
+  if (header === 'Embalagem') return { width: 18 };
+  if (header === 'Capacidade') return { width: 16 };
+  if (header === 'Designação Material') return { width: 34 };
+
   return { width: 12 };
 });
 
@@ -1226,143 +1235,218 @@ await worksheet.protect('VK11_Protegido_2026', {
   pivotTables: false
 });
 };
+  // Maps para obter labels visuais no export
+const h4LabelMap = new Map(
+  getUniqueH4(activeCatalog).map((item) => [item.code, item.label])
+);
+
+const h4h6LabelMap = new Map(
+  getUniqueH4_H6(activeCatalog).map((item) => [
+    item.id,
+    {
+      marca: item.brandLabel,
+      embalagem: item.packTypeLabel,
+    },
+  ])
+);
+
+const h4h5LabelMap = new Map(
+  getUniqueH4_H5(activeCatalog).map((item) => [
+    item.id,
+    {
+      marca: item.brandLabel,
+      submarca: item.subBrandLabel,
+    },
+  ])
+);
+
+const h4h6h7LabelMap = new Map(
+  getUniqueH4_H6_H7(activeCatalog).map((item) => [
+    item.id,
+    {
+      marca: item.brandLabel,
+      embalagem: item.packTypeLabel,
+      capacidade: item.capacityLabel,
+    },
+  ])
+);
+
+const h4h5h6h7LabelMap = new Map(
+  getUniqueH4_H5_H6_H7(activeCatalog).map((item) => [
+    item.id,
+    {
+      marca: item.brandLabel,
+      submarca: item.subBrandLabel,
+      embalagem: item.packTypeLabel,
+      capacidade: item.capacityLabel,
+    },
+  ])
+);
+
+const materialLabelMap = new Map(
+  activeMaterials.map((item) => [item.id, item.name])
+);
   // 1. H4
-  const h4Rows: (string | number)[][] = [];
-  Object.entries(h4Discounts).forEach(([brandCode, rec]) => {
-    const pctStr = normalizeDiscount(rec.discountPercent);
-    if (pctStr === '' || pctStr === '0' || parseFloat(pctStr) === 0) return;
+const h4Rows: (string | number)[][] = [];
+Object.entries(h4Discounts).forEach(([brandCode, rec]) => {
+  const pctStr = normalizeDiscount(rec.discountPercent);
+  if (pctStr === '' || pctStr === '0' || parseFloat(pctStr) === 0) return;
 
-    h4Rows.push([
-      clientCode,
-      brandCode,
-      parseFloat(pctStr),
-      formatDateToSAP(COCKPIT_TODAY),
-      resolveEndDate(rec.endDate),
-    ]);
-  });
+  const marcaLabel = h4LabelMap.get(brandCode) || '';
 
- await addStyledSheet(
+  h4Rows.push([
+    clientCode,
+    brandCode,
+    parseFloat(pctStr),
+    formatDateToSAP(COCKPIT_TODAY),
+    resolveEndDate(rec.endDate),
+    marcaLabel,
+  ]);
+});
+
+await addStyledSheet(
   'H4 (Marca)',
-  ['Código Cliente', 'H4', 'Desconto', 'De', 'Até'],
+  ['Código Cliente', 'H4', 'Desconto', 'De', 'Até', 'Marca'],
   h4Rows
 );
 
   // 2. H4 + H6
-  const h4h6Rows: (string | number)[][] = [];
-  Object.entries(h4H6Discounts).forEach(([key, rec]) => {
-    const pctStr = normalizeDiscount(rec.discountPercent);
-    if (pctStr === '' || pctStr === '0' || parseFloat(pctStr) === 0) return;
+ // 2. H4 + H6
+const h4h6Rows: (string | number)[][] = [];
+Object.entries(h4H6Discounts).forEach(([key, rec]) => {
+  const pctStr = normalizeDiscount(rec.discountPercent);
+  if (pctStr === '' || pctStr === '0' || parseFloat(pctStr) === 0) return;
 
-    const [brandCode, packTypeCode] = key.split('|');
-    h4h6Rows.push([
-      clientCode,
-      brandCode,
-      packTypeCode,
-      parseFloat(pctStr),
-      formatDateToSAP(COCKPIT_TODAY),
-      resolveEndDate(rec.endDate),
-    ]);
-  });
+  const [brandCode, packTypeCode] = key.split('|');
+  const labels = h4h6LabelMap.get(key);
 
-  await addStyledSheet(
+  h4h6Rows.push([
+    clientCode,
+    brandCode,
+    packTypeCode,
+    parseFloat(pctStr),
+    formatDateToSAP(COCKPIT_TODAY),
+    resolveEndDate(rec.endDate),
+    labels?.marca || '',
+    labels?.embalagem || '',
+  ]);
+});
+
+await addStyledSheet(
   'H4+H6',
-  ['Código Cliente', 'H4', 'H6', 'Desconto', 'De', 'Até'],
+  ['Código Cliente', 'H4', 'H6', 'Desconto', 'De', 'Até', 'Marca', 'Embalagem'],
   h4h6Rows
 );
 
   // 3. H4 + H5
-  const h4h5Rows: (string | number)[][] = [];
-  Object.entries(h4H5Discounts).forEach(([key, rec]) => {
-    const pctStr = normalizeDiscount(rec.discountPercent);
-    if (pctStr === '' || pctStr === '0' || parseFloat(pctStr) === 0) return;
+const h4h5Rows: (string | number)[][] = [];
+Object.entries(h4H5Discounts).forEach(([key, rec]) => {
+  const pctStr = normalizeDiscount(rec.discountPercent);
+  if (pctStr === '' || pctStr === '0' || parseFloat(pctStr) === 0) return;
 
-    const [brandCode, subBrandCode] = key.split('|');
-    h4h5Rows.push([
-      clientCode,
-      brandCode,
-      subBrandCode,
-      parseFloat(pctStr),
-      formatDateToSAP(COCKPIT_TODAY),
-      resolveEndDate(rec.endDate),
-    ]);
-  });
+  const [brandCode, subBrandCode] = key.split('|');
+  const labels = h4h5LabelMap.get(key);
 
-  await addStyledSheet(
+  h4h5Rows.push([
+    clientCode,
+    brandCode,
+    subBrandCode,
+    parseFloat(pctStr),
+    formatDateToSAP(COCKPIT_TODAY),
+    resolveEndDate(rec.endDate),
+    labels?.marca || '',
+    labels?.submarca || '',
+  ]);
+});
+
+await addStyledSheet(
   'H4+H5',
-  ['Código Cliente', 'H4', 'H5', 'Desconto', 'De', 'Até'],
+  ['Código Cliente', 'H4', 'H5', 'Desconto', 'De', 'Até', 'Marca', 'Submarca'],
   h4h5Rows
 );
 
 
   // 4. H4 + H6 + H7
-  const h4h6h7Rows: (string | number)[][] = [];
-  Object.entries(h4H6H7Discounts).forEach(([key, rec]) => {
-    const pctStr = normalizeDiscount(rec.discountPercent);
-    if (pctStr === '' || pctStr === '0' || parseFloat(pctStr) === 0) return;
+const h4h6h7Rows: (string | number)[][] = [];
+Object.entries(h4H6H7Discounts).forEach(([key, rec]) => {
+  const pctStr = normalizeDiscount(rec.discountPercent);
+  if (pctStr === '' || pctStr === '0' || parseFloat(pctStr) === 0) return;
 
-    const [brandCode, packTypeCode, capacityCode] = key.split('|');
-    h4h6h7Rows.push([
-      clientCode,
-      brandCode,
-      packTypeCode,
-      capacityCode,
-      parseFloat(pctStr),
-      formatDateToSAP(COCKPIT_TODAY),
-      resolveEndDate(rec.endDate),
-    ]);
-  });
+  const [brandCode, packTypeCode, capacityCode] = key.split('|');
+  const labels = h4h6h7LabelMap.get(key);
 
- await addStyledSheet(
+  h4h6h7Rows.push([
+    clientCode,
+    brandCode,
+    packTypeCode,
+    capacityCode,
+    parseFloat(pctStr),
+    formatDateToSAP(COCKPIT_TODAY),
+    resolveEndDate(rec.endDate),
+    labels?.marca || '',
+    labels?.embalagem || '',
+    labels?.capacidade || '',
+  ]);
+});
+
+await addStyledSheet(
   'H4+H6+H7',
-  ['Código Cliente', 'H4', 'H6', 'H7', 'Desconto', 'De', 'Até'],
+  ['Código Cliente', 'H4', 'H6', 'H7', 'Desconto', 'De', 'Até', 'Marca', 'Embalagem', 'Capacidade'],
   h4h6h7Rows
 );
 
+ // 5. H4 + H5 + H6 + H7
+const h4h5h6h7Rows: (string | number)[][] = [];
+Object.entries(h4H5H6H7Discounts).forEach(([key, rec]) => {
+  const pctStr = normalizeDiscount(rec.discountPercent);
+  if (pctStr === '' || pctStr === '0' || parseFloat(pctStr) === 0) return;
 
-  // 5. H4 + H5 + H6 + H7
-  const h4h5h6h7Rows: (string | number)[][] = [];
-  Object.entries(h4H5H6H7Discounts).forEach(([key, rec]) => {
-    const pctStr = normalizeDiscount(rec.discountPercent);
-    if (pctStr === '' || pctStr === '0' || parseFloat(pctStr) === 0) return;
+  const [brandCode, subBrandCode, packTypeCode, capacityCode] = key.split('|');
+  const labels = h4h5h6h7LabelMap.get(key);
 
-    const [brandCode, subBrandCode, packTypeCode, capacityCode] = key.split('|');
-    h4h5h6h7Rows.push([
-      clientCode,
-      brandCode,
-      subBrandCode,
-      packTypeCode,
-      capacityCode,
-      parseFloat(pctStr),
-      formatDateToSAP(COCKPIT_TODAY),
-      resolveEndDate(rec.endDate),
-    ]);
-  });
+  h4h5h6h7Rows.push([
+    clientCode,
+    brandCode,
+    subBrandCode,
+    packTypeCode,
+    capacityCode,
+    parseFloat(pctStr),
+    formatDateToSAP(COCKPIT_TODAY),
+    resolveEndDate(rec.endDate),
+    labels?.marca || '',
+    labels?.submarca || '',
+    labels?.embalagem || '',
+    labels?.capacidade || '',
+  ]);
+});
 
-  await addStyledSheet(
+await addStyledSheet(
   'H4+H5+H6+H7',
-  ['Código Cliente', 'H4', 'H5', 'H6', 'H7', 'Desconto', 'De', 'Até'],
+  ['Código Cliente', 'H4', 'H5', 'H6', 'H7', 'Desconto', 'De', 'Até', 'Marca', 'Submarca', 'Embalagem', 'Capacidade'],
   h4h5h6h7Rows
 );
 
-
   // 6. Material
-  const materialRows: (string | number)[][] = [];
-  Object.entries(materialDiscounts).forEach(([matId, rec]) => {
-    const pctStr = normalizeDiscount(rec.discountPercent);
-    if (pctStr === '' || pctStr === '0' || parseFloat(pctStr) === 0) return;
+const materialRows: (string | number)[][] = [];
+Object.entries(materialDiscounts).forEach(([matId, rec]) => {
+  const pctStr = normalizeDiscount(rec.discountPercent);
+  if (pctStr === '' || pctStr === '0' || parseFloat(pctStr) === 0) return;
 
-    materialRows.push([
-      clientCode,
-      matId,
-      parseFloat(pctStr),
-      formatDateToSAP(COCKPIT_TODAY),
-      resolveEndDate(rec.endDate),
-    ]);
-  });
+  const materialLabel = materialLabelMap.get(matId) || '';
 
-  await addStyledSheet(
+  materialRows.push([
+    clientCode,
+    matId,
+    parseFloat(pctStr),
+    formatDateToSAP(COCKPIT_TODAY),
+    resolveEndDate(rec.endDate),
+    materialLabel,
+  ]);
+});
+
+await addStyledSheet(
   'Material SAP',
-  ['Código Cliente', 'Material', 'Desconto', 'De', 'Até'],
+  ['Código Cliente', 'Material', 'Desconto', 'De', 'Até', 'Designação Material'],
   materialRows
 );
 
