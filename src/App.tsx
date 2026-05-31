@@ -271,6 +271,34 @@ const getModoLabel = (modoValue: typeof modo) => {
   return '';
 };
 
+// Normalização do desconto
+const normalizeDiscount = (value: string) => value.trim().replace(',', '.');
+
+// Aceita apenas padrão válido para input (até 2 dígitos inteiros e 3 decimais)
+const isDiscountFormatValid = (value: string) => {
+  if (value.trim() === '') return true;
+  const normalized = normalizeDiscount(value);
+  return /^\d{0,2}(\.\d{0,3})?$/.test(normalized);
+};
+
+// Regra de negócio: 0 a 99.999
+const isDiscountValueValid = (value: string) => {
+  if (value.trim() === '') return true;
+  const normalized = normalizeDiscount(value);
+  const num = parseFloat(normalized);
+  if (isNaN(num)) return false;
+  return num >= 0 && num <= 99.999;
+};
+
+
+// Texto legível da opção selecionada
+const getModoLabel = (modoValue: typeof modo) => {
+  if (modoValue === 'CARREGAR_1X') return '1ª vez';
+  if (modoValue === 'ACRESCENTAR') return 'Acrescentar';
+  if (modoValue === 'SUBSTITUIR') return 'Substituir';
+  return '';
+};
+
   // Populate realistic sample data using actual codes mapping to catalog
   const handleLoadSampleData = () => {
     // Brand (H4) prefilled (Compal = '10', Sumol = '13')
@@ -774,29 +802,35 @@ const totalPages = 1;
 
   // Handle single grid state update
   const updateDiscountInput = (
-    tab: typeof activeTab,
-    keyId: string,
-    field: keyof DiscountRecord,
-    value: string
-  ) => {
-    const updateMap = (prev: DiscountMap) => {
-      const current = prev[keyId] || { discountPercent: '', endDate: '' };
-      return {
-        ...prev,
-        [keyId]: {
-          ...current,
-          [field]: value
-        }
-      };
-    };
+  tab: typeof activeTab,
+  keyId: string,
+  field: keyof DiscountRecord,
+  value: string
+) => {
+  if (field === 'discountPercent') {
+    // permite apenas formato válido e valor entre 0 e 99.999
+    if (!isDiscountFormatValid(value)) return;
+    if (!isDiscountValueValid(value)) return;
+  }
 
-    if (tab === 'H4') setH4Discounts(updateMap);
-    else if (tab === 'H4_H6') setH4H6Discounts(updateMap);
-    else if (tab === 'H4_H5') setH4H5Discounts(updateMap);
-    else if (tab === 'H4_H6_H7') setH4H6H7Discounts(updateMap);
-    else if (tab === 'H4_H5_H6_H7') setH4H5H6H7Discounts(updateMap);
-    else if (tab === 'Material') setMaterialDiscounts(updateMap);
+  const updateMap = (prev: DiscountMap) => {
+    const current = prev[keyId] || { discountPercent: '', endDate: '' };
+    return {
+      ...prev,
+      [keyId]: {
+        ...current,
+        [field]: value
+      }
+    };
   };
+
+  if (tab === 'H4') setH4Discounts(updateMap);
+  else if (tab === 'H4_H6') setH4H6Discounts(updateMap);
+  else if (tab === 'H4_H5') setH4H5Discounts(updateMap);
+  else if (tab === 'H4_H6_H7') setH4H6H7Discounts(updateMap);
+  else if (tab === 'H4_H5_H6_H7') setH4H5H6H7Discounts(updateMap);
+  else if (tab === 'Material') setMaterialDiscounts(updateMap);
+};
 
   // Validation Engine assessing business constraints
   const validationAlerts = useMemo(() => {
@@ -844,13 +878,13 @@ const totalPages = 1;
         const pctValue = parseFloat(cleanPct);
 
         // Rule 1: J-Discount valid bounds (min 0.001, max 99.999)
-        if (isNaN(pctValue) || pctValue < 0.001 || pctValue > 99.999) {
-          alerts.push({
-            type: 'ERROR',
-            message: `[${tableName}] Linha "${key}": Desconto de ${record.discountPercent}% inválido. Deve situar-se entre 0.001% e 99.999% (100% proibido).`,
-            code: 'VAL-DISC-RANGE'
-          });
-        }
+       if (isNaN(pctValue) || pctValue < 0 || pctValue > 99.999) {
+  alerts.push({
+    type: 'ERROR',
+    message: `[${tableName}] Linha "${key}": Desconto ${record.discountPercent}% inválido. O valor tem de estar entre 0 e 99.999.`,
+    code: 'VAL-DISC-RANGE'
+  });
+}
 
         // Rule 2: Precision limit checks (sap compatibility up to 3 decimal places)
         const dotIndex = cleanPct.indexOf('.');
@@ -1042,7 +1076,7 @@ const totalPages = 1;
   }, [validationAlerts]);
 
   // Excel vk11 builder export sheet logic
-  const handleExportSAPExcel = () => {
+ const handleExportSAPExcel = () => {
   if (totalFilled === 0) {
     alert('Nenhum desconto preenchido para exportar.');
     return;
@@ -1074,6 +1108,190 @@ const totalPages = 1;
     }
     return formatDateToSAP(dateStr);
   };
+
+  // Helper para criar cada aba com cabeçalho inicial
+  const appendSheetWithContext = (
+    sheetName: string,
+    headerRow: string[],
+    dataRows: (string | number)[][]
+  ) => {
+    if (!dataRows.length) return;
+
+    const uniqueEndDates = [
+      ...new Set(
+        dataRows
+          .map((r) => String(r[r.length - 1] ?? '').trim())
+          .filter(Boolean)
+      ),
+    ];
+
+    const sheetEndDate =
+      uniqueEndDates.length === 1
+        ? uniqueEndDates[0]
+        : uniqueEndDates.length > 1
+        ? 'Múltiplas'
+        : '31.12.9999';
+
+    const aoa = [
+      ['Código cliente', clientCode],
+      ['Opção', modoLabel],
+      ['Data Início', formatDateToSAP(COCKPIT_TODAY)],
+      ['Data Fim', sheetEndDate],
+      headerRow,
+      ...dataRows,
+    ];
+
+    const ws = XLSX.utils.aoa_to_sheet(aoa);
+
+    ws['!cols'] = headerRow.map((col, idx) => {
+      if (idx === 0) return { wch: 16 }; // Código Cliente / Material
+      if (col === 'Desconto') return { wch: 12 };
+      if (col === 'De' || col === 'Até') return { wch: 14 };
+      return { wch: 12 };
+    });
+
+    XLSX.utils.book_append_sheet(wb, ws, sheetName);
+  };
+
+  // 1. H4
+  const h4Rows: (string | number)[][] = [];
+  Object.entries(h4Discounts).forEach(([brandCode, rec]) => {
+    const pctStr = normalizeDiscount(rec.discountPercent);
+    if (pctStr === '' || pctStr === '0' || parseFloat(pctStr) === 0) return;
+
+    h4Rows.push([
+      clientCode,
+      brandCode,
+      parseFloat(pctStr),
+      formatDateToSAP(COCKPIT_TODAY),
+      resolveEndDate(rec.endDate),
+    ]);
+  });
+
+  appendSheetWithContext(
+    'H4 (Marca)',
+    ['Código Cliente', 'H4', 'Desconto', 'De', 'Até'],
+    h4Rows
+  );
+
+  // 2. H4 + H6
+  const h4h6Rows: (string | number)[][] = [];
+  Object.entries(h4H6Discounts).forEach(([key, rec]) => {
+    const pctStr = normalizeDiscount(rec.discountPercent);
+    if (pctStr === '' || pctStr === '0' || parseFloat(pctStr) === 0) return;
+
+    const [brandCode, packTypeCode] = key.split('|');
+    h4h6Rows.push([
+      clientCode,
+      brandCode,
+      packTypeCode,
+      parseFloat(pctStr),
+      formatDateToSAP(COCKPIT_TODAY),
+      resolveEndDate(rec.endDate),
+    ]);
+  });
+
+  appendSheetWithContext(
+    'H4+H6',
+    ['Código Cliente', 'H4', 'H6', 'Desconto', 'De', 'Até'],
+    h4h6Rows
+  );
+
+  // 3. H4 + H5
+  const h4h5Rows: (string | number)[][] = [];
+  Object.entries(h4H5Discounts).forEach(([key, rec]) => {
+    const pctStr = normalizeDiscount(rec.discountPercent);
+    if (pctStr === '' || pctStr === '0' || parseFloat(pctStr) === 0) return;
+
+    const [brandCode, subBrandCode] = key.split('|');
+    h4h5Rows.push([
+      clientCode,
+      brandCode,
+      subBrandCode,
+      parseFloat(pctStr),
+      formatDateToSAP(COCKPIT_TODAY),
+      resolveEndDate(rec.endDate),
+    ]);
+  });
+
+  appendSheetWithContext(
+    'H4+H5',
+    ['Código Cliente', 'H4', 'H5', 'Desconto', 'De', 'Até'],
+    h4h5Rows
+  );
+
+  // 4. H4 + H6 + H7
+  const h4h6h7Rows: (string | number)[][] = [];
+  Object.entries(h4H6H7Discounts).forEach(([key, rec]) => {
+    const pctStr = normalizeDiscount(rec.discountPercent);
+    if (pctStr === '' || pctStr === '0' || parseFloat(pctStr) === 0) return;
+
+    const [brandCode, packTypeCode, capacityCode] = key.split('|');
+    h4h6h7Rows.push([
+      clientCode,
+      brandCode,
+      packTypeCode,
+      capacityCode,
+      parseFloat(pctStr),
+      formatDateToSAP(COCKPIT_TODAY),
+      resolveEndDate(rec.endDate),
+    ]);
+  });
+
+  appendSheetWithContext(
+    'H4+H6+H7',
+    ['Código Cliente', 'H4', 'H6', 'H7', 'Desconto', 'De', 'Até'],
+    h4h6h7Rows
+  );
+
+  // 5. H4 + H5 + H6 + H7
+  const h4h5h6h7Rows: (string | number)[][] = [];
+  Object.entries(h4H5H6H7Discounts).forEach(([key, rec]) => {
+    const pctStr = normalizeDiscount(rec.discountPercent);
+    if (pctStr === '' || pctStr === '0' || parseFloat(pctStr) === 0) return;
+
+    const [brandCode, subBrandCode, packTypeCode, capacityCode] = key.split('|');
+    h4h5h6h7Rows.push([
+      clientCode,
+      brandCode,
+      subBrandCode,
+      packTypeCode,
+      capacityCode,
+      parseFloat(pctStr),
+      formatDateToSAP(COCKPIT_TODAY),
+      resolveEndDate(rec.endDate),
+    ]);
+  });
+
+  appendSheetWithContext(
+    'H4+H5+H6+H7',
+    ['Código Cliente', 'H4', 'H5', 'H6', 'H7', 'Desconto', 'De', 'Até'],
+    h4h5h6h7Rows
+  );
+
+  // 6. Material
+  const materialRows: (string | number)[][] = [];
+  Object.entries(materialDiscounts).forEach(([matId, rec]) => {
+    const pctStr = normalizeDiscount(rec.discountPercent);
+    if (pctStr === '' || pctStr === '0' || parseFloat(pctStr) === 0) return;
+
+    materialRows.push([
+      clientCode,
+      matId,
+      parseFloat(pctStr),
+      formatDateToSAP(COCKPIT_TODAY),
+      resolveEndDate(rec.endDate),
+    ]);
+  });
+
+  appendSheetWithContext(
+    'Material SAP',
+    ['Código Cliente', 'Material', 'Desconto', 'De', 'Até'],
+    materialRows
+  );
+
+  XLSX.writeFile(wb, `SAP_VK11_Descontos_${clientCode}.xlsx`);
+};
 
   // Helper para criar cada aba com cabeçalho inicial
   const appendSheetWithContext = (sheetName: string, rows: any[]) => {
