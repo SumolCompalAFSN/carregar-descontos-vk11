@@ -1827,13 +1827,13 @@ const totalPages = 1;
                       
                       {/* INPUT FIELDS COLUMNS - COLORED AMBER FOR EXCEL CONVENTION */}
                       <th className="py-2.5 px-4 border-r border-slate-200 text-amber-900 bg-amber-50/80 font-extrabold text-center w-48">
-                        Desconto % (0.001 - 99.999)
+                        Desconto %
                       </th>
                       <th className="py-2.5 px-4 border-r border-slate-200 text-slate-500 bg-slate-50 font-bold text-center w-36 select-none">
                         Data Início (validFrom)
                       </th>
                       <th className="py-2.5 px-4 text-amber-905 bg-amber-50/80 font-extrabold text-center w-44">
-                        Data Fim (validTo)
+                        Válido até
                       </th>
                     </tr>
                   </thead>
