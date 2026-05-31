@@ -1763,7 +1763,7 @@ const totalPages = 1;
 
              {/* TABS SEGMENTS */}
 <div className="border-b border-slate-200 bg-slate-50 px-4 pt-2">
-  <nav className="flex gap-1 overflow-x-auto" aria-label="Tabs">
+ <nav className="flex gap-1" aria-label="Tabs">
     {[
       { key: 'H4', label: 'H4 (Marca)', count: filledCounts.H4 },
       { key: 'H4_H6', label: 'H4 + H6', count: filledCounts.H4_H6 },
