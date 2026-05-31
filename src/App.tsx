@@ -1025,10 +1025,7 @@ const totalPages = 1;
 
   // Excel vk11 builder export sheet logic
   const handleExportSAPExcel = () => {
-    if (hasCriticalError) {
-      alert('Impossível Exportar: Corrija os erros e conflitos críticos apontados pelo validador.');
-      return;
-    }
+    
     if (totalFilled === 0) {
       alert('Nenhum desconto cadastrado e preenchido para exportar.');
       return;
@@ -2353,80 +2350,54 @@ const totalPages = 1;
 
         </div>
 
-        {/* STEP 3: MÓDULO DE VALIDAÇÕES & EXPORTER DE EXCEL SAP */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pb-12">
-          
-          {/* Validations Panel */}
-          <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-xs flex flex-col justify-between">
-            <div>
-              <h4 className="font-bold text-slate-900 text-sm flex items-center space-x-2 mb-3">
-                <CheckCircle className="w-5 h-5 text-blue-600" />
-                <span>Auditoria e Regras Regulamentares (VK11 Rules)</span>
-              </h4>
-              
-              {validationAlerts.length === 0 ? (
-                <div className="p-4 bg-emerald-50 text-emerald-800 border-l-4 border-emerald-500 rounded-lg text-xs flex items-start space-x-2">
-                  <CheckCircle className="w-4.5 h-4.5 text-emerald-600 shrink-0 mt-0.5" />
-                  <div>
-                    <span className="font-bold block text-emerald-900">Nenhum Conflito Detetado</span>
-                    <span>Tudo OK para processamento. Todas as chaves mapeadas pertencem à sua dimensão exata do catálogo e as datas de cobertura são compatíveis. O download está liberado.</span>
-                  </div>
-                </div>
-              ) : (
-                <div className="space-y-1.5 max-h-[220px] overflow-y-auto">
-                  {validationAlerts.map((alert, i) => (
-                    <div 
-                      key={i} 
-                      className={`text-xs p-2.5 rounded border-l-3 flex items-start space-x-2 ${
-                        alert.type === 'ERROR' 
-                          ? 'bg-rose-50 border-rose-500 text-rose-800' 
-                          : 'bg-amber-50 border-amber-500 text-amber-800'
-                      }`}
-                    >
-                      <AlertTriangle className={`w-4 h-4 shrink-0 mt-0.5 ${alert.type === 'ERROR' ? 'text-rose-600' : 'text-amber-500'}`} />
-                      <div>
-                        <span className="font-mono bg-white px-1.5 py-0.2 rounded text-[9px] border border-slate-200 text-slate-500 mr-2 font-bold select-none">
-                          {alert.code}
-                        </span>
-                        <span className="leading-relaxed">{alert.message}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
+       {/* STEP 3: EXPORTER DE EXCEL SAP */}
+<div className="pb-12">
+  <div className="bg-slate-900 text-white rounded-xl p-6 shadow-md flex flex-col justify-between relative overflow-hidden">
+    <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-3xl -mr-16 -mt-16" />
+    
+    <div>
+      <div className="flex items-center justify-between mb-3">
+        <span className="bg-amber-500 text-slate-950 font-bold text-[9px] uppercase tracking-wider px-2 py-0.5 rounded">
+          SAP VK11 LOADER
+        </span>
+        <span className="text-xs text-slate-400 font-mono">Formato Excel (.xlsx)</span>
+      </div>
 
-            <div className="text-[10px] text-slate-500 mt-4 pt-3 border-t border-slate-100 flex items-center space-x-1.5">
-              <Info className="w-3.5 h-3.5 shrink-0 text-slate-400" />
-              <span>Qualquer mistura de códigos dimensionais incorretos do Catálogo (ex: usar H7_code em campo H4) é rigidamente classificada como ERRO BLOQUEANTE.</span>
-            </div>
-          </div>
+      <h4 className="text-base font-bold text-white tracking-tight">Gerar Ficheiro Excel SAP VK11</h4>
+      <p className="text-slate-300 text-xs mt-1.5 leading-relaxed">
+        Gera de forma automática abas no Excel para as dimensões configuradas. O arquivo é montado sem metadados inválidos do SAP (Condições, Organizações de Venda, Divisões), que devem ser inseridos livremente na interface do utilitário VK11.
+      </p>
 
-          {/* Export and Actions Area */}
-          <div className="bg-slate-900 text-white rounded-xl p-6 shadow-md flex flex-col justify-between relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-3xl -mr-16 -mt-16" />
-            
-            <div>
-              <div className="flex items-center justify-between mb-3">
-                <span className="bg-amber-500 text-slate-950 font-bold text-[9px] uppercase tracking-wider px-2 py-0.5 rounded">
-                  SAP VK11 LOADER
-                </span>
-                <span className="text-xs text-slate-400 font-mono">Formato Excel (.xlsx)</span>
-              </div>
+      <div className="grid grid-cols-2 gap-3 mt-4 text-[10px] font-mono bg-slate-850 p-3 rounded-lg border border-slate-800">
+        <div>
+          <span className="text-slate-500 block">Ficheiro SAP Destino:</span>
+          <span className="text-slate-300 font-semibold text-[10.5px] truncate block">
+            SAP_VK11_Descontos_{targetCode || '...'} .xlsx
+          </span>
+        </div>
+        <div>
+          <span className="text-slate-500 block">Chaves Ativadas:</span>
+          <span className="text-amber-400 font-extrabold block">{totalFilled} registos</span>
+        </div>
+      </div>
+    </div>
 
-              <h4 className="text-base font-bold text-white tracking-tight">Gerar Ficheiro Excel SAP VK11</h4>
-              <p className="text-slate-300 text-xs mt-1.5 leading-relaxed">
-                Gera de forma automática abas no Excel para as dimensões configuradas. O arquivo é montado sem metadados inválidos do SAP (Condições, Organizações de Venda, Divisões), que devem ser inseridos livremente na interface do utilitário VK11.
-              </p>
-
-              <div className="grid grid-cols-2 gap-3 mt-4 text-[10px] font-mono bg-slate-850 p-3 rounded-lg border border-slate-800">
-                <div>
-                  <span className="text-slate-500 block">Ficheiro SAP Destino:</span>
-                  <span className="text-slate-300 font-semibold text-[10.5px] truncate block">
-                    SAP_VK11_Descontos_{targetCode || '...'}.xlsx
-                  </span>
-                </div>
-                <div>
+    <div className="mt-6 pt-4 border-t border-slate-800 flex flex-col space-y-2">
+      <button
+        disabled={totalFilled === 0}
+        onClick={handleExportSAPExcel}
+        className={`w-full flex items-center justify-center space-x-2 py-3.5 px-4 rounded-lg text-xs font-extrabold shadow-md transition ${
+          totalFilled === 0
+            ? 'bg-slate-800 text-slate-500 cursor-not-allowed border border-slate-700 font-bold'
+            : 'bg-emerald-500 text-slate-950 hover:bg-emerald-400 active:scale-98 cursor-pointer'
+        }`}
+      >
+        <Download className="w-4.5 h-4.5" />
+        <span>GERAR EXCEL FINAL DE CARREGAMENTO ({totalFilled} REGISTOS)</span>
+      </button>
+    </div>
+  </div>
+</div>
                   <span className="text-slate-500 block">Chaves Ativadas:</span>
                   <span className="text-amber-400 font-extrabold block">{totalFilled} registos</span>
                 </div>
@@ -2434,15 +2405,15 @@ const totalPages = 1;
             </div>
 
             <div className="mt-6 pt-4 border-t border-slate-800 flex flex-col space-y-2">
-              <button
-                disabled={hasCriticalError || totalFilled === 0}
-                onClick={handleExportSAPExcel}
-                className={`w-full flex items-center justify-center space-x-2 py-3.5 px-4 rounded-lg text-xs font-extrabold shadow-md transition ${
-                  hasCriticalError || totalFilled === 0
-                    ? 'bg-slate-800 text-slate-500 cursor-not-allowed border border-slate-700 font-bold'
-                    : 'bg-emerald-500 text-slate-950 hover:bg-emerald-400 active:scale-98 cursor-pointer'
-                }`}
-              >
+             <button
+  disabled={totalFilled === 0}
+  onClick={handleExportSAPExcel}
+  className={`w-full flex items-center justify-center space-x-2 py-3.5 px-4 rounded-lg text-xs font-extrabold shadow-md transition ${
+    totalFilled === 0
+      ? 'bg-slate-800 text-slate-500 cursor-not-allowed border border-slate-700 font-bold'
+      : 'bg-emerald-500 text-slate-950 hover:bg-emerald-400 active:scale-98 cursor-pointer'
+  }`}
+>
                 <Download className="w-4.5 h-4.5" />
                 <span>GERAR EXCEL FINAL DE CARREGAMENTO ({totalFilled} REGISTOS)</span>
               </button>
