@@ -1125,6 +1125,9 @@ const handleExportSAPExcel = async () => {
       ? 'Múltiplas'
       : '31.12.9999';
 
+    // Determinar até que coluna vai a zona técnica a copiar
+const copyZoneEndIndex = headerRow.indexOf('Até') + 1;
+
   // Topo da folha
   worksheet.getCell('A1').value = 'Código cliente';
   worksheet.getCell('B1').value = clientCode;
@@ -1154,42 +1157,78 @@ const handleExportSAPExcel = async () => {
   };
 
   // Cabeçalhos da linha 5
-  headerRow.forEach((header, idx) => {
-    const cell = worksheet.getCell(5, idx + 1);
-    cell.value = header;
-    cell.font = { bold: true };
-    cell.alignment = { horizontal: 'center', vertical: 'middle' };
+headerRow.forEach((header, idx) => {
+  const colNumber = idx + 1;
+  const cell = worksheet.getCell(5, colNumber);
+  cell.value = header;
+  cell.font = { bold: true };
+  cell.alignment = { horizontal: 'center', vertical: 'middle' };
+
+  // Zona técnica a copiar
+  if (colNumber <= copyZoneEndIndex) {
     cell.fill = {
       type: 'pattern',
       pattern: 'solid',
-      fgColor: { argb: 'FFD9D9D9' }
+      fgColor: { argb: 'FFD9EAD3' } // verde suave
     };
-    cell.border = {
-      top: { style: 'thin', color: { argb: 'FFBFBFBF' } },
-      bottom: { style: 'thin', color: { argb: 'FFBFBFBF' } }
+  } else {
+    // Zona visual / apoio
+    cell.fill = {
+      type: 'pattern',
+      pattern: 'solid',
+      fgColor: { argb: 'FFD9D9D9' } // cinza claro
     };
-  });
+  }
 
+  cell.border = {
+    top: { style: 'thin', color: { argb: 'FFBFBFBF' } },
+    bottom: { style: 'thin', color: { argb: 'FFBFBFBF' } },
+    right:
+      colNumber === copyZoneEndIndex
+        ? { style: 'medium', color: { argb: 'FF7F8C8D' } }
+        : undefined
+  };
+});
   // Dados a partir da linha 6
-  dataRows.forEach((row, rowIndex) => {
-    row.forEach((value, colIndex) => {
-      const cell = worksheet.getCell(rowIndex + 6, colIndex + 1);
-      cell.value = value;
+dataRows.forEach((row, rowIndex) => {
+  row.forEach((value, colIndex) => {
+    const colNumber = colIndex + 1;
+    const cell = worksheet.getCell(rowIndex + 6, colNumber);
+    cell.value = value;
 
-      cell.border = {
-        bottom: { style: 'thin', color: { argb: 'FFEAEAEA' } }
+    // Fundo das colunas técnicas vs visuais
+    if (colNumber <= copyZoneEndIndex) {
+      cell.fill = {
+        type: 'pattern',
+        pattern: 'solid',
+        fgColor: { argb: 'FFF7FCF5' } // verde muito suave
       };
+    } else {
+      cell.fill = {
+        type: 'pattern',
+        pattern: 'solid',
+        fgColor: { argb: 'FFF5F5F5' } // cinza muito suave
+      };
+    }
 
-      if (headerRow[colIndex] === 'Desconto') {
-        cell.alignment = { horizontal: 'center' };
-      }
+    cell.border = {
+      bottom: { style: 'thin', color: { argb: 'FFEAEAEA' } },
+      right:
+        colNumber === copyZoneEndIndex
+          ? { style: 'medium', color: { argb: 'FF7F8C8D' } }
+          : undefined
+    };
 
-      if (headerRow[colIndex] === 'De' || headerRow[colIndex] === 'Até') {
-        cell.alignment = { horizontal: 'center' };
-      }
-    });
+    if (headerRow[colIndex] === 'Desconto') {
+      cell.alignment = { horizontal: 'center' };
+    }
+
+    if (headerRow[colIndex] === 'De' || headerRow[colIndex] === 'Até') {
+      cell.alignment = { horizontal: 'center' };
+    }
   });
-
+});
+    
   // Larguras de colunas
 worksheet.columns = headerRow.map((header) => {
   if (header === 'Código Cliente') return { width: 16 };
