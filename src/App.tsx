@@ -588,20 +588,13 @@ export default function App() {
   }, [activeTab, brandFilter, materialSearch, activeCatalog, activeMaterials]);
 
   // Paginated partition of rows to display
-  const paginatedRows = useMemo<any[]>(() => {
-    const start = (currentPage - 1) * pageSize;
-    return filteredRows.slice(start, start + pageSize);
-  }, [filteredRows, currentPage, pageSize]);
+ // No pagination: always show all filtered rows
+const paginatedRows = useMemo<any[]>(() => {
+  return filteredRows;
+}, [filteredRows]);
+  // No pagination: always one logical page
+const totalPages = 1;
 
-  // Total pages calculation
-  const totalPages = useMemo<number>(() => {
-    return Math.ceil(filteredRows.length / pageSize) || 1;
-  }, [filteredRows, pageSize]);
-
-  // Reset currentPage back to 1 on filter, search, or tab swap
-  React.useEffect(() => {
-    setCurrentPage(1);
-  }, [activeTab, brandFilter, materialSearch]);
 
   // Compute calculated values for Bulk Edit Options
   const calculatedBulkTargetDate = useMemo<string>(() => {
@@ -1908,6 +1901,7 @@ export default function App() {
       key={item.id}
       className={`hover:bg-slate-50 transition-colors ${hasVal ? 'bg-blue-50/15' : ''} ${isSelected ? 'bg-blue-100/20' : ''}`}
     >
+      {/* checkbox */}
       <td className="py-2 px-3 border-r border-slate-200 text-center sticky left-0 z-10 bg-white/40 shadow-r">
         <input
           type="checkbox"
@@ -1959,115 +1953,70 @@ export default function App() {
     </tr>
   );
 })}
-                    {activeTab === 'H4_H6' && paginatedRows.map(item => {
-                        const record = h4H6Discounts[item.id] || { discountPercent: '', endDate: '' };
-                        const hasVal = record.discountPercent && parseFloat(record.discountPercent.replace(',', '.')) !== 0;
-                        const isSelected = (selectedKeys.H4_H6 || new Set()).has(item.id);
-                        return (
-                          <tr key={item.id} className={`hover:bg-slate-50 transition-colors ${hasVal ? 'bg-blue-50/15' : ''} ${isSelected ? 'bg-blue-100/20' : ''}`}>
-                            <td className="py-2 px-3 border-r border-slate-200 text-center sticky left-0 z-10 bg-white/40 shadow-r">
-                              <input
-                                type="checkbox"
-                                checked={isSelected}
-                                onChange={() => toggleRowSelected('H4_H6', item.id)}
-                                className="rounded border-slate-300 text-blue-600 focus:ring-blue-500 w-3.5 h-3.5 cursor-pointer"
-                              />
-                            </td>
-                            <td className="py-2 px-4 border-r border-slate-200 font-mono text-[10px] text-slate-500">H4 + H6</td>
-                            <td className="py-2 px-4 border-r border-slate-200 flex items-center space-x-2">
-                              <span className="font-semibold text-slate-900 truncate">{item.brandLabel}</span>
-                            </td>
-                            <td className="py-2 px-4 border-r border-slate-200">
-  <span className="truncate text-slate-800">{item.packTypeLabel}</span>
-</td>
-                            
-                            <td className="py-1 px-3 border-r border-slate-200 bg-amber-50/10">
-                              <div className="flex items-center space-x-1 justify-center">
-                                <input
-                                  type="text"
-                                  placeholder="0.000"
-                                  value={record.discountPercent}
-                                  onChange={(e) => updateDiscountInput('H4_H6', item.id, 'discountPercent', e.target.value)}
-                                  className="w-24 text-center bg-white border border-amber-300 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 rounded font-semibold text-slate-900 text-xs py-1"
-                                />
-                                <span className="text-[10px] font-bold text-amber-700">%</span>
-                              </div>
-                            </td>
-                            <td className="py-1 px-3 border-r border-slate-200 bg-slate-55 text-slate-500 font-semibold text-center select-none font-mono">
-                              28/05/2026
-                            </td>
-                            <td className="py-1 px-3 bg-amber-50/10">
-                              <input
-                                type="date"
-                                value={record.endDate}
-                                min={COCKPIT_TODAY}
-                                onChange={(e) => updateDiscountInput('H4_H6', item.id, 'endDate', e.target.value)}
-                                className="w-full text-xs font-semibold bg-white border border-amber-300 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 rounded text-center py-1 font-mono"
-                              />
-                            </td>
-                          </tr>
-                        );
-                      })}
 
                     {/* TAB H4_H5 */}
                     {activeTab === 'H4_H5' && paginatedRows.map(item => {
-                        const record = h4H5Discounts[item.id] || { discountPercent: '', endDate: '' };
-                        const hasVal = record.discountPercent && parseFloat(record.discountPercent.replace(',', '.')) !== 0;
-                        const isSelected = (selectedKeys.H4_H5 || new Set()).has(item.id);
-                        return (
-                          <tr key={item.id} className={`hover:bg-slate-50 transition-colors ${hasVal ? 'bg-blue-50/15' : ''} ${isSelected ? 'bg-blue-100/20' : ''}`}>
-                            <td className="py-2 px-3 border-r border-slate-200 text-center sticky left-0 z-10 bg-white/40 shadow-r">
-                              <input
-                                type="checkbox"
-                                checked={isSelected}
-                                onChange={() => toggleRowSelected('H4_H5', item.id)}
-                                className="rounded border-slate-300 text-blue-600 focus:ring-blue-500 w-3.5 h-3.5 cursor-pointer"
-                              />
-                            </td>
-                            
-                            <td className="py-2 px-4 border-r border-slate-200">
-  <span className="font-semibold text-slate-900 truncate">{item.brandLabel}</span>
-</td>
-                            <td className="py-2 px-4 border-r border-slate-200">
-  <span className="text-slate-800 truncate">{item.subBrandLabel}</span>
-</td>
-                            <td className="py-2 px-4 border-r border-slate-200 font-mono text-[10px] text-slate-500">H4 + H5</td>
-                            <td className="py-2 px-4 border-r border-slate-200 flex items-center space-x-1.5">
-                              <span className="font-semibold text-slate-900 truncate">{item.brandLabel}</span>
-                            </td>
-                            <td className="py-2 px-4 border-r border-slate-200">
-                              <div className="flex items-center space-x-1.5 text-slate-800">
-                                <span className="truncate">{item.subBrandLabel}</span>
-                              </div>
-                            </td>
-                            
-                            <td className="py-1 px-3 border-r border-slate-200 bg-amber-50/10">
-                              <div className="flex items-center space-x-1 justify-center">
-                                <input
-                                  type="text"
-                                  placeholder="0.000"
-                                  value={record.discountPercent}
-                                  onChange={(e) => updateDiscountInput('H4_H5', item.id, 'discountPercent', e.target.value)}
-                                  className="w-24 text-center bg-white border border-amber-300 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 rounded font-semibold text-slate-900 text-xs py-1"
-                                />
-                                <span className="text-[10px] font-bold text-amber-700">%</span>
-                              </div>
-                            </td>
-                            <td className="py-1 px-3 border-r border-slate-200 bg-slate-55 text-slate-500 font-semibold text-center select-none font-mono">
-                              {formatDateToPT(COCKPIT_TODAY)}
-                            </td>
-                            <td className="py-1 px-3 bg-amber-50/10">
-                              <input
-                                type="date"
-                                value={record.endDate}
-                                min={COCKPIT_TODAY}
-                                onChange={(e) => updateDiscountInput('H4_H5', item.id, 'endDate', e.target.value)}
-                                className="w-full text-xs font-semibold bg-white border border-amber-300 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 rounded text-center py-1 font-mono"
-                              />
-                            </td>
-                          </tr>
-                        );
-                      })}
+  const record = h4H5Discounts[item.id] || { discountPercent: '', endDate: '' };
+  const hasVal = record.discountPercent && parseFloat(record.discountPercent.replace(',', '.')) !== 0;
+  const isSelected = (selectedKeys.H4_H5 || new Set()).has(item.id);
+
+  return (
+    <tr
+      key={item.id}
+      className={`hover:bg-slate-50 transition-colors ${hasVal ? 'bg-blue-50/15' : ''} ${isSelected ? 'bg-blue-100/20' : ''}`}
+    >
+      {/* checkbox */}
+      <td className="py-2 px-3 border-r border-slate-200 text-center sticky left-0 z-10 bg-white/40 shadow-r">
+        <input
+          type="checkbox"
+          checked={isSelected}
+          onChange={() => toggleRowSelected('H4_H5', item.id)}
+          className="rounded border-slate-300 text-blue-600 focus:ring-blue-500 w-3.5 h-3.5 cursor-pointer"
+        />
+      </td>
+
+      {/* H4 (MARCA) */}
+      <td className="py-2 px-4 border-r border-slate-200">
+        <span className="font-semibold text-slate-900 truncate">{item.brandLabel}</span>
+      </td>
+
+      {/* H5 (SUBMARCA) */}
+      <td className="py-2 px-4 border-r border-slate-200">
+        <span className="text-slate-800 truncate">{item.subBrandLabel}</span>
+      </td>
+
+      {/* DESCONTO */}
+      <td className="py-1 px-3 border-r border-slate-200 bg-amber-50/10">
+        <div className="flex items-center space-x-1 justify-center">
+          <input
+            type="text"
+            placeholder="0.000"
+            value={record.discountPercent}
+            onChange={(e) => updateDiscountInput('H4_H5', item.id, 'discountPercent', e.target.value)}
+            className="w-24 text-center bg-white border border-amber-300 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 rounded font-semibold text-slate-900 text-xs py-1"
+          />
+          <span className="text-[10px] font-bold text-amber-700">%</span>
+        </div>
+      </td>
+
+      {/* DATA INÍCIO */}
+      <td className="py-1 px-3 border-r border-slate-200 bg-slate-55 text-slate-500 font-semibold text-center select-none font-mono">
+        {formatDateToPT(COCKPIT_TODAY)}
+      </td>
+
+      {/* DATA FIM */}
+      <td className="py-1 px-3 bg-amber-50/10">
+        <input
+          type="date"
+          value={record.endDate}
+          min={COCKPIT_TODAY}
+          onChange={(e) => updateDiscountInput('H4_H5', item.id, 'endDate', e.target.value)}
+          className="w-full text-xs font-semibold bg-white border border-amber-300 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 rounded text-center py-1 font-mono"
+        />
+      </td>
+    </tr>
+  );
+})}
 
                     {/* TAB H4_H6_H7 */}
                    {activeTab === 'H4_H6_H7' && paginatedRows.map(item => {
@@ -2080,6 +2029,7 @@ export default function App() {
       key={item.id}
       className={`hover:bg-slate-50 transition-colors ${hasVal ? 'bg-blue-50/15' : ''} ${isSelected ? 'bg-blue-100/20' : ''}`}
     >
+      {/* checkbox */}
       <td className="py-2 px-3 border-r border-slate-200 text-center sticky left-0 z-10 bg-white/40 shadow-r">
         <input
           type="checkbox"
@@ -2136,133 +2086,80 @@ export default function App() {
     </tr>
   );
 })}
-                    {activeTab === 'H4_H6_H7' && paginatedRows.map(item => {
-                        const record = h4H6H7Discounts[item.id] || { discountPercent: '', endDate: '' };
-                        const hasVal = record.discountPercent && parseFloat(record.discountPercent.replace(',', '.')) !== 0;
-                        const isSelected = (selectedKeys.H4_H6_H7 || new Set()).has(item.id);
-                        return (
-                          <tr key={item.id} className={`hover:bg-slate-50 transition-colors ${hasVal ? 'bg-blue-50/15' : ''} ${isSelected ? 'bg-blue-100/20' : ''}`}>
-                            <td className="py-2 px-3 border-r border-slate-200 text-center sticky left-0 z-10 bg-white/40 shadow-r">
-                              <input
-                                type="checkbox"
-                                checked={isSelected}
-                                onChange={() => toggleRowSelected('H4_H6_H7', item.id)}
-                                className="rounded border-slate-300 text-blue-600 focus:ring-blue-500 w-3.5 h-3.5 cursor-pointer"
-                              />
-                            </td>
-                            <td className="py-2 px-4 border-r border-slate-200 font-mono text-[10px] text-slate-500">H4 + H6 + H7</td>
-                            <td className="py-2 px-4 border-r border-slate-200 flex items-center space-x-1">
-                              <span className="font-semibold text-slate-900 truncate">{item.brandLabel}</span>
-                            </td>
-                            <td className="py-2 px-4 border-r border-slate-200">
-  <span className="truncate text-slate-800">{item.packTypeLabel}</span>
-</td>
-                            <td className="py-2 px-4 border-r border-slate-200">
-  <span className="truncate text-slate-800 font-bold">{item.capacityLabel}</span>
-</td>
-
-                            
-                            <td className="py-1 px-3 border-r border-slate-200 bg-amber-50/10">
-                              <div className="flex items-center space-x-1 justify-center">
-                                <input
-                                  type="text"
-                                  placeholder="0.000"
-                                  value={record.discountPercent}
-                                  onChange={(e) => updateDiscountInput('H4_H6_H7', item.id, 'discountPercent', e.target.value)}
-                                  className="w-24 text-center bg-white border border-amber-300 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 rounded font-semibold text-slate-900 text-xs py-1"
-                                />
-                                <span className="text-[10px] font-bold text-amber-700">%</span>
-                              </div>
-                            </td>
-                            <td className="py-1 px-3 border-r border-slate-200 bg-slate-55 text-slate-500 font-semibold text-center select-none font-mono">
-                              28/05/2026
-                            </td>
-                            <td className="py-1 px-3 bg-amber-50/10">
-                              <input
-                                type="date"
-                                value={record.endDate}
-                                min={COCKPIT_TODAY}
-                                onChange={(e) => updateDiscountInput('H4_H6_H7', item.id, 'endDate', e.target.value)}
-                                className="w-full text-xs font-semibold bg-white border border-amber-300 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 rounded text-center py-1 font-mono"
-                              />
-                            </td>
-                          </tr>
-                        );
-                      })}
 
                     {/* TAB H4_H5_H6_H7 */}
                     {activeTab === 'H4_H5_H6_H7' && paginatedRows.map(item => {
-                        const record = h4H5H6H7Discounts[item.id] || { discountPercent: '', endDate: '' };
-                        const hasVal = record.discountPercent && parseFloat(record.discountPercent.replace(',', '.')) !== 0;
-                        const isSelected = (selectedKeys.H4_H5_H6_H7 || new Set()).has(item.id);
-                        return (
-                          <tr key={item.id} className={`hover:bg-slate-50 transition-colors ${hasVal ? 'bg-blue-50/15' : ''} ${isSelected ? 'bg-blue-100/20' : ''}`}>
-                            <td className="py-2 px-3 border-r border-slate-200 text-center sticky left-0 z-10 bg-white/40 shadow-r">
-                              <input
-                                type="checkbox"
-                                checked={isSelected}
-                                onChange={() => toggleRowSelected('H4_H5_H6_H7', item.id)}
-                                className="rounded border-slate-300 text-blue-600 focus:ring-blue-500 w-3.5 h-3.5 cursor-pointer"
-                              />
-                            </td>
-                            
-                            <td className="py-2 px-4 border-r border-slate-200">
-  <span className="font-semibold text-slate-900 truncate">{item.brandLabel}</span>
-</td>
-                            <td className="py-2 px-4 border-r border-slate-200 text-slate-600">
-  <span className="truncate">{item.subBrandLabel}</span>
-</td>
-                            <td className="py-2 px-4 border-r border-slate-200 text-slate-600">
-  <span className="truncate">{item.packTypeLabel}</span>
-</td>
-                            <td className="py-2 px-4 border-r border-slate-200 text-slate-600 font-bold bg-slate-50/30">
-  <span className="truncate">{item.capacityLabel}</span>
-</td>
+  const record = h4H5H6H7Discounts[item.id] || { discountPercent: '', endDate: '' };
+  const hasVal = record.discountPercent && parseFloat(record.discountPercent.replace(',', '.')) !== 0;
+  const isSelected = (selectedKeys.H4_H5_H6_H7 || new Set()).has(item.id);
 
-                            <td className="py-2 px-4 border-r border-slate-200 font-mono text-[10px] text-slate-500">Todo o Nível</td>
-                            <td className="py-2 px-4 border-r border-slate-200 flex items-center space-x-1.5">
-                              <span className="font-semibold text-slate-900 truncate">{item.brandLabel}</span>
-                            </td>
-                            <td className="py-2 px-4 border-r border-slate-200 text-slate-600">
-                              <div className="flex items-center space-x-1.5">
-                                <span className="truncate">{item.subBrandLabel}</span>
-                              </div>
-                            </td>
-                            <td className="py-2 px-4 border-r border-slate-200">
-  <span className="truncate text-slate-800">{item.packTypeLabel}</span>
-</td>
-                            <td className="py-2 px-4 border-r border-slate-200">
-  <span className="truncate text-slate-800 font-bold">{item.capacityLabel}</span>
-</td>
-                            
-                            <td className="py-1 px-3 border-r border-slate-200 bg-amber-50/10">
-                              <div className="flex items-center space-x-1 justify-center">
-                                <input
-                                  type="text"
-                                  placeholder="0.000"
-                                  value={record.discountPercent}
-                                  onChange={(e) => updateDiscountInput('H4_H5_H6_H7', item.id, 'discountPercent', e.target.value)}
-                                  className="w-24 text-center bg-white border border-amber-300 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 rounded font-semibold text-slate-900 text-xs py-1"
-                                />
-                                <span className="text-[10px] font-bold text-amber-700">%</span>
-                              </div>
-                            </td>
-                            <td className="py-1 px-3 border-r border-slate-200 bg-slate-55 text-slate-500 font-semibold text-center select-none font-mono">
-                              {formatDateToPT(COCKPIT_TODAY)}
-                            </td>
-                            <td className="py-1 px-3 bg-amber-50/10">
-                              <input
-                                type="date"
-                                value={record.endDate}
-                                min={COCKPIT_TODAY}
-                                onChange={(e) => updateDiscountInput('H4_H5_H6_H7', item.id, 'endDate', e.target.value)}
-                                className="w-full text-xs font-semibold bg-white border border-amber-300 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 rounded text-center py-1 font-mono"
-                              />
-                            </td>
-                          </tr>
-                        );
-                      })}
+  return (
+    <tr
+      key={item.id}
+      className={`hover:bg-slate-50 transition-colors ${hasVal ? 'bg-blue-50/15' : ''} ${isSelected ? 'bg-blue-100/20' : ''}`}
+    >
+      {/* checkbox */}
+      <td className="py-2 px-3 border-r border-slate-200 text-center sticky left-0 z-10 bg-white/40 shadow-r">
+        <input
+          type="checkbox"
+          checked={isSelected}
+          onChange={() => toggleRowSelected('H4_H5_H6_H7', item.id)}
+          className="rounded border-slate-300 text-blue-600 focus:ring-blue-500 w-3.5 h-3.5 cursor-pointer"
+        />
+      </td>
 
+      {/* H4 (MARCA) */}
+      <td className="py-2 px-4 border-r border-slate-200">
+        <span className="font-semibold text-slate-900 truncate">{item.brandLabel}</span>
+      </td>
+
+      {/* H5 (SUBMARCA) */}
+      <td className="py-2 px-4 border-r border-slate-200">
+        <span className="text-slate-800 truncate">{item.subBrandLabel}</span>
+      </td>
+
+      {/* H6 (EMBALAGEM) */}
+      <td className="py-2 px-4 border-r border-slate-200">
+        <span className="text-slate-800 truncate">{item.packTypeLabel}</span>
+      </td>
+
+      {/* H7 (CAPACIDADE) */}
+      <td className="py-2 px-4 border-r border-slate-200">
+        <span className="text-slate-800 font-bold truncate">{item.capacityLabel}</span>
+      </td>
+
+      {/* DESCONTO */}
+      <td className="py-1 px-3 border-r border-slate-200 bg-amber-50/10">
+        <div className="flex items-center space-x-1 justify-center">
+          <input
+            type="text"
+            placeholder="0.000"
+            value={record.discountPercent}
+            onChange={(e) => updateDiscountInput('H4_H5_H6_H7', item.id, 'discountPercent', e.target.value)}
+            className="w-24 text-center bg-white border border-amber-300 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 rounded font-semibold text-slate-900 text-xs py-1"
+          />
+          <span className="text-[10px] font-bold text-amber-700">%</span>
+        </div>
+      </td>
+
+      {/* DATA INÍCIO */}
+      <td className="py-1 px-3 border-r border-slate-200 bg-slate-55 text-slate-500 font-semibold text-center select-none font-mono">
+        {formatDateToPT(COCKPIT_TODAY)}
+      </td>
+
+      {/* DATA FIM */}
+      <td className="py-1 px-3 bg-amber-50/10">
+        <input
+          type="date"
+          value={record.endDate}
+          min={COCKPIT_TODAY}
+          onChange={(e) => updateDiscountInput('H4_H5_H6_H7', item.id, 'endDate', e.target.value)}
+          className="w-full text-xs font-semibold bg-white border border-amber-300 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 rounded text-center py-1 font-mono"
+        />
+      </td>
+    </tr>
+  );
+})}
                     {/* TAB MATERIAL */}
                     {activeTab === 'Material' && paginatedRows.map(item => {
                         const record = materialDiscounts[item.id] || { discountPercent: '', endDate: '' };
@@ -2315,80 +2212,12 @@ export default function App() {
                 </table>
               </div>
 
-              {/* HIGH FIDELITY PAGINATION BAR */}
-              <div className="bg-slate-50 border-t border-slate-200 px-5 py-3.5 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div className="text-xs text-slate-500 font-semibold flex items-center space-x-1">
-                  <span>A mostrar</span>
-                  <span className="font-bold text-slate-700">
-                    {filteredRows.length > 0 ? (currentPage - 1) * pageSize + 1 : 0}
-                  </span>
-                  <span>-</span>
-                  <span className="font-bold text-slate-700">
-                    {Math.min(currentPage * pageSize, filteredRows.length)}
-                  </span>
-                  <span>de</span>
-                  <span className="font-bold text-slate-700">{filteredRows.length}</span>
-                  <span>registos filtrados</span>
-                </div>
-
-                <div className="flex items-center space-x-4">
-                  {/* Page Size Select */}
-                  <div className="flex items-center space-x-1.5">
-                    <span className="text-[11px] text-slate-500 font-bold uppercase tracking-wider">Por Página:</span>
-                    <select
-                      value={pageSize}
-                      onChange={(e) => {
-                        setPageSize(Number(e.target.value));
-                        setCurrentPage(1);
-                      }}
-                      className="px-2 py-1 bg-white border border-slate-300 rounded text-xs font-semibold focus:outline-none focus:ring-1 focus:ring-blue-500 cursor-pointer"
-                    >
-                      {[25, 50, 100, 200].map(size => (
-                        <option key={size} value={size}>{size}</option>
-                      ))}
-                    </select>
-                  </div>
-
-                  {/* Navigation keys */}
-                  <div className="flex items-center space-x-1">
-                    <button
-                      onClick={() => setCurrentPage(1)}
-                      disabled={currentPage === 1}
-                      className="p-1 px-2 rounded bg-white border border-slate-300 text-xs font-bold text-slate-600 hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed transition"
-                      title="Primeira Página"
-                    >
-                      &laquo;
-                    </button>
-                    <button
-                      onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
-                      disabled={currentPage === 1}
-                      className="p-1 px-2 rounded bg-white border border-slate-300 text-xs font-bold text-slate-600 hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed transition"
-                      title="Anterior"
-                    >
-                      &lsaquo;
-                    </button>
-                    <span className="text-xs font-semibold px-2 text-slate-700">
-                      Página <strong>{currentPage}</strong> de <strong>{totalPages}</strong>
-                    </span>
-                    <button
-                      onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
-                      disabled={currentPage === totalPages}
-                      className="p-1 px-2 rounded bg-white border border-slate-300 text-xs font-bold text-slate-600 hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed transition"
-                      title="Seguinte"
-                    >
-                      &rsaquo;
-                    </button>
-                    <button
-                      onClick={() => setCurrentPage(totalPages)}
-                      disabled={currentPage === totalPages}
-                      className="p-1 px-2 rounded bg-white border border-slate-300 text-xs font-bold text-slate-600 hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed transition"
-                      title="Última Página"
-                    >
-                      &raquo;
-                    </button>
-                  </div>
-                </div>
-              </div>
+              {/* TABLE FOOTER SUMMARY (sem paginação) */}
+<div className="bg-slate-50 border-t border-slate-200 px-5 py-3.5 flex items-center justify-between gap-4">
+  <div className="text-xs text-slate-500 font-semibold">
+    {filteredRows.length} registos filtrados
+  </div>
+</div>
 
               {/* MASS UTILITY FOOTER COCKPIT */}
               <div className="bg-slate-50 border-t border-slate-200 p-4 flex flex-col space-y-4">
