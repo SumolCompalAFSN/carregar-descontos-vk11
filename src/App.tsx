@@ -1496,25 +1496,27 @@ export default function App() {
   <div className="max-w-7xl w-full mx-auto flex items-center justify-between gap-4">
     
     {/* Lado esquerdo */}
-    <div className="flex items-center gap-3 min-w-0">
-      <div className="bg-amber-500 text-white p-2.5 rounded-xl shadow-md flex-shrink-0">
-        <FileSpreadsheet className="w-5 h-5 animate-pulse" />
-      </div>
+<div className="flex items-center gap-3 min-w-0">
+  <div className="bg-amber-500 text-white p-2.5 rounded-xl shadow-md flex-shrink-0">
+    <FileSpreadsheet className="w-5 h-5 animate-pulse" />
+  </div>
 
-      <div className="flex items-center gap-3 min-w-0 flex-wrap">
-        <h1 className="text-xl font-extrabold tracking-tight text-slate-900 whitespace-nowrap">
-          Carregamento de Descontos
-        </h1>
+  <div className="flex flex-col min-w-0">
+    <h1 className="text-xl font-extrabold tracking-tight text-slate-900 whitespace-nowrap">
+      Carregamento de Descontos
+    </h1>
 
-        <span className="text-xs text-slate-500 whitespace-nowrap">
-          Versão <span className="text-slate-500">{catalogVersion}</span>
-        </span>
+    <div className="flex items-center gap-3 mt-0.5 text-[11px]">
+      <span className="text-slate-500 whitespace-nowrap">
+        Versão <span className="text-slate-500">{catalogVersion}</span>
+      </span>
 
-        <span className="text-xs text-slate-400 whitespace-nowrap">
-          {catalogUpdatedAt ? formatDateToPT(catalogUpdatedAt.slice(0, 10)) : '—'}
-        </span>
-      </div>
+      <span className="text-slate-400 whitespace-nowrap">
+        {catalogUpdatedAt ? formatDateToPT(catalogUpdatedAt.slice(0, 10)) : '—'}
+      </span>
     </div>
+  </div>
+</div>
 
     {/* Lado direito */}
     <div className="flex items-center flex-shrink-0">
