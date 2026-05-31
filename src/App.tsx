@@ -253,6 +253,24 @@ export default function App() {
     return dateStr;
   };
 
+  // Formatter específico para o ficheiro SAP: dd.mm.aaaa
+const formatDateToSAP = (dateStr: string) => {
+  if (!dateStr) return '';
+  const parts = dateStr.split('-');
+  if (parts.length === 3) {
+    return `${parts[2]}.${parts[1]}.${parts[0]}`;
+  }
+  return dateStr.replace(/\//g, '.');
+};
+
+// Texto legível da opção selecionada
+const getModoLabel = (modoValue: typeof modo) => {
+  if (modoValue === 'CARREGAR_1X') return '1ª vez';
+  if (modoValue === 'ACRESCENTAR') return 'Acrescentar';
+  if (modoValue === 'SUBSTITUIR') return 'Substituir';
+  return '';
+};
+
   // Populate realistic sample data using actual codes mapping to catalog
   const handleLoadSampleData = () => {
     // Brand (H4) prefilled (Compal = '10', Sumol = '13')
@@ -1025,24 +1043,166 @@ const totalPages = 1;
 
   // Excel vk11 builder export sheet logic
   const handleExportSAPExcel = () => {
-    
-    if (totalFilled === 0) {
-      alert('Nenhum desconto cadastrado e preenchido para exportar.');
-      return;
+  if (totalFilled === 0) {
+    alert('Nenhum desconto preenchido para exportar.');
+    return;
+  }
+
+  if (!target) {
+    alert('Falta selecionar o TARGET.');
+    return;
+  }
+
+  if (!modo) {
+    alert('Falta selecionar o MODO.');
+    return;
+  }
+
+  if (!/^\d{7}$/.test(targetCode)) {
+    alert('O Código do Cliente / Target tem de conter exatamente 7 dígitos.');
+    return;
+  }
+
+  const wb = XLSX.utils.book_new();
+  const clientCode = targetCode.trim();
+  const modoLabel = getModoLabel(modo);
+
+  // validTo vazio = 31.12.9999
+  const resolveEndDate = (dateStr?: string) => {
+    if (!dateStr || dateStr.trim() === '') {
+      return '31.12.9999';
     }
+    return formatDateToSAP(dateStr);
+  };
 
-    const wb = XLSX.utils.book_new();
-    const clientCode = targetCode;
-    const cleanModo = modo || 'SUBSTITUIR';
+  // Helper para criar cada aba com cabeçalho inicial
+  const appendSheetWithContext = (sheetName: string, rows: any[]) => {
+    if (!rows.length) return;
 
-    // Format helper for end date
-    const resolveEndDate = (dateStr?: string) => {
-      if (!dateStr || dateStr.trim() === '') {
-        return "31/12/9999";
-      }
-      return formatDateToPT(dateStr);
-    };
+    const ws = XLSX.utils.aoa_to_sheet([
+      ['Código cliente', clientCode],
+      ['Opção', modoLabel],
+      []
+    ]);
 
+    XLSX.utils.sheet_add_json(ws, rows, {
+      origin: 'A4',
+      skipHeader: false
+    });
+
+    XLSX.utils.book_append_sheet(wb, ws, sheetName);
+  };
+
+  // 1. H4
+  const h4Rows: any[] = [];
+  Object.entries(h4Discounts).forEach(([brandCode, rec]) => {
+    const pctStr = rec.discountPercent.trim().replace(',', '.');
+    if (pctStr === '' || pctStr === '0' || parseFloat(pctStr) === 0) return;
+
+    h4Rows.push({
+      targetCode: clientCode,
+      H4_code: brandCode,
+      desconto_J: parseFloat(pctStr),
+      validFrom: formatDateToSAP(COCKPIT_TODAY),
+      validTo: resolveEndDate(rec.endDate),
+    });
+  });
+  appendSheetWithContext('H4 (Marca)', h4Rows);
+
+  // 2. H4 + H6
+  const h4h6Rows: any[] = [];
+  Object.entries(h4H6Discounts).forEach(([key, rec]) => {
+    const pctStr = rec.discountPercent.trim().replace(',', '.');
+    if (pctStr === '' || pctStr === '0' || parseFloat(pctStr) === 0) return;
+
+    const [brandCode, packTypeCode] = key.split('|');
+    h4h6Rows.push({
+      targetCode: clientCode,
+      H4_code: brandCode,
+      H6_code: packTypeCode,
+      desconto_J: parseFloat(pctStr),
+      validFrom: formatDateToSAP(COCKPIT_TODAY),
+      validTo: resolveEndDate(rec.endDate),
+    });
+  });
+  appendSheetWithContext('H4+H6', h4h6Rows);
+
+  // 3. H4 + H5
+  const h4h5Rows: any[] = [];
+  Object.entries(h4H5Discounts).forEach(([key, rec]) => {
+    const pctStr = rec.discountPercent.trim().replace(',', '.');
+    if (pctStr === '' || pctStr === '0' || parseFloat(pctStr) === 0) return;
+
+    const [brandCode, subBrandCode] = key.split('|');
+    h4h5Rows.push({
+      targetCode: clientCode,
+      H4_code: brandCode,
+      H5_code: subBrandCode,
+      desconto_J: parseFloat(pctStr),
+      validFrom: formatDateToSAP(COCKPIT_TODAY),
+      validTo: resolveEndDate(rec.endDate),
+    });
+  });
+  appendSheetWithContext('H4+H5', h4h5Rows);
+
+  // 4. H4 + H6 + H7
+  const h4h6h7Rows: any[] = [];
+  Object.entries(h4H6H7Discounts).forEach(([key, rec]) => {
+    const pctStr = rec.discountPercent.trim().replace(',', '.');
+    if (pctStr === '' || pctStr === '0' || parseFloat(pctStr) === 0) return;
+
+    const [brandCode, packTypeCode, capacityCode] = key.split('|');
+    h4h6h7Rows.push({
+      targetCode: clientCode,
+      H4_code: brandCode,
+      H6_code: packTypeCode,
+      H7_code: capacityCode,
+      desconto_J: parseFloat(pctStr),
+      validFrom: formatDateToSAP(COCKPIT_TODAY),
+      validTo: resolveEndDate(rec.endDate),
+    });
+  });
+  appendSheetWithContext('H4+H6+H7', h4h6h7Rows);
+
+  // 5. H4 + H5 + H6 + H7
+  const h4h5h6h7Rows: any[] = [];
+  Object.entries(h4H5H6H7Discounts).forEach(([key, rec]) => {
+    const pctStr = rec.discountPercent.trim().replace(',', '.');
+    if (pctStr === '' || pctStr === '0' || parseFloat(pctStr) === 0) return;
+
+    const [brandCode, subBrandCode, packTypeCode, capacityCode] = key.split('|');
+    h4h5h6h7Rows.push({
+      targetCode: clientCode,
+      H4_code: brandCode,
+      H5_code: subBrandCode,
+      H6_code: packTypeCode,
+      H7_code: capacityCode,
+      desconto_J: parseFloat(pctStr),
+      validFrom: formatDateToSAP(COCKPIT_TODAY),
+      validTo: resolveEndDate(rec.endDate),
+    });
+  });
+  appendSheetWithContext('H4+H5+H6+H7', h4h5h6h7Rows);
+
+  // 6. Material
+  const materialRows: any[] = [];
+  Object.entries(materialDiscounts).forEach(([matId, rec]) => {
+    const pctStr = rec.discountPercent.trim().replace(',', '.');
+    if (pctStr === '' || pctStr === '0' || parseFloat(pctStr) === 0) return;
+
+    materialRows.push({
+      targetCode: clientCode,
+      material_code: matId,
+      desconto_J: parseFloat(pctStr),
+      validFrom: formatDateToSAP(COCKPIT_TODAY),
+      validTo: resolveEndDate(rec.endDate),
+    });
+  });
+  appendSheetWithContext('Material SAP', materialRows);
+
+  // Nome do ficheiro
+  XLSX.writeFile(wb, `SAP_VK11_Descontos_${clientCode}.xlsx`);
+};
     // 1. Level H4: targetCode | H4_code | desconto_J | validFrom | validTo
     const h4Rows: any[] = [];
     (Object.entries(h4Discounts) as [string, DiscountRecord][]).forEach(([brandCode, rec]) => {
