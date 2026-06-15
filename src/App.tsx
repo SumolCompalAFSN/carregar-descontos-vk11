@@ -1110,24 +1110,31 @@ const handleExportSAPExcel = async () => {
 
   const worksheet = workbook.addWorksheet(sheetName);
 
-  const uniqueEndDates = [
-    ...new Set(
-      dataRows
-        .map((r) => String(r[r.length - 1] ?? '').trim())
-        .filter(Boolean)
-    ),
-  ];
+  // Determinar em que coluna está o campo "Até"
+const endDateColIndex = headerRow.indexOf('Até');
 
-  const sheetEndDate =
-    uniqueEndDates.length === 1
-      ? uniqueEndDates[0]
-      : uniqueEndDates.length > 1
-      ? 'Múltiplas'
-      : '31.12.9999';
+// Delimitar a zona técnica a copiar (vai até à coluna "Até")
+const copyZoneEndIndex = endDateColIndex >= 0 ? endDateColIndex + 1 : headerRow.length;
 
-    // Determinar até que coluna vai a zona técnica a copiar
-const copyZoneEndIndex = headerRow.indexOf('Até') + 1;
+// Recolher as datas fim reais da aba, usando a coluna "Até"
+const uniqueEndDates =
+  endDateColIndex >= 0
+    ? [
+        ...new Set(
+          dataRows
+            .map((r) => String(r[endDateColIndex] ?? '').trim())
+            .filter(Boolean)
+        ),
+      ]
+    : [];
 
+const sheetEndDate =
+  uniqueEndDates.length === 1
+    ? uniqueEndDates[0]
+    : uniqueEndDates.length > 1
+    ? 'Múltiplas'
+    : '31.12.9999';
+    
   // Topo da folha
   worksheet.getCell('A1').value = 'Código cliente';
   worksheet.getCell('B1').value = clientCode;
